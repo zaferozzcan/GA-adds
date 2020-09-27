@@ -1,72 +1,141 @@
 
+// // alert("JS is working!");
+
+// function Landscaper() {
+//     var landscaperGame = {
+//         currentLevel: 0,
+//         tools: {
+//             toolName: ["teeth", "scissor", "pushLawnmower", "powerLawnmower", "team"],
+//             toolCost: [0, 5, 25, 250, 500],
+//             toolBenefit: [1, 5, 50, 100, 250],
+//             toolNeeded: [false, true, true, true, true],
+//             toolOwned: [true, false, false, false, false]
+
+//         },
+//         goal: 1000,
+//         moneyEarned: 0,
+//         gameFunctions: {
+//             start: () => {
+//                 console.log("Started making money with using " + landscaperGame.tools.toolName[landscaperGame.currentLevel]);
+
+//             },
+//             levelUp: () => {
+//                 var currentLevel = 0
+//                 // for (let i = 0; i < landscaperGame.tools.toolName.length - 1; i++) {
+//                 if (landscaperGame.moneyEarned >= landscaperGame.tools.toolCost[landscaperGame.currentLevel + 1] && landscaperGame.tools.toolNeeded[landscaperGame.currentLevel + 1]) {
+
+//                     var toolRequired = prompt("Do you wanna buy a " + landscaperGame.tools.toolName[landscaperGame.currentLevel + 1] + " or you can restart the game?  yes/no/restart");
+//                     if (toolRequired.toLowerCase() === "yes") {
+//                         landscaperGame.moneyEarned = landscaperGame.moneyEarned - landscaperGame.tools.toolCost[currentLevel++];
+//                         landscaperGame.tools.toolNeeded[currentLevel++] = false;
+//                         landscaperGame.tools.toolOwned[currentLevel++] = true;
+//                         console.log("Landscaper has a ", landscaperGame.tools.toolName[landscaperGame.currentLevel + 1], " now!");
+//                         currentLevel++
+//                     }
+//                 } else if (landscaperGame.tools.toolOwned[landscaperGame.currentLevel]) landscaperGame.moneyEarned = landscaperGame.moneyEarned + landscaperGame.tools.toolBenefit[currentLevel + 1];
+//                 else landscaperGame.moneyEarned = landscaperGame.moneyEarned + landscaperGame.tools.toolBenefit[landscaperGame.currentLevel]
+//                 // }
+//             },
+//             reset: () => {
+//                 var makeSure = this.prompt("You will lose thetools you have had! Are you sure you wanna start over?");
+//                 if (makeSure.toLowerCase() === "yes") {
+//                     landscaperGame.moneyEarned = 0;
+//                     landscaperGame.currentLevel = 0;
+//                     landscaperGame.gameFunctions.start()
+//                 }
+//             }
+//         }
+
+//     }
+
+
+//     for (let i = 1; i < 20; i++) {
+//         landscaperGame.gameFunctions.start();
+//         landscaperGame.gameFunctions.levelUp();
+//     }
+
+
+
+// }
+
+
+
+
+// Landscaper();
+
+
+
+
 var winAmount = 1000;
 var moneyEarned = 0;
-var scissorNeeded = true;
-var scissorBought = false
-var pushLanwnMoverNeeded = true;
-var pushLanwnMoverBought = false;
-var powerLanwnMoverNeeded = true;
-var powerLanwnMoverBought = false;
-var teamNeeded = true;
-var teamBought = false;
+var currentToolIndex = 0;
+var tools = {
+    toolName: ["teeth", "scissor", "pushLawnmower", "powerLawnmower", "team"],
+    toolCost: [0, 5, 25, 250, 500],
+    toolBenefit: [1, 5, 50, 100, 250],
+    toolNeeded: [false, true, true, true, true],
+    toolOwned: [true, false, false, false, false]
+}
+
+function start() {
+    console.log("Started working!");
+};
 
 
-for (var i = 1; i <= 500; i++) {
 
-    while (moneyEarned <= winAmount) {
+function upgradeTool() {
 
-        // scissor
-        if (moneyEarned >= 5 && scissorNeeded) {
-            var landScaperAnswer = prompt("Do you wanna buy a scissor? yes/no");
-            if (landScaperAnswer == "yes" || landScaperAnswer == "YES" || landScaperAnswer == "Yes") {
-                moneyEarned = moneyEarned - 5
-                scissorNeeded = false
-                scissorBought = true
-                console.log("Landscaper has a scissor now!");
-            }
-        } else if (scissorBought) moneyEarned = moneyEarned + 5;
-        else moneyEarned++
-
-
-        // push lawnmower
-        if (moneyEarned >= 25 && pushLanwnMoverNeeded) {
-            var landScaperAnswer = prompt("Do you wanna buy a push lawnmower? yes/no");
-            if (landScaperAnswer == "yes" || landScaperAnswer == "YES" || landScaperAnswer == "Yes") {
-                moneyEarned = moneyEarned - 25
-                pushLanwnMoverNeeded = false
-                pushLanwnMoverBought = true;
-                console.log("Landscaper has a push lawnmower now!");
-            }
-        } else if (pushLanwnMoverBought) moneyEarned = moneyEarned + 50;
-        else moneyEarned = moneyEarned + 5;
-
-        // powered lawnmower
-        if (moneyEarned >= 250 && powerLanwnMoverNeeded) {
-            var landScaperAnswer = prompt("Do you wanna buy a power lawnmower? yes/no");
-            if (landScaperAnswer == "yes" || landScaperAnswer == "YES" || landScaperAnswer == "Yes") {
-                moneyEarned = moneyEarned - 250
-                powerLanwnMoverNeeded = false;
-                powerLanwnMoverBought = true;
-                console.log("Landscaper has a power lawnmower now!");
-            }
-        } else if (powerLanwnMoverBought) moneyEarned = moneyEarned + 100;
-        else moneyEarned = moneyEarned + 25;
+    if (moneyEarned >= tools.toolCost[currentToolIndex + 1] && tools.toolNeeded[currentToolIndex + 1]) {
+        var ifWanted = prompt("Do you wanna buy a " + tools.toolName[currentToolIndex + 1] + " or you can reset the game? yes/no/reset");
+        if (ifWanted.toLowerCase() === "yes") {
+            console.log("You just owned a ", tools.toolName[currentToolIndex + 1]);
+            tools.toolNeeded[currentToolIndex + 1] = false;
+            tools.toolOwned = true;
+            moneyEarned = moneyEarned - tools.toolCost[currentToolIndex + 1]
+            console.log("You don't need a " + tools.toolName[currentToolIndex] + "any more.");
+            currentToolIndex++;
+        } else if (ifWanted.toLowerCase() === "no") {
+            console.log("You chose to keep using ", tools.toolName[currentToolIndex]);
+        } else if (ifWanted.toLowerCase() == "reset") {
+            start();
+            upgradeTool();
+            ifWanted = ""
+            currentToolIndex = 0;
+        } else {
+            alert("You entered an invalid value, try yes/no/reset.");
+        }
+    } else moneyEarned = moneyEarned + tools.toolBenefit[currentToolIndex];
 
 
-        // team 
-        if (moneyEarned >= 500 && teamNeeded) {
-            var landScaperAnswer = prompt("Do you wanna hire a team? yes/no");
-            if (landScaperAnswer == "yes" || landScaperAnswer == "YES" || landScaperAnswer == "Yes") {
-                moneyEarned = moneyEarned - 500;
-                teamNeeded = false;
-                teamBought = true;
-                console.log("Landscaper has a team now!");
-            }
-        } else if (teamBought) moneyEarned = moneyEarned + 250;
-        else moneyEarned = moneyEarned + 100;
 
+};
+
+
+function work() {
+
+    console.log("Day", i);
+    moneyEarned = moneyEarned + tools.toolBenefit[currentToolIndex]
+    console.log("Money Earned", moneyEarned);
+    return moneyEarned
+
+};
+
+
+
+for (var i = 1; i < Infinity; i++) {
+
+    if (moneyEarned < winAmount) {
+        start();
+        work();
+        if (i % 5 === 0 && moneyEarned <= 1000) {
+            upgradeTool();
+        }
+    } else {
+        console.log("Landscaper won the game!");
+        break;
     }
-    console.log("Landscaper won!");
-    console.log(moneyEarned)
+
+
 
 }
+
