@@ -1,0 +1,28 @@
+.image-box{
+    height: 100px;
+    width: 100px;
+    background-color: grey;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid black;
+    margin: 5px 2px;
+    color:white;
+    position: absolute;
+
+}
+
+.created-box{
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    border: 1px solid black;
+    margin: 5px 2px;
+    color:white;
+
+}
+
+.img{
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+}
