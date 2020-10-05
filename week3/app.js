@@ -28,7 +28,16 @@ const buildTable = () => {
 
     for (let contact of contacts) {
         console.log(contact)
+        const $infoRow = $('<tr>')
+        const $nameCell = $('<td>').addClass('name').text(contact.name)
+        const $addressCell = $('<td>').addClass('address').text(contact.address)
+        $infoRow.append($nameCell, $addressCell)
+        $infoTable.append($infoRow)
     }
+    $('body').append($infoTable)
+    $infoTable.css("text-align", "center")
+    $infoTable.css("line-height", "1.5")
+
 }
 $(() => {
     buildTable()
