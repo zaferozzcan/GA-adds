@@ -103,13 +103,26 @@ elementCreatorHr()
 var container = $("<div>")
 var n4Rand = $("<h4>").text("Generate Random Number")
 container.append(n4Rand)
-container.css("background-color", "gray");
+container.css("background-color", "#778899")
 container.css("height", "50px")
+container.css("margin-top", "10px")
 
+var button = $("<button>")
+container.append(button)
+button.text("?")
 
 $("body").append(container)
 
+function handleClickQmark() {
 
+    var randomNumber = (Math.floor(Math.random() * (999 - 1 - 100) + 100))
+    var number = $("<h1>")
+    number.text(randomNumber)
+    container.append(number)
+
+};
+
+button.click(handleClickQmark)
 
 
 
