@@ -40,6 +40,8 @@ function elementCreatorHr() {
 
 elementCreatorHr()
 
+
+// sandwich section
 elementCreatorText("h4", "Click To Eat Sandwich");
 a.css("Color", "red")
 
@@ -91,16 +93,21 @@ grilledCheese.click(handleGCclick)
 roastBeef.click(handleRBclick)
 
 
+elementCreatorHr()
 
 
 
 
 
+// random number generator
+var container = $("<div>")
+var n4Rand = $("<h4>").text("Generate Random Number")
+container.append(n4Rand)
+container.css("background-color", "gray");
+container.css("height", "50px")
 
-$("<p>").text("Hello this firts paragraph").appendTo("body")
-$("<p>").text("Hello this second paragraph").appendTo("body")
-$("<p>").text("Hello this third paragraph").appendTo("body")
-$("<p>").text("Hello this forth paragraph").appendTo("body")
+
+$("body").append(container)
 
 
 
