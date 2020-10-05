@@ -21,3 +21,88 @@ for (let index = 1; index < drinkList.length; index++) {
     a.text(drinkList[index])
     $("body").append(a)
 }
+
+
+function elementCreatorText(e, text) {
+    var a = $(`<${a}></${a}>`)
+    a.text(`${text}`)
+    $("body").append(a)
+
+}
+
+function elementCreatorHr() {
+    var a = $(`<hr>`)
+    $("body").append(a)
+
+}
+
+
+
+elementCreatorHr()
+
+elementCreatorText("h4", "Click To Eat Sandwich");
+a.css("Color", "red")
+
+
+var peanutJelly = $("<h1></h1>");
+var grilledCheese = $("<h1></h1>");
+var roastBeef = $("<h1></h1>");
+
+peanutJelly.text("Peanut Butter Jelly")
+grilledCheese.text("Grilled Cheese");
+roastBeef.text("Roast Beef")
+
+$("body").append(peanutJelly)
+$("body").append(grilledCheese)
+$("body").append(roastBeef)
+
+function handlePBclick() {
+    var peanutJellyCount = 0
+    peanutJellyCount++
+    var newImage = $("<img>")
+    newImage.attr("src", "./img/peanut.jpeg")
+    peanutJelly.after(newImage)
+    alert("Yummy Peanut Jelly Sandwich!");
+    alert(`You just had ${peanutJellyCount}`)
+}
+
+function handleGCclick() {
+    var grilledCheeseCount = 0
+    grilledCheese++
+    var newImage = $("<img>")
+    newImage.attr("src", "./img/grilled.jpeg")
+    grilledCheese.after(newImage)
+    alert("Yummy Peanut Grilled Cheese!");
+    alert(`You just had ${grilledCheeseCount}`)
+}
+function handleRBclick() {
+    var roastBeefCount = 0
+    roastBeefCount++
+    var newImage = $("<img>")
+    newImage.attr("src", "./img/roast.jpeg")
+    roastBeef.after(newImage)
+    alert("Yummy Peanut Roast Beef!");
+    alert(`You just had ${roastBeefCount++}`)
+}
+
+
+peanutJelly.click(handlePBclick)
+grilledCheese.click(handleGCclick)
+roastBeef.click(handleRBclick)
+
+
+
+
+
+
+
+
+$("<p>").text("Hello this firts paragraph").appendTo("body")
+$("<p>").text("Hello this second paragraph").appendTo("body")
+$("<p>").text("Hello this third paragraph").appendTo("body")
+$("<p>").text("Hello this forth paragraph").appendTo("body")
+
+
+
+
+
