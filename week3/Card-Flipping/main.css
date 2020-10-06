@@ -28,7 +28,7 @@
     grid-template-areas:
       ". . . top ."
       ". . center . ."
-      ". bottom . . ."
+      ". bottom . . .";
   }
   
   .top {
@@ -67,5 +67,6 @@
     background-size: 100px 100px;
     background-color: mediumseagreen;
     color: rgba(0,0,0,0);
+    ;
   }
   
