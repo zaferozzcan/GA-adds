@@ -91,6 +91,8 @@ input:focus {
   border-radius: 1em;
   animation: zoom-in .3s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
   box-shadow: 2px 2px 4px gray;
+  list-style-type: none;
+  text-align: center;
 }
 
 /* Style list item specific to done-item */
@@ -217,4 +219,14 @@ input:focus {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1);
   }
+}
+
+
+/* ///////////// to-do-item-box */
+
+.to-do-item p{
+    color: white;
+}
+.to-do-item button{
+    
 }
