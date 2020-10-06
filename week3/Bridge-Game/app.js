@@ -21,7 +21,7 @@ $(() => {
     $modal.css('display', 'none');
   }
 
-  setTimeout(openModal, 5000);
+  // setTimeout(openModal, 5000);
 
 
 
