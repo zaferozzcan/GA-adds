@@ -1,0 +1,25 @@
+
+body{
+    text-align: center;
+}
+
+h1{
+  
+    background-color: linear-gradient(red, yellow, blue);
+     
+}
+
+#color-palette, #my-palette{
+    margin:30px auto;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+
+}
+
+.square{
+    height: 30px;
+    width: 30px;
+    border: 1px solid;
+}
