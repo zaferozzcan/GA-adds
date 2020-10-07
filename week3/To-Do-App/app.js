@@ -37,13 +37,11 @@ $(function () {
             newdiv.append(deleteButton)
             $("#completed").append($(newdiv))
             div.remove()
-
         })
 
 
         function remove() {
             $(".done-item").remove()
-
         }
     })
 
