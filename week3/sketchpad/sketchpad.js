@@ -1,14 +1,24 @@
 $(() => {
 
-    const changeColor = (event) => {
-        $(event.target).addClass('pink');
-    }
+    $("#submit").on("click", function () {
+        const value = $("#input-box").val()
+        $("#input-box").val("")
 
-    for (let i = 0; i < 1000; i++) {
-        let $div = $('<div>');
-        $div.addClass('square');
-        $('body').append($div);
-    }
+        const changeColor = (event) => {
+            $(event.target).addClass('pink');
+        }
 
-    $('div').on('mouseover', changeColor);
+        for (let i = 0; i < value; i++) {
+            let $div = $('<div>');
+            $div.addClass('square');
+            $('body').append($div);
+        }
+
+        $('div').on('mouseover', changeColor);
+
+    })
+
+
+
+
 });
