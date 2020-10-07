@@ -1,7 +1,6 @@
 
 
 $(function () {
-
     $('form').on('submit', (event) => {
         const inputValue = $('#input-box').val();
         console.log(inputValue);
