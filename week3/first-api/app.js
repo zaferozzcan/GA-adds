@@ -14,7 +14,13 @@ const getMovie = () => {
     $.ajax({
         url: queryURL
     }).then((movieData) => {
-        console.log(movieData)
+        $('.container').html(`
+        <h2> ${movieData.Title} </h2>
+        <h3> ${movieData.Year} </h3>
+        <h4> ${movieData.Rated} <h4>
+        <h5> ${movieData.Genre} <h5>
+        <p> ${movieData.Plot} </p>
+        `)
     }, (error) => {
         console.error(error)
     })
