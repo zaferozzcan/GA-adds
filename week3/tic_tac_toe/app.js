@@ -13,7 +13,7 @@ $(() => {
     function makeMove(e) {
 
         var clickedGrid = $(e.target)
-        console.log();
+        console.log(clickedGrid[0].innerHTML.split(` `));
         $(clickedGrid.children()[0]).addClass("letter-added")
         if ($(clickedGrid.children()[0]).text() == "" && play) {
             if ((move % 2) == 1) {
