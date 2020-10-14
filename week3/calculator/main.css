@@ -72,6 +72,7 @@ body{
     margin-left: .5rem;
     border-radius: 10%;
     font-size: 2em;
+    cursor: pointer;
     
 }
 
@@ -86,6 +87,7 @@ body{
     margin-left: .5rem;
     border-radius: 10%;
     font-size: 2em;
+    cursor: pointer;
     
 }
 
@@ -123,4 +125,9 @@ body{
 .hr-result{
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+
+
+.number-box{
+    height: 2rem;
 }
