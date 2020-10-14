@@ -12,9 +12,6 @@ $(() => {
 
   const $modal = $('#modal');
 
-
-
-
   const $closeBtn = $('#close');
   $closeBtn.on('click', closeModal);
   function closeModal() {

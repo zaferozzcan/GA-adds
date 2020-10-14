@@ -21,7 +21,6 @@ $(() => {
 
     $(`.square`).click((e) => {
         var string = $($(".square")[0]).children()[0].innerHTML
-
         let sq = $(e.target)
         console.log(sq[0].classList[1]);
 
