@@ -3,6 +3,11 @@ body{
     margin: 0;
 }
 
+.container{
+    display: flex;
+
+}
+
 .banner{
     background-color: lightgray;
     display: flex;
@@ -28,15 +33,24 @@ body{
     height: 25rem;
     background-color :white;
     border: 1px lightgray solid;
-
+    margin-left: 7rem;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .calculator-heading{
-    background-color: lightgray;    
+    background-color: lightgray;  
+    margin-top: 0;  
+    height: 3rem;
+    display: flex;
+    
 }
 
 .calculator-heading h2{
     margin-left: 2rem;
+    margin-top: 0;
+    margin-top: .5rem;
 }
 
 .row{
@@ -44,10 +58,11 @@ body{
     width: 300px;
     height: 700px;
     margin-left: 1.5rem;
+    margin-top: 0.7rem;
 }
 
 .button-number{
-    background-color: blue;
+    background-color: rgb(74, 74, 247);
     color: white;
     display: flex;
     justify-content: center;
@@ -56,6 +71,7 @@ body{
     height: 60px;
     margin-left: .5rem;
     border-radius: 10%;
+    font-size: 2em;
     
 }
 
@@ -69,6 +85,42 @@ body{
     height: 60px;
     margin-left: .5rem;
     border-radius: 10%;
+    font-size: 2em;
     
 }
 
+/* Result */
+
+.result{
+    display: flex;
+    width: 40rem;
+    height: 10rem;
+    flex-direction: column;
+    margin-top: 4rem;
+    margin-left: 7rem;
+    border: 1px lightgray solid;
+    
+}
+.result-heading{
+    background-color: lightgray;
+    height: 3rem;
+    display: flex;
+    align-content: center;
+
+}
+
+.result-heading h2{
+    width: 100%;
+    margin-left: 2rem;
+}
+
+.hr-result{
+    width: 80%;
+    display: flex;
+    align-self: center;
+}
+
+.hr-result{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
