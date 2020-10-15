@@ -2,34 +2,57 @@
 
 $(() => {
 
-    let clickNumber = [];
+
+    var firstNumber = []
     let secondNumber = []
+    let operator = [];
+
     $(".button").on("click", (e) => {
-        let clickedOp = []
-        let result;
         var buttonType = $(e.target).eq(0)[0].classList[1]
-
-
-        if (buttonType === "button-number") {
-            $(".number-box").eq(0)[0].childNodes[1].innerText = clickNumber.join("");
-        } if (clickNumber.length != 0 && buttonType === "button-operator") {
-            clickedOp.push($(e.target).eq(0)[0].innerText);
-            $(".number-box").eq(0)[0].childNodes[3].innerText = clickedOp.join("")
-        } if (clickedOp.length != 0 && clickNumber.length != 0 && buttonType === "button-number") {
-            secondNumber.push($(e.target).eq(0)[0].innerText)
-            console.log("second number", $(".number-box").eq(0)[0].childNodes[5]);
-            $(".number-box").eq(0)[0].childNodes[5].innerText = secondNumber.join("")
-        }
-
-        if (clickNumber && clickedOp && secondNumber && buttonType === $(e.target).eq(0)[0].innerHTML) {
-            if (clickedOp === "+") {
-                var res = Number(clickNumber) + Number(secondNumber)
-                $(".number-box").eq(0)[0].childNodes[7].innerText = res
+        let result = 0;
+        function wrappper(array, node) {
+            if (buttonType == "button-number") {
+                array.push($(e.target).eq(0)[0].innerText)
+                $(".number-box").eq(0)[0].childNodes[node].innerText = array.join("");
+            } else {
+                array.push($(e.target).eq(0)[0].innerText)
+                $(".number-box").eq(0)[0].childNodes[node].innerText = array.join("");
             }
+            console.log("first", firstNumber)
+            console.log("second", secondNumber)
+            console.log("operator", operator)
 
         }
 
+        function opr(op) {
+            var first = Number(firstNumber.join(""))
+            var second = Number(secondNumber.join(""))
+            if (op == "+") {
+                return first + second
+            } else if (op == "-") {
+                return first - second
+            } else if (op == "x") {
+                return first * second
+            } else {
+                return first / second
+            }
+        }
 
+
+
+        if (buttonType === "button-number" && operator.length < 1) {
+            wrappper(firstNumber, 1)
+        } else if (firstNumber.length >= 1 && buttonType === "button-number" && operator.length >= 1) {
+            wrappper(secondNumber, 5)
+        } else if (buttonType != "button-number" && operator.length < 1) {
+            wrappper(operator, 3)
+        }
+
+        if ($(e.target).eq(0)[0].innerText == "=") {
+            if (firstNumber.length != 0 && secondNumber !== 0 && operator.length != 0) {
+                $(".number-box").eq(0)[0].childNodes[7].innerText = opr(operator[0]);
+            }
+        }
 
 
 
