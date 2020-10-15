@@ -96,7 +96,7 @@ body{
 .result{
     display: flex;
     width: 40rem;
-    height: 10rem;
+    height: 40px;
     flex-direction: column;
     margin-top: 4rem;
     margin-left: 7rem;
