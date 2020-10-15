@@ -6,7 +6,6 @@ $(() => {
     var firstNumber = []
     let secondNumber = []
     let operator = [];
-
     $(".button").on("click", (e) => {
         var buttonType = $(e.target).eq(0)[0].classList[1]
         let result = 0;
