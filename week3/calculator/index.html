@@ -12,7 +12,7 @@
 <body>
 
     <div class="banner">
-        <h1>jquery</h1>
+        <h1>jQuery</h1>
         <h2>Simple mathematic operations using jQuery! </h2>
     </div>
     <div class="container">
@@ -41,8 +41,8 @@
             </div>
             <div class="row">
                 <div class="button button-number">0</div>
-                <div class="button button-number">/</div>
-                <div class="button button-number">^</div>
+                <div class="button button-operator">/</div>
+                <div class="button button-operator">^</div>
                 <div class="button button-operator">=</div>
             </div>
 
@@ -52,12 +52,16 @@
             <div class="result-heading">
                 <h2>Result</h2>
             </div>
-            <div class="number-box"></div>
-            <hr class="hr-result">
+            <div class="number-box">
+                <h1 class="opnum first-number">1234</h1>
+                <h1 class="opnum operator"></h1>
+                <h1 class="opnum second-number"></h1>
+                <hr class="opnum hr-result">
+                <h1 class="opnum result-number"></h1>
+            </div>
         </div>
-    </div>
 
-    <script src="./app.js"></script>
+        <script src="./app.js"></script>
 </body>
 
 </html>

@@ -131,3 +131,6 @@ body{
 .number-box{
     height: 2rem;
 }
+.number-box .opnum{
+    margin-left: 3.8rem;
+}
