@@ -1,0 +1,25 @@
+
+body, html{
+
+}
+
+#container{ /* this contains the inner-box */
+
+}
+
+#inner-box{ /* this contains rows */
+    margin-top: 2rem;
+}
+
+.row{ /* this has 4 divs cards */
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.card{
+    width: 9vw;
+    height: 25vh;
+    background-color: lime;
+    margin: 10px 0 20px 10px;
+}
