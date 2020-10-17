@@ -4,8 +4,13 @@ $(() => {
     var isFlipped = false;
     $(".card").on("click", (e) => {
         console.log(e.target);
-        $(e.target).toggleClass("flip")
-        isFlipped = true
+        if (isFlipped == false) {
+            $(e.target).addClass("flip")
+            isFlipped = true;
+        } else {
+            $(e.target).removeClass("flip")
+            isFlipped = false;
+        }
     });
 
 

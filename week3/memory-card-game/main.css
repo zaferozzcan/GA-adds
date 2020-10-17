@@ -43,14 +43,16 @@ body{
     transition: transform 0.2s;
 }
 
-.back, .front{
+.back,.front{
     width: 100%;
     height: 100%;
+    padding: 20px;
     position: absolute;
-    background-color: rgb(150, 191, 238);
+    border-radius: 5px;
+    background: #1C7CCC;
     backface-visibility: hidden;
 }
 
 .front{
-    /* transform: rotateY(180deg); */
+    transform: rotateY(180deg);
 }
