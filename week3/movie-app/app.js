@@ -7,6 +7,8 @@ $(() => {
     let titleQuery = 'eraserhead'
     let queryURL = baseURL + apiKey + '&' + queryType
 
+
+
     const getMovie = () => {
         $.ajax({
             url: queryURL + titleQuery
@@ -26,8 +28,7 @@ $(() => {
     }
 
     $(() => {
-        getMovie()
-
+        getMovie();
         $('form').on('submit', (event) => {
             event.preventDefault()
             console.log('clicky')
