@@ -3,10 +3,17 @@
 
 
 const express = require('express');
+const { get } = require("http")
 const app = express();
 
 app.get("/calc/:num1/:num2", (req, res) => {
-    res.send(`The total is ${Number(req.params.num1) + Number(req.params.num2)}`)
+
+    console.log(req.query);
+    if (req.query.op == "add") {
+        res.send(`The total is ${Number(req.params.num1) + Number(req.params.num2)}`)
+    } else {
+        res.send("invalid")
+    }
 
 })
 
