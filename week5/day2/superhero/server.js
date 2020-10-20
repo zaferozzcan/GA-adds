@@ -7,6 +7,9 @@ const superheros = ['Superman', 'Wonder Woman', 'Black Panther']
 
 app.get("/superheroes", (req, res) => {
     res.send(superheros)
+});
+app.get("/superheroes/:index", (req, res) => {
+    res.send(superheros[req.params.index])
 })
 
 const port = process.env.PORT;
