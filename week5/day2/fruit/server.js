@@ -4,21 +4,7 @@ const { get } = require("http")
 const app = express();
 
 // data
-const fruits = [{
-    name: 'apple',
-    color: 'red',
-    readyToEat: true
-},
-{
-    name: 'pear',
-    color: 'green',
-    readyToEat: false
-},
-{
-    name: 'banana',
-    color: 'yellow',
-    readyToEat: true
-}];
+const fruits = require("./models/fruits")
 
 //routes
 app.get("/fruits/", (req, res) => {
