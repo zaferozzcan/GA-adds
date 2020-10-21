@@ -8,6 +8,7 @@ app.use(express.static(__dirname + '/public'));
 // data
 const marsMissionData = require("./modals/marsMissionData");
 
+
 app.get("/index", (req, res) => {
     res.render("index.ejs", {
         marsMission: marsMissionData
@@ -23,6 +24,9 @@ app.get("/index/:i", (req, res) => {
 app.get("/show", (req, res) => {
     res.send("show is on")
 });
+
+
+
 
 
 const port = process.env.PORT;

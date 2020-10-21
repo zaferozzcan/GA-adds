@@ -1,0 +1,41 @@
+body {
+    color: blanchedalmond;
+    background-color: steelblue;
+    font-family: 'Architects Daughter', cursive;
+}
+
+ul{
+    margin-top: 50px;
+}
+
+li{
+    list-style-type: none;
+    text-transform: capitalize;
+    margin-bottom: 10px;  
+}
+
+a{
+    color: wheat;
+}
+
+
+div{
+    transform: translateX(200px);
+}
+
+h2{
+    text-transform: uppercase;
+}
+
+span{
+    color: yellow;
+    font-weight: bolder;
+}
+
+.go{
+    position: absolute;
+    left:450px;
+    bottom: 300px;
+    color: yellow;
+    font-size: 30px;
+}
