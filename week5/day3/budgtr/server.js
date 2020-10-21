@@ -27,8 +27,10 @@ app.get("/index", (req, res) => {
 })
 
 
-app.get("/show", (req, res) => {
-    res.render("show.ejs")
+app.get("/index/:id", (req, res) => {
+    res.render("show.ejs", {
+        Budget: Budget[req.params.id]
+    })
 })
 
 

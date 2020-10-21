@@ -9,11 +9,40 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"></script>
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/skeleton.css">
-
+    <style>
+        span {
+            font-weight: 900;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="container">
+        <h1><%= Budget.name%></h1>
+        <button onclick="location.href='/index'" type="button">BACK</button>
+        <br><br>
 
+        <table class="u-full-width">
+
+            <tbody>
+                <tr>
+                    <td><span>DATE :</span><%= Budget.date %></td>
+                </tr>
+                <tr>
+                    <td><span>NAME :</span><%= Budget.name %></td>
+                </tr>
+                <tr>
+                    <td><span>FROM :</span><%= Budget.from %></td>
+                </tr>
+                <tr>
+                    <td><span>AMOUNT :</span><%= Budget.amount %></td>
+                </tr>
+                <tr>
+                    <td><span>TAGS:</span><%= Budget.tags %></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>
