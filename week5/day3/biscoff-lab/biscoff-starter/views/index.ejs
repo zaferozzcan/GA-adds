@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu BakedGoods</title>
+    <style>
+        body {
+            background-color: rgb(228, 94, 46);
+            font-size: 30px;
+        }
+
+        li {
+            list-style-type: none;
+            margin-bottom: 10px;
+        }
+
+        li a {
+            text-decoration: none;
+        }
+
+        .menu-item {
+            text-align: center;
+            margin-top: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu-item">
+        <h1>MENU</h1>
+        <ul>
+            <% for(let i=0; i <bakedGoods.length;i++){ %>
+            <li><a href="/bakedgoods/<%= i %>"> <%= bakedGoods[i].name + ": $"+ bakedGoods[i].price %> </a></li>
+            <%}%>
+        </ul>
+    </div>
+
+</body>
+
+</html>

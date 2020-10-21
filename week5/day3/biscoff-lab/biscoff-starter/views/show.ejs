@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item</title>
+    <style>
+        body {
+            background-color: rgb(228, 94, 46);
+            font-size: 25px;
+        }
+
+        span {
+            font-weight: 900;
+        }
+
+        img {
+            width: 350px;
+            height: 350px;
+        }
+
+        div {
+            text-align: center;
+        }
+    </style>
+</head>
+<div>
+    <h1><%= bakedGood.name +": "%> <span><%= "$" + bakedGood.price %></span></h1>
+
+    <img src=<%= bakedGood.image %> alt=<%= bakedGood.name %>>
+
+    <br><br>
+    <a href="/bakedgoods"> Menu</a>
+</div>
+
+
+<body>
+
+</body>
+
+</html>
