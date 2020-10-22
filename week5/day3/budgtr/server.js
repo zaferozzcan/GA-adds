@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser")
 const { get } = require("http");
 
 const app = express();
@@ -8,6 +9,8 @@ const PORT = 3000;
 ////  middleware
 ////////////////////////////
 app.use(express.static(__dirname + "/public"))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
 ////////////////////////////
@@ -36,6 +39,11 @@ app.get("/budget/:id", (req, res) => {
     })
 })
 
+app.post("/budget", (req, res) => {
+    Budget.push(req.body)
+
+    res.redirect("/budget")
+})
 
 app.listen(PORT, () => {
     console.log("Server is running on port", PORT);

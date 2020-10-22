@@ -10,35 +10,36 @@
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/skeleton.css">
     <style>
-
+        form {
+            transform: translate(65px, 65px);
+        }
     </style>
 </head>
 
 <body>
-    <form>
+    <form action="/budget" method="POST">
         <div class="row">
             <div class="four columns">
-
-                <input class="u-full-width" type="text" placeholder="Date..." id="date">
+                <input class="u-full-width" name="date" type="text" placeholder="Date..." id="date">
             </div>
             <div class="four columns">
 
-                <input class="u-full-width" type="text" placeholder="Name..." id="name">
+                <input class="u-full-width" name="name" type="text" placeholder="Name..." id="name">
             </div>
         </div>
 
         <div class="row">
             <div class="four columns">
 
-                <input class="u-full-width" type="text" placeholder="Amount..." id="amount">
+                <input class="u-full-width" name="amount" type="text" placeholder="Amount..." id="amount">
             </div>
             <div class="four columns">
 
-                <input class="u-full-width" type="text" placeholder="for..." id="from">
+                <input class="u-full-width" name="from" type="text" placeholder="from..." id="from">
             </div>
         </div>
 
-        <input class="button-primary" type="submit" value="Submit">
+        <input class="button-primary" type="submit" value="CREATE NEW ITEM">
     </form>
 </body>
 
