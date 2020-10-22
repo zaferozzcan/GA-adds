@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgb(123, 131, 139);
+  font-size: 1.5rem;
+
+}
+
+nav{
+  display : flex;
+  width: 30vw;
+  justify-content: space-between;
+}
+
+.nav-link li{
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.nav-link li a{
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
