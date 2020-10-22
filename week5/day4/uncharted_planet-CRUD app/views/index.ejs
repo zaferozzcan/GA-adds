@@ -30,6 +30,16 @@
             color: black;
             text-decoration: none;
         }
+
+        .delete-button {
+            position: relative;
+        }
+
+        .delete-button form {
+            position: absolute;
+            right: 300px;
+            top: 7px
+        }
     </style>
 </head>
 
@@ -51,6 +61,11 @@
                 <tr>
                     <td><a href="/scientist/<%= i %>"><%= scientist[i].name %></a></td>
                     <td><%= scientist[i].description %></td>
+                    <td class="delete-button">
+                        <form action="/scientist/<%= i %>?_method=DELETE" method="POST">
+                            <input type="submit" value="DELETE" />
+                        </form>
+                    </td>
                 </tr>
                 <% } %>
             </tbody>
