@@ -20,14 +20,17 @@ const Budget = require("./models/budget")
 ////////////////////////////
 ////  routes
 ////////////////////////////
-app.get("/index", (req, res) => {
+app.get("/budget", (req, res) => {
     res.render("index.ejs", {
         Budget: Budget
     })
 })
 
+app.get("/budget/new", (req, res) => {
+    res.render("new.ejs")
+})
 
-app.get("/index/:id", (req, res) => {
+app.get("/budget/:id", (req, res) => {
     res.render("show.ejs", {
         Budget: Budget[req.params.id]
     })

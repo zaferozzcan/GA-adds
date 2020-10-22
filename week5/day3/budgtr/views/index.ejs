@@ -13,7 +13,12 @@
         .budget-container {
             width: 80vw;
             margin: 10px auto 0 auto;
-            text-align: center;
+        }
+
+        button {
+            position: absolute;
+            right: 60px;
+            top: 40px;
         }
     </style>
 </head>
@@ -21,6 +26,7 @@
 <body>
     <div class="budget-container">
         <h1>Budgtr</h1>
+        <button class="button-primary" onclick="location.href='/budget/new'" type="button">ADD A NEW ITEM</button>
         <table class="u-full-width">
             <thead>
                 <tr>
