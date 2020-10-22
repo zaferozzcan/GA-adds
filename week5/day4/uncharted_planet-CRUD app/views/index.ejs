@@ -32,12 +32,26 @@
 
         .delete-button {
             position: relative;
+            margin-right: 30px;
         }
+
+        .edit-button {
+            position: relative;
+            margin-right: 30px;
+        }
+
+
 
         .delete-button form {
             position: absolute;
-            right: 300px;
-            top: 7px
+            right: 30px;
+            top: 17px
+        }
+
+        .edit-button form {
+            position: absolute;
+            right: 30px;
+            top: 21px
         }
     </style>
 </head>
@@ -63,6 +77,11 @@
                     <td class="delete-button">
                         <form action="/scientist/<%= i %>?_method=DELETE" method="POST">
                             <input type="submit" value="DELETE" />
+                        </form>
+                    </td>
+                    <td>
+                        <form class="edit-button" action="/scientist/<%= i %>/edit" method="GET">
+                            <input type="submit" value="EDIT" />
                         </form>
                     </td>
                 </tr>

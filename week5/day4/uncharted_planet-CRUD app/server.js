@@ -17,13 +17,14 @@ app.use(methodOverride('_method'));
 
 
 
-
+// show scientists
 app.get("/scientist", (req, res) => {
     res.render("index.ejs", {
         scientist: scientist
     })
 });
 
+//// post --add scientist 
 app.get("/scientist/new", (req, res) => {
     res.render("new.ejs")
 });
@@ -34,10 +35,27 @@ app.post("/scientist", (req, res) => {
     res.redirect("/scientist")
 });
 
+
+//// delete
 app.delete("/scientist/:id", (req, res) => {
     scientist.splice(req.params.id, 1)
     res.redirect("/scientist")
 });
+
+//// edit scientist view
+app.get("/scientist/:id/edit", (req, res) => {
+    res.render("edit.ejs", {
+        scientist: scientist[req.params.id],
+        index: req.params.id
+    })
+})
+
+app.put("/scientist/:id", (req, res) => {
+    scientist[req.params.id] = req.body
+    res.redirect("/scientist")
+})
+
+
 
 app.listen(PORT, () => {
     console.log("Server is running on port:", PORT);
