@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pokemon.name %></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"></script>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/skeleton.css">
+    <style>
+        body {
+            font-weight: 900;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+            animation-name: move;
+            animation-duration: 5s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes move {
+            from {
+                transform: translateX(0)
+            }
+
+            to {
+                transform: translateX(800px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="margin:20px 0 0 750px;"><%= pokemon.name %></h1>
+        <button onclick="location.href='/pokemon'" type="button">BACK</button>
+        <br><br>
+
+        <table class="u-full-width">
+
+            <tbody>
+                <tr>
+                    <td><span>Name:</span><%= pokemon.name %></td>
+                </tr>
+                <tr>
+                    <td><span>Type:</span><%= pokemon.type %></td>
+                </tr>
+                <tr>
+                    <td><span>HP:</span><%= pokemon.stats.hp %></td>
+                </tr>
+                <tr>
+                    <td><span>Attack: </span><%= pokemon.stats.attack %></td>
+                </tr>
+                <tr>
+                    <td><span>Speed:</span><%= pokemon.stats.speed %></td>
+                </tr>
+                <tr>
+                    <td><img src=<%= pokemon.img %> alt=<%= pokemon.name %>></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

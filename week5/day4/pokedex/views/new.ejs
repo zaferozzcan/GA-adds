@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD POKEMON</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"></script>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/skeleton.css">
+    <style>
+        body {
+            margin: 50px 0 0 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Add New Pokemon</h1>
+    <form action="/pokemon" method="POST">
+        <div class="row">
+            <div class="four columns">
+                <input class="u-full-width" name="name" type="text" placeholder="name" id="name">
+                <input class="u-full-width" name="type" type="text" placeholder="type" id="type">
+                <input class="u-full-width" name="image-url" type="text" placeholder="image-url" id="image-url">
+            </div>
+        </div>
+        <input class="button-primary" type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

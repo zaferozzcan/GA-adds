@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"></script>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/skeleton.css">
+    <style>
+        body {
+            margin-left: 200px;
+            background-color: bisque;
+            font-weight: 900;
+        }
+
+        div {
+            width: 80%;
+            height: 100%;
+        }
+
+        img {
+            width: 60px;
+            height: 60px;
+            margin-top: 10px;
+            margin-right: 50px;
+            border-radius: 50%;
+            border: 10px solid red;
+        }
+
+        form {
+            transform: translateY(-20PX);
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: 900;
+        }
+
+        .h1transform {
+            transform: translateY(-10px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pokemon-container">
+        <h1 style="margin:20px 0 0 750px;">Pokedex</h1>
+        <button class="button-primary" onclick="location.href='/pokemon/new'" type="button">ADD A NEW
+            POKEMON</button>
+        <table class="u-full-width">
+            <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>TYPE</th>
+                    <th>IMAGE</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <% for(let i=0;i<pokemon.length; i++){ %>
+                <tr>
+                    <td><a href="/pokemon/<%= i %>"><%= pokemon[i].name %></a></td>
+                    <td><%= pokemon[i].type %></td>
+                    <td><img src=<%= pokemon[i].img %> alt=<%= pokemon[i].name %>>
+                        <form style="display: inline-block;" action="/pokemon/<%= i %>?_method=DELETE" method="POST">
+                            <input type="submit" value="DELETE" />
+                        </form>
+                        <form style="display: inline-block;" class="edit-button" action="/pokemon/<%= i %>/edit"
+                            method="GET">
+                            <input type="submit" value="EDIT" />
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

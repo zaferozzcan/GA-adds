@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit <%=pokemon.name%></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"></script>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/skeleton.css">
+    <style>
+        body {
+            margin: 50px 0 0 100px;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+            margin-left: 620px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Edit <%=pokemon.name%> Data</h1>
+    <form action="/pokemon/<%= index %>?_method=PUT" method="POST">
+        <div class="row">
+            <div class="eight columns">
+                <input class="u-full-width" name="name" type="text" placeholder="name" id="name"
+                    value="<%= pokemon.name %>">
+                <input class="u-full-width" name="type" type="text" placeholder="type" id="type"
+                    value="<%= pokemon.type %>">
+                <input class="u-full-width" name="image-url" type="text" placeholder="image-url" id="image-url"
+                    value='<%= pokemon.img %>''>
+            </div>
+        </div>
+        <input class="button-primary" type="submit" value="Submit">
+    </form>
+    <img src=<%= pokemon.img %> alt=<%= pokemon.name %>>
+</body>
+
+</html>
