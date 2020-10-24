@@ -17,14 +17,19 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static("public"));
 
 
-
+// show / render home page
 app.get("/home", (req, res) => {
   res.render("home.ejs", {
     data: JSON.stringify(data[0].homeStartingContent)
   })
 })
 
-
+// show render contact/page
+app.get("/contact", (req, res) => {
+  res.render("contact.ejs", {
+    data: JSON.stringify(data[1].contactContent)
+  })
+})
 
 
 
