@@ -1,4 +1,5 @@
 const express = require("express")
+const methodOverride = require("method-override")
 const app = express()
 PORT = 3000
 
@@ -6,6 +7,7 @@ PORT = 3000
 app.use(express.static(__dirname + 'public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"))
 
 // model
 const pokemon = require("./models/data")
@@ -22,7 +24,7 @@ app.get("/pokemon", (req, res) => {
 app.get("/pokemon/new", (req, res) => {
     res.render("new.ejs")
 })
-
+// post new pokemon
 app.post("/pokemon", (req, res) => {
     console.log(req.body);
     pokemon.push(req.body)
@@ -37,7 +39,12 @@ app.get("/pokemon/:id", (req, res) => {
     })
 })
 
+// delete pokemon
 
+app.delete("/pokemon/:id", (req, res) => {
+    pokemon.splice(req.params.id, 1)
+    res.redirect("/pokemon")
+})
 
 
 app.listen(PORT, () => {
