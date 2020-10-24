@@ -3,6 +3,13 @@
 <h1>HOME </h1>
 <p><%= data %></p>
 
+<br><br>
+<h1>POSTS</h1>
+
+<% for(let i = 0;  i<postItems.length;i++) { %>
+<h3><a href="/home/<%= i %>"><%= postItems[i].title %></a> </h3>
+<p><%= postItems[i].content %></p>
+<% } %>
 
 
-<%- include("footer.ejs") %>
+<!-- <%- include("footer.ejs") %> -->

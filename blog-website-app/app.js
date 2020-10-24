@@ -21,7 +21,8 @@ const postItems = []
 // show / render home page
 app.get("/home", (req, res) => {
   res.render("home.ejs", {
-    data: JSON.stringify(data[0].homeStartingContent)
+    data: JSON.stringify(data[0].homeStartingContent),
+    postItems: postItems
   })
 })
 
@@ -50,8 +51,13 @@ app.post("/home", (req, res) => {
   res.redirect("/home")
 });
 
-
-
+// post view / show
+app.get("/home/:id", (req, res) => {
+  res.render("post.ejs", {
+    postItems: postItems,
+    id: req.params.id
+  })
+})
 
 app.listen(3000, function () {
   console.log("Server started on port 3000");

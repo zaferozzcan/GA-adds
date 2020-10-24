@@ -46,10 +46,11 @@
   }
   input[type="type"]{
     margin-bottom: 20px;
+   
 }
 
   input[type="submit"]{
       width: 20%;
-      margin-top: 10px;
-      transform: translateY(-9px);
+      margin-top: 20px;
+    
   }
