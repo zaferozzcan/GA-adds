@@ -48,7 +48,17 @@
                 <td><a href="/pokemon/<%= i  %>"><%= pokemon[i].name %></a></td>
                 <td><%= pokemon[i].type %></td>
                 <td><img src=<%= pokemon[i].img  %> alt=<%= pokemon[i].name %>></td>
+                <td>
+                    <form action="/pokemon/<%= i %>">
+                        <input type="submit" value="DELETE">
+                    </form>
+                    <form action="/pokemon/<%=i%>">
+                        <input type="submit" value="EDIT">
+                    </form>
+                </td>
+
             </tr>
+
             <%}%>
           
         </tbody>
