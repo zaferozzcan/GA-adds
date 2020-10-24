@@ -31,6 +31,13 @@ app.get("/contact", (req, res) => {
   })
 })
 
+// show/render about page
+app.get("/about", (req, res) => {
+  res.render("about.ejs", {
+    data: JSON.stringify(data[2].aboutContent)
+  })
+})
+
 
 
 
