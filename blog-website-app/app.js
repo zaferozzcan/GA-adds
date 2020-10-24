@@ -16,6 +16,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static("public"));
 
+const postItems = []
 
 // show / render home page
 app.get("/home", (req, res) => {
@@ -39,7 +40,15 @@ app.get("/about", (req, res) => {
 })
 
 
+// compose view
+app.get("/compose", (req, res) => {
+  res.render("compose.ejs")
+})
 
+app.post("/home", (req, res) => {
+  postItems.push(req.body)
+  res.redirect("/home")
+});
 
 
 
