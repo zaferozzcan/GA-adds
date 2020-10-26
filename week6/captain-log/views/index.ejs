@@ -11,6 +11,19 @@
         body {
             background-color: cornsilk;
         }
+
+        form {
+            width: 10px;
+            height: 5px;
+        }
+
+        form input {
+            width: 60px;
+            height: 20px;
+            font-size: 10px;
+            text-align: center;
+
+        }
     </style>
 </head>
 
@@ -30,6 +43,11 @@
                 <td><%= log.entry %></td>
                 <td><%= log.shipIsBroken %></td>
                 <% }) %>
+                <td>
+                    <form action="/logs?_method=DELETE" method="post">
+                        <input value="DELETE" type="submit">
+                    </form>
+                </td>
             </tr>
 
         </tbody>

@@ -1,8 +1,11 @@
 const express = require("express");
+const methodOverride = require("method-override");
 const PORT = 3000
 const app = express();
 
+app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride("_method"))
 
 // data
 const mongoose = require('mongoose');
@@ -23,13 +26,22 @@ app.get("/logs", (req, res) => {
     })
 })
 
-// create
-app.post("/log/create", (req, res) => {
+// create show
+app.get("/logs/new", (req, res) => {
+    res.render("new.ejs")
+})
+
+// create route
+app.post("/logs", (req, res) => {
+    console.log(req.body);
     Log.create(req.body, (err, data) => {
         if (!err) console.log("new entry created");
         console.log("Create Error", err);
     })
+    res.redirect("/logs")
 })
+
+
 
 app.listen(PORT, () => {
     console.log("Server is running on port", PORT);
