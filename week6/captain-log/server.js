@@ -33,7 +33,6 @@ app.get("/logs/new", (req, res) => {
 
 // create route
 app.post("/logs", (req, res) => {
-    console.log(req.body);
     Log.create(req.body, (err, data) => {
         if (!err) console.log("new entry created");
         console.log("Create Error", err);
@@ -43,8 +42,25 @@ app.post("/logs", (req, res) => {
 
 // edit view
 app.get("/logs/:title/edit", (req, res) => {
-    res.render("edit.ejs")
+    res.render("edit.ejs", {
+        title: req.params.title
+    })
 })
+
+// edit/put route
+app.put("/logs/:title/edit", (req, res) => {
+    console.log("edit body", req.body);
+    console.log("edit params", req.params.title);
+    Log.findOneAndUpdate({ title: req.params.title }, { title: req.body.title, entry: req.body.entry, shipIsBroken: req.body.broken }, (err, data) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("updated");
+        }
+    })
+    res.redirect("/logs")
+})
+
 
 
 // delete 
