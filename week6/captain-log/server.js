@@ -41,6 +41,24 @@ app.post("/logs", (req, res) => {
     res.redirect("/logs")
 })
 
+// edit view
+app.get("/logs/:title/edit", (req, res) => {
+    res.render("edit.ejs")
+})
+
+
+// delete 
+app.delete("/logs/:title", (req, res) => {
+    Log.findOneAndDelete({ title: req.params.title }, (err, res) => {
+        if (!err) { console.log("Data is deleted") }
+        else { console.log(err); }
+
+    })
+    res.redirect("/logs")
+})
+
+
+
 
 
 app.listen(PORT, () => {
