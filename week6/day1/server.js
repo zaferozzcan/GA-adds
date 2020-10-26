@@ -1,26 +1,33 @@
 const express = require("express")
+
 PORT = 3000;
 const app = express();
 
 
-const mongoose = require('mongoose');
 
-//... and then farther down the file
-mongoose.connect('mongodb://localhost:27017/basiccrud', { useNewUrlParser: true });
+const mongoose = require('mongoose');
+const Fruit = require("./models/fruits");
+
+mongoose.connect('mongodb://localhost:27017/basiccrud', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.once('open', () => {
     console.log('connected to mongo');
 });
 
 
-let fruits = []
+// model
+
+
 
 // middleware
 app.use(express.urlencoded({ extended: true }))
 
 app.get("/fruits", (req, res) => {
-    res.render("index.ejs", {
-        fruits: fruits
+    Fruit.find({}, (err, data) => {
+        res.render("index.ejs", {
+            fruits: data
+        })
     })
+
 })
 
 app.get("/fruits/new", (req, res) => {
@@ -28,7 +35,10 @@ app.get("/fruits/new", (req, res) => {
 })
 
 app.post("/fruits", (req, res) => {
-    fruits.push(req.body)
+    Fruit.create(req.body, (err, data) => {
+        if (!err) console.log("a fruit created");
+        console.log(err);
+    })
     res.redirect("/fruits")
 })
 
@@ -36,5 +46,4 @@ app.post("/fruits", (req, res) => {
 app.listen(PORT, () => {
     console.log("Server is running on port", PORT);
 })
-
 
