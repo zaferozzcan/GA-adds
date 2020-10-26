@@ -23,6 +23,13 @@ app.get("/logs", (req, res) => {
     })
 })
 
+// create
+app.post("/log/create", (req, res) => {
+    Log.create(req.body, (err, data) => {
+        if (!err) console.log("new entry created");
+        console.log("Create Error", err);
+    })
+})
 
 app.listen(PORT, () => {
     console.log("Server is running on port", PORT);
