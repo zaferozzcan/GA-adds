@@ -13,6 +13,9 @@ mongoose.connection.once('open', () => {
     console.log('connected to mongo');
 });
 
+// middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
 
 
 //SEED DATA//
@@ -49,7 +52,6 @@ app.get('/products/seed', (req, res) => {
 app.get("/products", (req, res) => {
     Product.find({}, (err, data) => {
         if (!err) {
-            console.log(data);
             res.render("index.ejs", {
                 product: data
             })
@@ -66,15 +68,19 @@ app.get("/products/new", (req, res) => {
 
 // create/post route
 app.post("/products", (req, res) => {
+    console.log(req.body);
     Product.create(req.body, (err, respond) => {
-        console.log("New Item created");
+        if (!err) {
+            console.log("new item is created", req.body);
+        } else {
+            console.log(err);
+        }
     })
     res.redirect("/products")
 })
 
 // show
 app.get("/products/:title", (req, res) => {
-    console.log("params", req.params.title);
     Product.find({ name: req.params.title }, (err, data) => {
         if (err) {
             console.log(err);

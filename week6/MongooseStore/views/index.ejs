@@ -46,7 +46,8 @@
             <form class="form-inline">
                 <button class="btn btn-outline-primary" onclick="location.href='/products/new'" type="button">Create New
                     Product</button>
-                <button class="btn btn-outline-primary" type="button">Main button</button>
+                <button onclick="location.href='/products/seed'" class="btn btn-outline-primary" type="button">Create
+                    Seed</button>
             </form>
         </nav>
     </div>
@@ -61,6 +62,7 @@
                 <h5 class="card-title"><%= product[i].name %></h5>
                 <p class="card-text"><%= product[i].description %></p>
                 <a href="/products/<%= product[i].name %>" class="btn btn-primary">Go To Product</a>
+                <a href="/products/<%= product[i].name %>" class="btn btn-primary">Delete</a>
             </div>
         </div>
         <% } %>
