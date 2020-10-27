@@ -122,10 +122,11 @@ router.delete("/:id/delete", (req, res) => {
 // patch
 router.patch("/:id", (req, res) => {
     Product.findByIdAndUpdate({ _id: req.params.id }, { $inc: { 'qty': -1 } }, (err, res) => {
-        if (!err) {
+        if (!err && res.qty >= 0) {
             console.log("qty is updated");
         }
     })
+
     res.redirect("/products/" + req.params.id)
 })
 
