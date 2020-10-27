@@ -27,7 +27,7 @@ router.get('/seed', (req, res) => {
     ])
     res.send(`
     <div>
-    <h1>Seed has been created</h1>
+    <h1>Your page has been populated with a seed data</h1>
     <form action="/products" method="GET">
         <input type="submit" value="Go To Products"> 
     </form>
@@ -72,8 +72,16 @@ router.post("/", (req, res) => {
 
 // edit view
 router.get("/:id/edit", (req, res) => {
-    res.render("edit.ejs", {
-        id: req.params.id
+    Product.findById({ _id: req.params.id }, (err, data) => {
+        console.log(data);
+        if (!err) {
+            res.render("edit.ejs", {
+                id: req.params.id,
+                product: data
+            })
+        } else {
+            console.log(err);
+        }
     })
 })
 
@@ -83,12 +91,13 @@ router.put("/:id", (req, res) => {
         if (!err) console.log("The item has been updated");
         console.log("update error", err);
     })
+    res.redirect("/products")
 })
 
 
 // show
-router.get("/:title", (req, res) => {
-    Product.find({ name: req.params.title }, (err, data) => {
+router.get("/:id", (req, res) => {
+    Product.find({ _id: req.params.id }, (err, data) => {
         if (err) {
             console.log(err);
         } else {
@@ -107,6 +116,17 @@ router.delete("/:id/delete", (req, res) => {
         console.log("An Item has been deleted");
         res.redirect("/products")
     })
+})
+
+
+// patch
+router.patch("/:id", (req, res) => {
+    Product.findByIdAndUpdate({ _id: req.params.id }, { $inc: { 'qty': -1 } }, (err, res) => {
+        if (!err) {
+            console.log("qty is updated");
+        }
+    })
+    res.redirect("/products/" + req.params.id)
 })
 
 module.exports = router;

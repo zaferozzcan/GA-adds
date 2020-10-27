@@ -9,7 +9,7 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <style>
         body {
-            background-color: blanchedalmond;
+            background-color: skyblue;
             text-align: center;
             display: flex;
             justify-content: center;
@@ -48,9 +48,13 @@
             <li class="list-group-item">In-stock: <%= product.qty %></li>
         </ul>
         <div class="card-body">
-            <a class="but-button" href="#" class="card-link">Buy </a>
-            <a class="but-button" href="/products" class="card-link"> |Go Back</a>
-            <a class="but-button" href="/products/<%= product._id %>/edit" class="card-link">| Edit</a>
+
+            <form action="/products/<%= product._id %>/?_method=PATCH" method="post">
+                <input class="btn btn-primary" value="Buy" type="submit">
+            </form>
+            <!-- <a class="but-button" href="#" class="card-link">Buy </a> -->
+            <a class="but-button" href="/products" class="card-link"> Go Back|</a>
+            <a class="but-button" href="/products/<%= product._id %>/edit" class="card-link">Edit</a>
 
             <form action="/products/<%= product._id %>/delete?_method=DELETE" method="post">
                 <input class="btn btn-primary" value="Delete Product" type="submit">

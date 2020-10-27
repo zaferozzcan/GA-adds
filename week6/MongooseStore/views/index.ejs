@@ -9,7 +9,7 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <style>
         body {
-            background-color: blanchedalmond;
+            background-color: skyblue;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -66,7 +66,7 @@
             <div class="card-body">
                 <h5 class="card-title"><%= product[i].name %></h5>
                 <p class="card-text"><%= product[i].description %></p>
-                <a href="/products/<%= product[i].name %>" class="btn btn-primary">Go To Product</a>
+                <a href="/products/<%= product[i]._id %>" class="btn btn-primary">Go To Product</a>
                 <form action="/products/<%= product[i]._id %>/delete?_method=DELETE" method="post">
                     <input class="btn btn-primary" value="Delete Product" type="submit">
                 </form>
