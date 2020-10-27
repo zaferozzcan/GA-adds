@@ -44,7 +44,14 @@ app.get('/products/seed', (req, res) => {
             qty: 1
         }
     ])
-    res.send("Seed data has been created")
+    res.send(`
+    <div>
+    <h1>Seed has been created</h1>
+    <form action="/products" method="GET">
+        <input type="submit" value="Go To Products"> 
+    </form>
+    </div>
+    `)
 });
 
 
