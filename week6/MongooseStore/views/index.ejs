@@ -67,7 +67,7 @@
                 <h5 class="card-title"><%= product[i].name %></h5>
                 <p class="card-text"><%= product[i].description %></p>
                 <a href="/products/<%= product[i].name %>" class="btn btn-primary">Go To Product</a>
-                <form action="/products/<%= product[i]._id %>?_method=DELETE" method="post">
+                <form action="/products/<%= product[i]._id %>/delete?_method=DELETE" method="post">
                     <input class="btn btn-primary" value="Delete Product" type="submit">
                 </form>
                 <form action="/products/<%= product[i]._id %>/edit" method="get">
