@@ -47,17 +47,52 @@ app.get('/products/seed', (req, res) => {
 
 // index page
 app.get("/products", (req, res) => {
-    res.render("index.ejs", {
-        product: Product.find({})
+    Product.find({}, (err, data) => {
+        if (!err) {
+            console.log(data);
+            res.render("index.ejs", {
+                product: data
+            })
+        } else {
+            console.log("find data error", err);
+        }
     })
 })
 
+// create/new product view
+app.get("/products/new", (req, res) => {
+    res.render("new.ejs")
+})
 
+// create/post route
+app.post("/products", (req, res) => {
+    Product.create(req.body, (err, respond) => {
+        console.log("New Item created");
+    })
+    res.redirect("/products")
+})
+
+// show
+app.get("/products/:title", (req, res) => {
+    console.log("params", req.params.title);
+    Product.find({ name: req.params.title }, (err, data) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("data", data);
+            res.render("show.ejs", {
+                product: data[0]
+            })
+        }
+    })
+})
 
 
 
 app.listen(PORT, () => {
     console.log("Server is up and running on port", PORT);
 })
+
+
 
 
