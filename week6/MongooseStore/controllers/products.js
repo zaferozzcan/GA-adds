@@ -27,7 +27,7 @@ router.get('/seed', (req, res) => {
     ])
     res.send(`
     <div>
-    <h1>Your page has been populated with a seed data</h1>
+    <h1>Home page has been populated with a seed data</h1>
     <form action="/products" method="GET">
         <input type="submit" value="Go To Products"> 
     </form>
