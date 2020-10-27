@@ -36,6 +36,11 @@
 
         .card {
             margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            margin-top: 8px
         }
     </style>
 </head>
@@ -62,7 +67,12 @@
                 <h5 class="card-title"><%= product[i].name %></h5>
                 <p class="card-text"><%= product[i].description %></p>
                 <a href="/products/<%= product[i].name %>" class="btn btn-primary">Go To Product</a>
-                <a href="/products/<%= product[i].name %>" class="btn btn-primary">Delete</a>
+                <form action="/products/<%= product[i]._id %>?_method=DELETE" method="post">
+                    <input class="btn btn-primary" value="Delete Product" type="submit">
+                </form>
+                <form action="/products/<%= product[i]._id %>/edit" method="get">
+                    <input class="btn btn-primary" value="Edit Product" type="submit">
+                </form>
             </div>
         </div>
         <% } %>

@@ -1,10 +1,12 @@
 const express = require("express")
+const methodOverride = require("method-override")
 const PORT = 3000;
 const app = express();
 
 
 //MODEL//
 const mongoose = require('mongoose');
+const { findByIdAndUpdate } = require("./models/shop");
 const Product = require("./models/shop");
 
 
@@ -16,6 +18,7 @@ mongoose.connection.once('open', () => {
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride("_method"))
 
 
 //SEED DATA//
@@ -79,6 +82,22 @@ app.post("/products", (req, res) => {
     res.redirect("/products")
 })
 
+// edit view
+app.get("/products/:id/edit", (req, res) => {
+    res.render("edit.ejs", {
+        id: req.params.id
+    })
+})
+
+// edit/put route
+app.put("/products/:id", (req, res) => {
+    findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, res) => {
+        if (!err) console.log("The item has been updated");
+        console.log("update error", err);
+    })
+})
+
+
 // show
 app.get("/products/:title", (req, res) => {
     Product.find({ name: req.params.title }, (err, data) => {
@@ -94,6 +113,13 @@ app.get("/products/:title", (req, res) => {
 })
 
 
+// delete
+app.delete("/products/:id", (req, res) => {
+    Product.findByIdAndDelete(req.params.id, (err, response) => {
+        console.log("An Item has been deleted");
+        res.redirect("/products")
+    })
+})
 
 app.listen(PORT, () => {
     console.log("Server is up and running on port", PORT);
