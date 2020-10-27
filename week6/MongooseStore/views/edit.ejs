@@ -16,8 +16,8 @@
 </head>
 
 <body>
-    <form action="/products" method="POST">
-        <h1>Add New Product</h1>
+    <form action="/products/<%= id %>?_method=PUT" method="POST">
+        <h1>Edit Product</h1>
         <div class="form-group">
             <label for="name">Name</label>
             <input name="name" type="text" class="form-control" id="name">

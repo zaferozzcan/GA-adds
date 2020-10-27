@@ -91,7 +91,7 @@ app.get("/products/:id/edit", (req, res) => {
 
 // edit/put route
 app.put("/products/:id", (req, res) => {
-    findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, res) => {
+    Product.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, res) => {
         if (!err) console.log("The item has been updated");
         console.log("update error", err);
     })
