@@ -11,9 +11,16 @@ const db = mongoose.connection
 const PORT = process.env.PORT
 const mongodbURI = process.env.MONGODBURI
 
+
+// USER CONTROLLER
+const userController = require('./controllers/users_controller.js')
+app.use("/users", userController)
+
 // MIDDLEWARE
 app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: true }))
+
+
 
 // DATABASE
 mongoose.connect(
