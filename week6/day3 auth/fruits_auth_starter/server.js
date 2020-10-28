@@ -55,10 +55,14 @@ app.use('/fruits', fruitsController)
 const userController = require('./controllers/users_controller.js')
 app.use("/users", userController)
 
+const sessionsController = require('./controllers/sessions_controller.js')
+app.use('/sessions', sessionsController)
+
 // Routes
 app.get('/', (req, res) => {
   res.redirect('/fruits')
 })
+
 
 // Listener
 app.listen(PORT, () => {
