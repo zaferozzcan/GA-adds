@@ -8,7 +8,7 @@ fruits.get('/new', (req, res) => {
     'fruits/new.ejs'
     , { currentUser: req.session.currentUser }
   )
-})
+});
 
 // EDIT
 fruits.get('/:id/edit', (req, res) => {

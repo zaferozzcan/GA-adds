@@ -27,7 +27,6 @@ app.use(
 )
 
 
-
 // DATABASE
 mongoose.connect(
   mongodbURI,
@@ -47,6 +46,7 @@ db.on('error', err => console.log(err.message + ' is mongod not running?'))
 db.on('disconnected', () => console.log('mongo disconnected'))
 
 // Controllers
+// FRUIT CONTROLLER
 const fruitsController = require('./controllers/fruits_controller.js')
 const { use } = require('./controllers/users_controller.js')
 app.use('/fruits', fruitsController)
@@ -55,6 +55,7 @@ app.use('/fruits', fruitsController)
 const userController = require('./controllers/users_controller.js')
 app.use("/users", userController)
 
+// SESSION CONTROLLER
 const sessionsController = require('./controllers/sessions_controller.js')
 app.use('/sessions', sessionsController)
 
