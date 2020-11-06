@@ -66,6 +66,6 @@ app.get('/', (req, res) => {
 
 
 // Listener
-app.listen(PORT, () => {
-  console.log('🍒🍋Listening on port🥝🍉', PORT)
+app.listen(3001, () => {
+  console.log('🍒🍋Listening on port🥝🍉', 3001)
 })
