@@ -18,5 +18,5 @@ setTimeout(() => {
     // do this after a given time
     console.log("In-between")
 }, 1000)
-
+// setTimeout is sent to web apis in the browser to be taken care of, when it is time it is gotten back to the call stack to execute. that is why the codes are not blocked(not to be waited untill the five seconds is up in the setTimeout)
 console.log("Finishes");
