@@ -29,17 +29,23 @@ export default class Items extends Component {
     constructor(props){
         super(props)
         this.state={
-            items:items
+            items:items,
+            item:"",
+            brand:"",
+            units:"",
+            quantity:""
         }
 
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
     }
     handleChange(event) {
         this.setState({
           [event.target.id]: event.target.value,
         });
+        console.log("state", this.state);
       }
 
       handleSubmit(event) {
@@ -52,13 +58,13 @@ export default class Items extends Component {
 
         };
         this.setState({
-            items: [ ...this.state.products, newItem ],
-            item: '',
-            brand: '',
-            units: '',
-            quantity:''
-
+            items: [ ...this.state.items, newItem ],
+           
         });
+      }
+
+      handleDelete(){
+
       }
 
     render() {
@@ -67,18 +73,19 @@ export default class Items extends Component {
                 <div>
                     <h1>Shopping List</h1>
                 </div>
-                <form className="shopping-list-form" >
-                    <input onChange={this.handleChange} name="item" value={this.state.item} placeholder="item"/>
-                    <input onChange={this.handleChange} name="brand" value={this.state.brand} placeholder="brand"/>
-                    <input onChange={this.handleChange} name="units" value={this.state.units} placeholder="units"/>
-                    <input onChange={this.handleChange} name="quantity" value={this.state.quantity} placeholder="quantity"/>
+                <form onSubmit={ this.handleSubmit } className="shopping-list-form" >
+                    <input id="item" onChange={this.handleChange} value={this.state.item} placeholder="item"/>
+                    <input id="brand" onChange={this.handleChange} name="brand" value={this.state.brand} placeholder="brand"/>
+                    <input id="units" onChange={this.handleChange} name="units" value={this.state.units} placeholder="units"/>
+                    <input id="quantity" onChange={this.handleChange} name="quantity" value={this.state.quantity} placeholder="quantity"/>
                     <input type="submit" value="Add Item" />
                 </form>
                 <br/><br/>
                 <hr/><hr/>
                 <h1>List Items</h1>
                 <div className="shopping-list-container">
-                    {this.state.items.map(item=>{
+                    {this.state.items.map((item, index)=>{
+                        console.log(item);
                         return (
                             <div className="items">
                                 <div className="item-inner" >
