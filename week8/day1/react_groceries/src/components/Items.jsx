@@ -1,33 +1,40 @@
 import React, { Component } from 'react'
 
+
+const items = [
+    {
+        item: 'Beer',
+        brand: 'Budwiser',
+        units: '12pk',
+        quantity: 2,
+        isPurchased: false
+      },
+      {
+        item: 'Soda',
+        brand: 'Pepsi',
+        units: '2lt',
+        quantity: 7,
+        isPurchased: false
+      },
+      {
+        item: 'Cookie',
+        brand: 'Oreo',
+        units: '12pk',
+        quantity: 4,
+        isPurchased: false
+      }
+]
+
 export default class Items extends Component {
     constructor(props){
         super(props)
-        this.state=[
-            {
-                item: 'Beer',
-                brand: 'Budwiser',
-                units: '12pk',
-                quantity: 2,
-                isPurchased: false
-              },
-              {
-                item: 'Soda',
-                brand: 'Pepsi',
-                units: '2lt',
-                quantity: 7,
-                isPurchased: false
-              },
-              {
-                item: 'Cookie',
-                brand: 'Oreo',
-                units: '12pk',
-                quantity: 4,
-                isPurchased: false
-              }
-        ]
-        this.handleChange = this.handleChange.bind(this);
+        this.state={
+            items:items
+        }
 
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleChange(event) {
         this.setState({
@@ -45,7 +52,12 @@ export default class Items extends Component {
 
         };
         this.setState({
-         ...this.state,newItem 
+            items: [ ...this.state.products, newItem ],
+            item: '',
+            brand: '',
+            units: '',
+            quantity:''
+
         });
       }
 
@@ -66,7 +78,7 @@ export default class Items extends Component {
                 <hr/><hr/>
                 <h1>List Items</h1>
                 <div className="shopping-list-container">
-                    {this.state.map(item=>{
+                    {this.state.items.map(item=>{
                         return (
                             <div className="items">
                                 <div className="item-inner" >
