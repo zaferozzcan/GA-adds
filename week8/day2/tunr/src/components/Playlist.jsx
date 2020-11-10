@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Song from "./Song.jsx";
+import Song from "./Song";
 
-class PlayList extends Component {
+export default class Playlist extends Component {
   render() {
     return (
       <main>
@@ -11,13 +11,19 @@ class PlayList extends Component {
             <thead>
               <tr>
                 <th>Song</th>
-                <th>Arist</th>
+                <th>Artist</th>
                 <th>Time</th>
               </tr>
             </thead>
             <tbody>
               {this.props.playlist.map((song, index) => {
-                return <Song song={song} key={index} />;
+                return (
+                  <Song
+                    song={song}
+                    index={index}
+                    handleDelete={this.props.handleDelete}
+                  />
+                );
               })}
             </tbody>
           </table>
@@ -26,5 +32,3 @@ class PlayList extends Component {
     );
   }
 }
-
-export default PlayList;

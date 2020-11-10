@@ -1,26 +1,37 @@
-import { Component } from "react";
-import "./App.css";
+import React, { Component } from "react";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Playlist from "./components/Playlist";
-import playlist from "./data";
 
-export default class App extends Component {
+import playlist from "./data.js";
+
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       playlist: playlist,
       title: "",
       artist: "",
-      time: "0.00",
+      time: "0:00",
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleChange(event) {
     this.setState({ [event.target.id]: event.target.value });
   }
+
+  handleDelete(index) {
+    const newPlaylist = this.state.playlist;
+    newPlaylist.splice(index, 1);
+    this.setState({
+      playlist: newPlaylist,
+    });
+  }
+
   handleSubmit(event) {
     event.preventDefault();
 
@@ -29,11 +40,11 @@ export default class App extends Component {
       artist: this.state.artist,
       time: this.state.time,
     };
-    console.log(newSong);
-    const updatedPlaylist = [newSong, ...this.state.playlist];
+
+    const updatedSongs = [...this.state.playlist, newSong];
 
     this.setState({
-      playlist: updatedPlaylist,
+      playlist: updatedSongs,
       title: "",
       artist: "",
       time: "0:00",
@@ -42,7 +53,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <Header />
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="title">
@@ -52,16 +63,15 @@ export default class App extends Component {
               id="title"
               value={this.state.title}
               onChange={this.handleChange}
-              id="title"
             />
           </label>
           <label htmlFor="artist">
             Artist
             <input
               type="text"
+              id="artist"
               value={this.state.artist}
               onChange={this.handleChange}
-              id="artist"
             />
           </label>
           <label htmlFor="time">
@@ -77,8 +87,14 @@ export default class App extends Component {
             <input type="submit" />
           </label>
         </form>
-        <Playlist playlist={this.state.playlist} />
+        <Playlist
+          playlist={this.state.playlist}
+          handleDelete={this.handleDelete}
+        />
+        <Footer />
       </div>
     );
   }
 }
+
+export default App;
