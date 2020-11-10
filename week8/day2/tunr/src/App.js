@@ -1,6 +1,7 @@
 import { Component } from "react";
 import "./App.css";
 import Header from "./components/Header";
+import Playlist from "./components/Playlist";
 import playlist from "./data";
 
 export default class App extends Component {
@@ -12,6 +13,9 @@ export default class App extends Component {
       artist: "",
       time: "0.00",
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -73,32 +77,7 @@ export default class App extends Component {
             <input type="submit" />
           </label>
         </form>
-
-        <main>
-          <div>
-            <h3>Playlist 1</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Song</th>
-                  <th>Artist</th>
-                  <th>Time</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.playlist.map((item, index) => {
-                  return (
-                    <tr>
-                      <td>{item.title}</td>
-                      <td>{item.artist}</td>
-                      <td>{item.time}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </main>
+        <Playlist playlist={this.state.playlist} />
       </div>
     );
   }
