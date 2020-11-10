@@ -17,23 +17,57 @@ export default class App extends Component {
   handleChange(event) {
     this.setState({ [event.target.id]: event.target.value });
   }
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const newSong = {
+      title: this.state.title,
+      artist: this.state.artist,
+      time: this.state.time,
+    };
+    console.log(newSong);
+    const updatedPlaylist = [newSong, ...this.state.playlist];
+
+    this.setState({
+      playlist: updatedPlaylist,
+      title: "",
+      artist: "",
+      time: "0:00",
+    });
+  }
 
   render() {
     return (
       <div className="App">
         <Header />
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label htmlFor="title">
             Song
-            <input type="text" id="title" />
+            <input
+              type="text"
+              id="title"
+              value={this.state.title}
+              onChange={this.handleChange}
+              id="title"
+            />
           </label>
           <label htmlFor="artist">
             Artist
-            <input type="text" id="artist" />
+            <input
+              type="text"
+              value={this.state.artist}
+              onChange={this.handleChange}
+              id="artist"
+            />
           </label>
           <label htmlFor="time">
             Time
-            <input type="text" id="time" />
+            <input
+              type="text"
+              id="time"
+              value={this.state.time}
+              onChange={this.handleChange}
+            />
           </label>
           <label>
             <input type="submit" />
