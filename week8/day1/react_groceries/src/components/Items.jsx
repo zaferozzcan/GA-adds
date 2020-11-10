@@ -45,10 +45,7 @@ export default class Items extends Component {
 
         };
         this.setState({
-          products: [ ...this.state.products, newItem ],
-          name: '',
-          price: 0,
-          description: '',
+         ...this.state,newItem 
         });
       }
 
