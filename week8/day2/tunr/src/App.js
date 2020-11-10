@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import playlist from "./data";
 
-export default class App extends Component() {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,6 +13,7 @@ export default class App extends Component() {
       time: "0.00",
     };
   }
+
   render() {
     return (
       <div className="App">
@@ -42,16 +43,20 @@ export default class App extends Component() {
               <thead>
                 <tr>
                   <th>Song</th>
-                  <th>Arist</th>
+                  <th>Artist</th>
                   <th>Time</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Song</td>
-                  <td>Artist</td>
-                  <td>Time</td>
-                </tr>
+                {this.state.playlist.map((item, index) => {
+                  return (
+                    <tr>
+                      <td>{item.title}</td>
+                      <td>{item.artist}</td>
+                      <td>{item.time}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -60,5 +65,3 @@ export default class App extends Component() {
     );
   }
 }
-
-export default App;
