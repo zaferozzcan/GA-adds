@@ -34,6 +34,7 @@ export default class Items extends Component {
             brand:"",
             units:"",
             quantity:""
+            
         }
 
 
@@ -63,8 +64,8 @@ export default class Items extends Component {
         });
       }
 
-      handleDelete(){
-
+      handleDelete(event){
+        console.log("clicked delete",event);
       }
 
     render() {
@@ -89,7 +90,7 @@ export default class Items extends Component {
                         return (
                             <div className="items">
                                 <div className="item-inner" >
-                                    <button className="remove-button" type="button">X</button>
+                                    <button onClick={this.handleDelete} className="remove-button" type="button">X</button>
                                    <table>
                                        <tr>
                                            <td><span>Item</span></td>
