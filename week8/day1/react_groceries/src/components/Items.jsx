@@ -33,8 +33,8 @@ export default class Items extends Component {
             item:"",
             brand:"",
             units:"",
-            quantity:"",
-            isPurchased:false
+            quantity:""
+            
         }
 
 
@@ -46,7 +46,7 @@ export default class Items extends Component {
         this.setState({
           [event.target.id]: event.target.value,
         });
-        
+        console.log("state", this.state);
       }
 
       handleSubmit(event) {
@@ -64,7 +64,7 @@ export default class Items extends Component {
         });
       }
 
-
+   
 
     render() {
         return (
@@ -84,30 +84,28 @@ export default class Items extends Component {
                 <h1>List Items</h1>
                 <div className="shopping-list-container">
                     {this.state.items.map((item, index)=>{
-            
+                        console.log(item);
                         return (
                             <div className="items">
                                 <div className="item-inner" >
-                                    <button onClick={this.handleDelete} className="remove-button" type="button">X</button>
+                                    <button className="remove-button" type="button">X</button>
                                    <table>
-                                       <tbody>
-                                        <tr>
-                                            <td><span>Item</span></td>
-                                            <td>{item.item}</td>
-                                        </tr>
-                                        <tr>
-                                            <td><span>Brand</span></td>
-                                            <td>{item.brand}</td>
-                                        </tr>
-                                        <tr>
-                                            <td><span>Units</span></td>
-                                            <td>{item.units}</td>
-                                        </tr>
-                                        <tr>
-                                            <td><span>Quantity</span></td>
-                                            <td>{item.quantity}</td>
-                                        </tr>
-                                       </tbody>
+                                       <tr>
+                                           <td><span>Item</span></td>
+                                           <td>{item.item}</td>
+                                       </tr>
+                                       <tr>
+                                           <td><span>Brand</span></td>
+                                           <td>{item.brand}</td>
+                                       </tr>
+                                       <tr>
+                                           <td><span>Units</span></td>
+                                           <td>{item.units}</td>
+                                       </tr>
+                                       <tr>
+                                           <td><span>Quantity</span></td>
+                                           <td>{item.quantity}</td>
+                                       </tr>
                                    </table>
                                 </div>
                             </div> 
