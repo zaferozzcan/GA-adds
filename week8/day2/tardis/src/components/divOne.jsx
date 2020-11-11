@@ -1,18 +1,23 @@
 import React, { Component } from "react";
+import DivTwo from "./DivTwo";
 
 class DivOne extends Component {
   constructor(props) {
     super(props);
-    this.handleClickDivOne = this.handleClickDivOne.bind(this);
+    this.handleClickOnDivOne = this.handleClickOnDivOne.bind(this);
   }
-  handleClickDivOne() {
-    this.props.onClickDivOne();
+
+  handleClickOnDivOne() {
+    this.props.onClickOnApp();
   }
+
   render() {
-    console.log(this.props.tardis.name);
     return (
-      <div onClick={this.handleClickDivOne}>
-        <h3>{this.props.tardis.name}</h3>
+      <div>
+        <DivTwo
+          tardis={this.props.tardis}
+          handleClickOnDivTwo={this.handleClickOnDivOne}
+        />
       </div>
     );
   }

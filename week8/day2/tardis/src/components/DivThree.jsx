@@ -1,20 +1,14 @@
-import "./App.css";
 import React, { Component } from "react";
-import DivOne from "./components/DivOne";
 
-export default class App extends Component {
+class DivThree extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tardis: {
-        name: "Time and Relative Dimension in Space",
-        caps: false,
-      },
+      tardis: this.props.tardis,
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClickOnH3 = this.handleClickOnH3.bind(this);
   }
-
-  handleClick() {
+  handleClickOnH3() {
     const text = this.state.tardis.name;
     if (this.state.tardis.caps) {
       this.setState({
@@ -35,9 +29,10 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <DivOne tardis={this.state.tardis} onClickOnApp={this.handleClick} />
+      <div onClick={this.handleClickOnH3}>
+        <h3>{this.state.tardis.name}</h3>
       </div>
     );
   }
 }
+export default DivThree;
