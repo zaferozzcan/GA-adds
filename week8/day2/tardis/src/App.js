@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { Component } from "react";
-
+import DivOne from "./components/DivOne";
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -10,11 +10,11 @@ export default class App extends Component {
         caps: false,
       },
     };
-
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
+    const text = this.state.tardis.name;
     if (this.state.tardis.caps) {
       this.setState({
         tardis: {
@@ -33,6 +33,10 @@ export default class App extends Component {
   }
 
   render() {
-    return <div onClick={this.handleClick} className="container"></div>;
+    return (
+      <div>
+        <DivOne tardis={this.state.tardis} onClickDivOne={this.handleClick} />
+      </div>
+    );
   }
 }
