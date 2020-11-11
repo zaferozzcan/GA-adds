@@ -15,3 +15,7 @@ div {
   padding: 1em;
   background: white;
 }
+
+#lo-engage-ext-container {
+  display: none;
+}

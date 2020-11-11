@@ -15,14 +15,24 @@ export default class App extends Component {
   }
 
   handleClick() {
-    console.log("div got clicked");
+    if (this.state.tardis.caps) {
+      this.setState({
+        tardis: {
+          name: text.toLowerCase(),
+          caps: false,
+        },
+      });
+    } else {
+      this.setState({
+        tardis: {
+          name: text.toUpperCase(),
+          caps: true,
+        },
+      });
+    }
   }
 
   render() {
-    return (
-      <div onClick={this.handleClick} className="container">
-        {this.state.tardis.name}
-      </div>
-    );
+    return <div onClick={this.handleClick} className="container"></div>;
   }
 }
