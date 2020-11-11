@@ -6,7 +6,7 @@ export default class Form extends Component {
     this.state = {
       birdName: "",
       image: "",
-      name: "",
+      user: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,7 +23,7 @@ export default class Form extends Component {
     this.setState({
       birdName: "",
       image: "",
-      name: "",
+      user: "",
     });
   }
 
@@ -44,10 +44,10 @@ export default class Form extends Component {
             value={this.state.image}
           />
           <input
-            id="name"
+            id="user"
             placeholder=" Pictured by?"
             onChange={this.handleChange}
-            value={this.state.name}
+            value={this.state.user}
           />
           <button type="submit">Add Photo</button>
         </form>

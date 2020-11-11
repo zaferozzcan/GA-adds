@@ -1,19 +1,19 @@
 const birds = [
   {
-    birdName: "Royal Flycatcher",
-    image: "http://media.galaxant.com/000/072/608/desktop-1410170762.png",
+    birdName: "Masket Tragon",
+    image: "https://i.imgur.com/Nt2HBXT.jpg",
     user: "Veloria",
     approved: false,
   },
   {
-    birdName: "Resplendent Quetzal",
-    image: "http://media.galaxant.com/000/072/604/desktop-1410170753.png",
+    birdName: "Flame Faced Tanager",
+    image: "https://i.imgur.com/KjE33tl.jpg",
     user: "Allison",
     approved: false,
   },
   {
-    birdName: "Livingstone's Turaco",
-    image: "http://media.galaxant.com/000/072/594/desktop-1410170731.png",
+    birdName: "Empress Brilliant Hummingbird",
+    image: "https://i.imgur.com/cU4daw8.jpg",
     user: "Rosa",
     approved: true,
   },
@@ -62,6 +62,18 @@ const birds = [
     birdName: "Ex-Parrot",
     image:
       "https://static.independent.co.uk/s3fs-public/thumbnails/image/2014/07/14/15/MPP.jpg?w968h681",
+    user: "Monty",
+    approved: false,
+  },
+  {
+    birdName: "Plate-billed mountain toucan",
+    image: "https://i.imgur.com/RAipigw.jpg",
+    user: "Monty",
+    approved: false,
+  },
+  {
+    birdName: "Sword-biller hummingbird",
+    image: "https://i.imgur.com/nRMTTRK.jpg",
     user: "Monty",
     approved: false,
   },

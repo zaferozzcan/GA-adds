@@ -13,22 +13,33 @@ export default class App extends Component {
     };
 
     this.addBird = this.addBird.bind(this);
+    this.deleteBird = this.deleteBird.bind(this);
   }
 
   addBird(newBird) {
     console.log("newBird", newBird);
     const updatedBirds = [...this.state.birds, newBird];
+    console.log("updatedBirds", updatedBirds);
     this.setState({
       birds: updatedBirds,
     });
   }
 
+  deleteBird(index) {
+    const newBirdList = this.state.birds;
+    newBirdList.splice(index, 1);
+    this.setState({
+      birds: newBirdList,
+    });
+  }
+
   render() {
+    console.log("birds in appjs", this.setState.birds);
     return (
       <div className="App">
         <Header />
         <Form onAdd={this.addBird} />
-        <Card birds={this.state.birds} />
+        <Card birds={this.state.birds} onDelete={this.deleteBird} />
       </div>
     );
   }
