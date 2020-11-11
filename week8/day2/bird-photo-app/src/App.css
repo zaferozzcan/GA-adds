@@ -38,16 +38,8 @@ input {
 }
 
 img {
-  max-width: 100px;
-}
-
-.card {
-  display: inline;
-  position: absolute;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  background-color: blue;
+  width: 100px;
+  height: 100px;
 }
 
 .card-inner {

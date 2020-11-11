@@ -1,40 +1,56 @@
 import React, { Component } from "react";
 
 export default class Form extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      birdName: "",
+      image: "",
+      name: "",
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ [event.target.id]: event.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log("state in handle submit", this.state);
+    this.props.onAdd(this.state);
+    this.setState({
+      birdName: "",
+      image: "",
+      name: "",
+    });
+  }
+
   render() {
     return (
       <div className="form-container">
         <form onSubmit={this.handleSubmit} className="form">
           <input
-            id="item"
+            id="birdName"
+            placeholder=" bird-name"
+            value={this.state.birdName}
             onChange={this.handleChange}
-            value={this.state.item}
-            placeholder="item"
           />
           <input
-            id="brand"
+            id="image"
+            placeholder=" image"
             onChange={this.handleChange}
-            name="brand"
-            value={this.state.brand}
-            placeholder="brand"
+            value={this.state.image}
           />
           <input
-            id="units"
+            id="name"
+            placeholder=" Pictured by?"
             onChange={this.handleChange}
-            name="units"
-            value={this.state.units}
-            placeholder="units"
+            value={this.state.name}
           />
-          <input
-            id="quantity"
-            onChange={this.handleChange}
-            name="quantity"
-            value={this.state.quantity}
-            placeholder="quantity"
-          />
-          <input type="submit" value="Add Item" />
+          <button type="submit">Add Photo</button>
         </form>
-        ;
       </div>
     );
   }
