@@ -21,6 +21,7 @@ export default class Playlist extends Component {
                   song={song}
                   index={index}
                   handleDelete={this.props.handleDelete}
+                  addLovedSong={this.props.addLovedSong}
                 />
               );
             })}

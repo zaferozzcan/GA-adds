@@ -15,7 +15,13 @@ export default class Song extends Component {
 
   render() {
     return (
-      <tr onClick={this.toggleLove} key={this.props.index}>
+      <tr
+        onClick={() => {
+          this.props.addLovedSong(this.props.song);
+          this.toggleLove();
+        }}
+        key={this.props.index}
+      >
         <td onDoubleClick={() => this.props.handleDelete(this.props.index)}>
           {this.props.song.title}
         </td>
