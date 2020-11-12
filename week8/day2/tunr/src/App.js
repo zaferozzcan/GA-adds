@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Playlist from "./components/Playlist";
+import FavoriteSongs from "./components/FavoriteSongs";
 
 import playlist from "./data.js";
 
@@ -13,11 +14,17 @@ class App extends Component {
       title: "",
       artist: "",
       time: "0:00",
+      lovedSongs: [],
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.addLovedSong = this.addLovedSong.bind(this);
+  }
+
+  addLovedSong(song) {
+    this.setState({ lovedSongs: [...this.state.lovedSongs, song] });
   }
 
   handleChange(event) {
