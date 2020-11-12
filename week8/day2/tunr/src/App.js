@@ -94,10 +94,14 @@ class App extends Component {
             <input type="submit" />
           </label>
         </form>
-        <Playlist
-          playlist={this.state.playlist}
-          handleDelete={this.handleDelete}
-        />
+        <main>
+          <Playlist
+            playlist={this.state.playlist}
+            handleDelete={this.handleDelete}
+            addLovedSong={this.addLovedSong}
+          />
+          <FavoriteSongs songs={this.state.lovedSongs} />
+        </main>
         <Footer />
       </div>
     );
