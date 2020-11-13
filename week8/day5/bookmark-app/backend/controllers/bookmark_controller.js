@@ -28,4 +28,24 @@ bookmarkRouter.post("/", (req, res) => {
   });
 });
 
+bookmarkRouter.delete("/:id", (req, res) => {
+  Bookmark.findByIdAndDelete(req.params.id, (err, data) => {
+    if (!err) {
+      res.status(200).json(data);
+    } else {
+      res.status(400).json({ error: err.message });
+    }
+  });
+});
+
+bookmarkRouter.put("/:id", (req, res) => {
+  Bookmark.findByIdAndUpdate(req.params.id, req.body, (err, data) => {
+    if (!err) {
+      res.status(200).json(data);
+    } else {
+      res.status(400).json({ error: err.message });
+    }
+  });
+});
+
 module.exports = bookmarkRouter;
