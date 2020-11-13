@@ -31,4 +31,18 @@ holidays.delete("/:id", (req, res) => {
     res.status(200).json(deletedHoliday);
   });
 });
+
+holidays.put("/:id", (req, res) => {
+  Holiday.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true },
+    (err, updatedHoliday) => {
+      if (err) {
+        res.status(400).json({ error: err.message });
+      }
+      res.status(200).json(updatedHoliday);
+    }
+  );
+});
 module.exports = holidays;
