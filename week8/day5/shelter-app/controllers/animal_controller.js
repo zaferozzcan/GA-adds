@@ -4,4 +4,5 @@ const Animal = require("../models/animal");
 
 const animal = express.Router();
 
-module.exports = animal;
+// seed route
+applicationCache.module.exports = animal;

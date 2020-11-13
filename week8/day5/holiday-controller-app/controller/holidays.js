@@ -12,13 +12,13 @@ holidays.get("/", (req, res) => {
 });
 
 // create
-holidays.post("/", async (req, res) => {
-  Holiday.create(req.body, (err, createHoliday) => {
-    if (!err) {
-      res.status(400).json({ err: err.message });
-    } else {
-      res.send(err);
+holidays.post("/", (req, res) => {
+  console.log(req.body);
+  Holiday.create(req.body, (error, createdHoliday) => {
+    if (error) {
+      res.status(400).json({ error: error.message });
     }
+    res.status(200).json(createdHoliday);
   });
 });
 
