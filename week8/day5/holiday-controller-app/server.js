@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const app = express();
 const PORT = 3003;
 
+// middleware
+app.use(express.json());
+
 // Error / Disconnection
 mongoose.connection.on("error", (err) =>
   console.log(err.message + " is Mongod not running?")
