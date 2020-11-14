@@ -2,7 +2,6 @@ import React, { Component, Fragment } from "react";
 
 export default class Items extends Component {
   render() {
-    console.log(this.props.items);
     return (
       <div>
         <table>

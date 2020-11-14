@@ -35,7 +35,6 @@ fieldset {
   margin: 0;
   display: flex;
   justify-content: center;
-  box-shadow: 0 0 0.8 0.8 red;
   border-color: midnightblue;
   border-radius: 6px;
 }
@@ -64,4 +63,8 @@ table {
 td {
   color: midnightblue;
   font-size: x-large;
+}
+
+button {
+  border-radius: 50%;
 }
