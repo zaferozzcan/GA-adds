@@ -4,14 +4,14 @@
 body {
   font-family: "Modak", cursive;
   margin: 0;
-  background-image: url("./bg-home.jpeg");
-  background-size: cover;
 }
 
 .container {
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
   height: 100%;
+  background-image: url("./bg-home.jpeg");
+  background-size: cover;
 }
 
 /* HEADER */
@@ -22,7 +22,7 @@ body {
   height: 30%;
   background-color: midnightblue;
   font-size: 3rem;
-  color: antiquewhite;
+  color: white;
   text-align: center;
   transform: translateY(-40px);
 }
