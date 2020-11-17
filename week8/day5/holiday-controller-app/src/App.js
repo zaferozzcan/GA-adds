@@ -38,6 +38,13 @@ export default class App extends Component {
   deleteHoliday(id) {
     fetch(baseURL + "/holidays/" + id, {
       method: "DELETE",
+    }).then((response) => {
+      const findIndex = this.state.holidays.findIndex(
+        (holiday) => holiday._id === id
+      );
+      const copyHolidays = [...this.state.holidays];
+      copyHolidays.splice(findIndex, 1);
+      this.setState({ holidays: copyHolidays });
     });
   }
 
