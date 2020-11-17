@@ -1,6 +1,13 @@
 import React, { Component, Fragment } from "react";
 
 export default class Items extends Component {
+  constructor(props) {
+    super(props);
+    this.onDelete = this.onDelete.bind(this);
+  }
+  onDelete(index) {
+    this.props.handleDelete(index);
+  }
   render() {
     return (
       <div>
@@ -11,10 +18,17 @@ export default class Items extends Component {
           <tbody>
             {this.props.items.map((item, index) => {
               return (
-                <tr>
+                <tr key={index}>
                   <td>{item.title}</td>
                   <td>
-                    <button>x</button>
+                    <form>
+                      <button
+                        type="submit"
+                        onClick={() => this.onDelete(index)}
+                      >
+                        x
+                      </button>
+                    </form>
                   </td>
                 </tr>
               );

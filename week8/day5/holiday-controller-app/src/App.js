@@ -1,18 +1,27 @@
-import React from "react";
+import React, { Component } from "react";
+import NewForm from "./components/NewForm.js";
+
 const baseURL = "http://localhost:3003/holidays";
 
-class App extends React.Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       holidays: [],
     };
+
     this.getHolidays = this.getHolidays.bind(this);
+    this.handleAddHoliday = this.handleAddHoliday.bind(this);
   }
 
   componentDidMount() {
-    console.log("inside didMount");
     this.getHolidays();
+  }
+
+  handleAddHoliday(holiday) {
+    this.setState({
+      holidays: this.state.holidays.concat(holiday),
+    });
   }
 
   getHolidays() {
@@ -26,18 +35,25 @@ class App extends React.Component {
         });
       });
   }
+  deleteHoliday(id) {}
 
   render() {
-    console.log("in the render ", this.state.holidays);
     return (
-      <div className="container">
-        <h1>Holidays! Celebrate!</h1>
-        {this.state.holidays.map((holiday) => {
-          return <h1>{holiday.name}</h1>;
-        })}
+      <div>
+        <h1>Holidays!</h1>
+        <NewForm handleAddHoliday={this.handleAddHoliday} />
+        <table>
+          <tbody>
+            {this.state.holidays.map((holiday) => {
+              return (
+                <tr>
+                  <td key={holiday._id}> {holiday.name} </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     );
   }
 }
-
-export default App;

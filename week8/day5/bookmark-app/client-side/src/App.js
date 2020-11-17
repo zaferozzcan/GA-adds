@@ -14,6 +14,7 @@ export default class App extends Component {
     this.loadBookmarks = this.loadBookmarks.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
   componentDidMount() {
     this.loadBookmarks();
@@ -59,8 +60,24 @@ export default class App extends Component {
         });
       });
   }
+
+  // delete bookmark
+  handleDelete(index) {
+    fetch(fetchURL + "/" + this.state.bookmarks[index]._id, {
+      method: "DELETE",
+      body: JSON.stringify({
+        title: this.state.title,
+        url: this.state.url,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.text())
+      .then((res) => console.log(res));
+  }
+
   render() {
-    console.log(this.state.title, this.state.url);
     return (
       <div>
         <div className="container">
@@ -69,14 +86,12 @@ export default class App extends Component {
             <form>
               <fieldset>
                 <legend>Add More Bookmark</legend>
-
                 <input
                   onChange={this.handleChange}
                   id="title"
                   placeholder="name"
                   value={this.state.title}
                 ></input>
-
                 <input
                   onChange={this.handleChange}
                   id="url"
@@ -89,7 +104,10 @@ export default class App extends Component {
               </fieldset>
             </form>
           </div>
-          <Items items={this.state.bookmarks} />
+          <Items
+            handleDelete={this.handleDelete}
+            items={this.state.bookmarks}
+          />
         </div>
       </div>
     );
