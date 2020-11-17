@@ -35,7 +35,11 @@ export default class App extends Component {
         });
       });
   }
-  deleteHoliday(id) {}
+  deleteHoliday(id) {
+    fetch(baseURL + "/holidays/" + id, {
+      method: "DELETE",
+    });
+  }
 
   render() {
     return (
