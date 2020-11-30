@@ -34,5 +34,41 @@ def product(*args):
     product *= arg
   return product
 
-print(product(1,2,3,4,5))
+# print(product(1,2,3,4,5))
+
+students = ["John", "Ben", "Michael", "Ronald"]
+# print(students[1])
+
+foods = ("Banana", "Orange", "Kiwi", "Blueberry")
+
+# for food in foods:
+#     print("{} is a good food!".format(food))
+
+# print(foods[-2:])
+
+home_town = {
+    "city":"Boston",
+    "state":"Masschussets",
+    "population":300000
+}
+
+pair = zip(students, foods)
+cohort=[{"student":p[0],
+"fav_food":p[1]} for p in pair]
+# print(cohort)
+
+
+awesome_students=["{} is awesome".format(name) for name in students]
+# print(awesome_students)
+
+# print(list("a "+food for food in foods))
+
+for i in range(0,4):
+    cohort=[]
+    cohort.append({
+        "student":students[i],
+        "fav_food":foods[i]
+    })
+    print(cohort)
+
 
