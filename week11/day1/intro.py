@@ -54,3 +54,17 @@
 # my_list = [1,2,3,4,5]
 
 # print(9 in my_list)
+
+# x = ('key1', 'key2', 'key3')
+# y = 0
+
+# thisdict = dict.fromkeys(x, y)
+
+# print(thisdict)
+
+# import datetime 
+
+# print(datetime.datetime.month)
+
+
+
