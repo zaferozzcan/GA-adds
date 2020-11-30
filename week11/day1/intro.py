@@ -28,7 +28,6 @@
 
 
 # fizzbuzz
-
 # for num in range(1,21):
 #     if(num % 3 == 0 and num % 5 == 0):
 #         print(num,"fizbuzz")
@@ -40,3 +39,18 @@
 #         print(num)
 
 
+# student = {
+#  	'name': 'Fred',
+#  	'course': 'WDI',
+#  	'current_week': 4
+#  }
+# student.items()
+
+# student_item_array = np.array(student.items())
+
+# print(student_item_array[0])
+
+
+# my_list = [1,2,3,4,5]
+
+# print(9 in my_list)
