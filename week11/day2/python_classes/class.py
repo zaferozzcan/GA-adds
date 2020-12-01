@@ -17,28 +17,39 @@
 
 
 
-class Parent():
-    def __init__(self):
-        self.first_name="Lorelei"
-        self.last_name="Gilmore"
-        print("Prent initialize:", self)
+# class Parent():
+#     def __init__(self):
+#         self.first_name="Lorelei"
+#         self.last_name="Gilmore"
+#         print("Prent initialize:", self)
 
-    def hello(self):
-        print("Hey, I am ", self.first_name,". welcome to Dragonfly")
-
-
-class Child(Parent):
-    def __init__(self):
-        Parent.__init__(self)
-        self.first_name = "Rory"
-        print("Child Initialized:",self)
+#     def hello(self):
+#         print("Hey, I am ", self.first_name,". welcome to Dragonfly")
 
 
+# class Child(Parent):
+#     def __init__(self):
+#         Parent.__init__(self)
+#         self.first_name = "Rory"
+#         print("Child Initialized:",self)
 
-mom = Parent()
 
-dougther = Child()
 
-mom.hello()
+# mom = Parent()
 
-dougther.hello()
+# dougther = Child()
+
+# mom.hello()
+
+# dougther.hello()
+
+class BankAccount():
+    account_total=1000
+    def __init__(self,account_type="",balance=0):
+        self.account_type = account_type
+        self.balance = balance
+    
+    def withdraw(self, amount):
+        
+
+
