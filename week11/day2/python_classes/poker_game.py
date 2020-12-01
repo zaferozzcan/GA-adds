@@ -21,6 +21,9 @@ class User:
         self.last = last 
         self.age = age
         User.total_users +=1
+
+    def __repr__(self):
+        return "{} {}".format(self.first, self.last)
         
     def full_name(self):   # this is a instance method
         print("Hello I am {}{}, and {} years old".format(self.first, self.last,self.age))
@@ -47,8 +50,8 @@ user2.login()
 
 # User.display_total_user()
 user3 = User.instance_from_whole_string("Zafer,Ozcan,58")
-
-user3.full_name()
+print(user3)
+# user3.full_name()
 
 
 
