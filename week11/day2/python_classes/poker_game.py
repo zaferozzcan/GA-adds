@@ -6,6 +6,18 @@ class User:
     active_users = 0
     total_users= 0
 
+    @property
+    def age(self):
+        return self._age
+
+    @age.setter
+    def age(self, new_age):
+        if new_age <0:
+            raise ValueError ("age cannot be negative")
+        else:
+            self._age = new_age
+    
+
     @classmethod
     def display_total_user(cls):
         print("there are currently {} total user created!".format(User.total_users))
@@ -43,17 +55,22 @@ class User:
     def show_active_users(self):
         print("total active users {}".format(User.active_users))
     
-user1 = User("Joe", 'Smith', 67)
-user2 = User("Monica", "James", 55)
-user1.login()
-user2.login()
-
-# User.display_total_user()
-user3 = User.instance_from_whole_string("Zafer,Ozcan,58")
-print(user3)
-# user3.full_name()
+# user1 = User("Joe", 'Smith', 67)
+# user2 = User("Monica", "James", 55)
+# user1.login()
+# user2.login()
 
 
+class Moderator(User):
+    def __init__(self, first, last, age, community):
+        super().__init__(first, last, age)
+        self.community = community
+
+
+
+moderator_1 = Moderator("Ecem", "Bademli", 29, "Pet")
+
+moderator_1.full_name()
 
 # class BankAccount:
 #     def __init__(self, owner, balance=0):
