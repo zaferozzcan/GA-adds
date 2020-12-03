@@ -1,3 +1,4 @@
+let my_array = [12, 65, 45, 32, 47, 98, 66, 34];
 function bubbleSort(array) {
   // Make some sort of loop that keeps happening if there were any swaps
   // that happened this turn
