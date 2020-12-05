@@ -10,6 +10,15 @@ Input: nums = [2,7,11,15], target = 9
 Output: [0,1]
 Output: Because nums[0] + nums[1] == 9, we return [0, 1].  */
 
-function sumTwo(nums, target) {}
+function sumTwo(nums, target) {
+  let sorted = nums.sort((a, b) => a - b);
+  for (let i = 0; i < sorted.length; i++) {
+    for (let j = 1; j < sorted.length; j++) {
+      if (sorted[i] + sorted[j] == target) {
+        return [i, j];
+      }
+    }
+  }
+}
 
 console.log(sumTwo([2, 7, 11, 15], 9));
