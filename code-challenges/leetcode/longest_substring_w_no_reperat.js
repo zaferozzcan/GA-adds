@@ -11,7 +11,13 @@ function getLenSub(s) {
   let goneOver = [s[0]];
 
   for (let i = 1; i < s.length; i++) {
-    if (!goneOver.includes(s[i])) {
+    if (i == 1) {
+      seq = seq + s[0];
     }
+    if (!goneOver.includes(s[i])) {
+      seq = seq + s[i];
+      goneOver.push(s[i]);
+    }
+    console.log(seq);
   }
 }
