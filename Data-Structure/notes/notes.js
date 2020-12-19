@@ -55,3 +55,8 @@ function addUpUp() {
 // Most primitives like booleans, numbers, undefined, null are constant space O(1) space
 // String require O(n) space(where n is the string length)
 // Reference types are generally O(n) space, where n is the length of for arrays, or the number of the keys of an objects
+
+// Logarithm Complexity
+// Logarithmic time complexity is great. When you looh at the mathematical output of log(n) n inreases the result is still small. To understand the reason behing take a closer loook mathematical explanations!
+
+// where do we see the logatitmic complexity-- well there are some searching algorithms, some sorting algos, and recursion sometimes involves logarithmic space comlexity
