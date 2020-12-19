@@ -28,3 +28,11 @@ function addUpUp() {
     console.log("downward");
   }
 }
+
+function addUpUp() {
+  for (var i = 0; i < n; i++) {
+    for (let j = n - 1; j > 0; j--) {
+      console.log("downward"); // notice this here if n grows number of operation grow in the rate of n^2
+    }
+  }
+}
