@@ -60,3 +60,37 @@ function addUpUp() {
 // Logarithmic time complexity is great. When you looh at the mathematical output of log(n) n inreases the result is still small. To understand the reason behing take a closer loook mathematical explanations!
 
 // where do we see the logatitmic complexity-- well there are some searching algorithms, some sorting algos, and recursion sometimes involves logarithmic space comlexity
+
+// /////////// Recap /////////////
+
+/* 
+We covered a lot to analyze performance of an algorithm.
+
+We use Big-O notation.
+
+It has to do with big high level big picture trend as the size of an input.
+
+Gross We want to know how the runtime changes or how the space complexity changes.
+
+So Big O can give us a high level understanding of time or space complexity.
+
+It doesn't care about precision but just general trends.
+
+Time-Space complexity as measured by big-O depends only on the algorithm not on the hardware.
+
+So yes the actual time it might take to run one algorithm on my computer compared to some supercomputer
+
+will definitely be different.
+
+But the general trend won't be big O is basically measuring the number of operations that happen whether
+
+an operation takes 10 milliseconds in my computer or one millisecond on another computer which is pretty
+
+slow anyway.
+
+But you that and Big-O notation is everywhere so we're going to get a lot of practice and that's why
+
+Like I've said before because it's not the most welcoming topic and it's kind of a rude awakening but
+
+it gives us a context to discuss things.
+*/
