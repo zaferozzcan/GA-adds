@@ -8,11 +8,12 @@
 
     STEPS WHEN PROBLEM SOLVING
     -- Understand the problem
-    -- Explore concrate examples
+    -- Explore examples
     -- Break It Down
     -- Solve/Simplify
     -- Look back and refactor
 
+    A)UNDERSTAND THE PROBLEM
     QUESTIONS TO ANSWER BEFORE STARTING TO SOLVE PROBMEN
 
     1) Can I restate the propblem in my own words?
@@ -29,5 +30,31 @@
         3) What are the outputs that should come from the solutions to the problem?
             -- int? float? string?
         4) Can the outputs be determined from the inputs? In other words, do I have enough information to solve the problem?
+
         5) How should I lebel the importanat pieces of data that are a part of teh problem?
+
+
+    B)EXPLORE EXAMPLES
+    1) Start with sample examples.
+    2) Progress to more complex examples.
+    3) Explore examples with Empty inputs.
+    4) Explore examples with invalid inputs.
+
+    
+
+    C) BREAT IT DOWN
+        Note: It is important to know that interviewers expect from interviewees NOT to start to solve problem immediatedly. They expect you to have some brief communication before writing the code!
+
+    1) Explicitly write out the steps you need to take! 
+
+
+    D) SOLVE/SIMPLIFY
+
+    1) SOLVE SIMPLER PARTS-- what I mean by that? Well, do not stuck on the part of a problem that you cannot bring a solution, so just jump on the other parts of the problem. This is because you wnna show something to interviewer, instead of missing entire part, you should just end up having one missing part. 
+
+    IN TERMS OF "SIMPLIFY"
+    -- Find a core difficulty in what you are tyring to do.
+    -- Temporarily ingore that dificulty.
+    -- Write a siplified solution. 
+    -- then incoreporate that difficulty back in
  */
