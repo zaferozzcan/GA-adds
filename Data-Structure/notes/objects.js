@@ -7,7 +7,14 @@
 // big o of objects operations
 // insertion O(1)
 // Removal O(1)
-// Searchning O(1)
+// Searchning O(n)
 // Access O(1)
 
 // Seems like you dont need any ordering, objects are an excellext choice.
+
+// Big O of Object Methods
+
+// Object.key O(n)
+// Object.values O(n)
+// Object.entries O(n)
+// hasOwnProperty O(1)
