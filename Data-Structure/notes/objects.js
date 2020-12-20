@@ -18,3 +18,11 @@
 // Object.values O(n)
 // Object.entries O(n)
 // hasOwnProperty O(1)
+
+// let instructor = {
+//   name: "Zafer",
+//   isFullTime: true,
+//   favoriteFruit: ["appple", "banana"],
+// };
+
+// console.log(instructor.hasOwnProperty("favoriteFruit"));
