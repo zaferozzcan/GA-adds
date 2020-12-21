@@ -24,5 +24,4 @@
 //   isFullTime: true,
 //   favoriteFruit: ["appple", "banana"],
 // };
-
 // console.log(instructor.hasOwnProperty("favoriteFruit"));

@@ -3,6 +3,7 @@
     A process and set of steps to accomplish a certain task!
     
     HOW TO IMPROVE PROBLEM SOLVING SKILL
+    
     1) Devise a plan for solving problem
     2) Master common problem solving problems
 
@@ -57,4 +58,16 @@
     -- Temporarily ingore that dificulty.
     -- Write a siplified solution. 
     -- then incoreporate that difficulty back in
+
+
+
+    E) LOOK BACK AND REFACTOR
+
+    -- Can you check the result?
+    -- Can you derive the result differently?
+    -- Can you understand it a glance?
+    -- Can you use the result or method for some other problem?
+    -- Can you improve the performance of your solution?
+    -- Can you think of other ways to refactor code?
+    -- How other people solved this problem?
  */
