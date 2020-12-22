@@ -37,4 +37,35 @@ function same(arr1, arr2) {
   return true;
 }
 
-console.log(same([1, 2, 3, 4], [1, 4, 9, 16]));
+// console.log(same([1, 2, 3, 4], [1, 4, 9, 16]));
+
+// In the solution below, there are theo loops. First one the one "for of loop" second one is "indexOf". What indexOd does is basicaliy itarating thru array.
+// So that make times Complexity of Big O  O(n^2)
+// thinking about refactoring the solution, we sould think how to reduce time complexity!
+
+// 📝 TWO SEPERATE LOOPS ARE BETTER THAN TWO NESTED LOOPS!
+
+function theSame(arr1, arr2) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  let frequencyCounter1 = {};
+  let frequencyCounter2 = {};
+  for (var num of arr1) {
+    frequencyCounter1[num] = (frequencyCounter1[num] || 0) + 1;
+  }
+  for (var num of arr2) {
+    frequencyCounter2[num] = (frequencyCounter2[num] || 0) + 1;
+  }
+  for (let key in frequencyCounter1) {
+    if (!(key ** 2 in frequencyCounter2)) {
+      return false;
+    }
+    if (frequencyCounter2[key ** 2] !== frequencyCounter1[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// console.log("the same", theSame([1, 2, 3, 4], [1, 4, 9, 16]));
