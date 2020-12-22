@@ -27,4 +27,29 @@ function validAnagram(str1, str2) {
   return true;
 }
 
-console.log(validAnagram("refaz", "zafer"));
+// console.log(validAnagram("cinema", "iceman"));
+
+// SECOND SOLUTION
+
+function checkAnagram(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  // fq1 short for frequencyCounterStr1
+  let fq1 = {};
+  for (var char of str1) {
+    fq1[char] ? (fq1[char] += 1) : (fq1[char] = 1);
+  }
+
+  for (var i = 0; i < str2.length; i++) {
+    let char = str2[i];
+    if (!fq1[char]) {
+      return false;
+    } else {
+      fq1[char] -= 1;
+    }
+  }
+  return true;
+}
+
+console.log("check", checkAnagram("zafere", "refaza"));
