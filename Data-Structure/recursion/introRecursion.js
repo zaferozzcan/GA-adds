@@ -1,7 +1,12 @@
 /* 
 
+Content of Object
+1)a story to illustrate recursion
+2)Why Use Recursion
+3)Understanding Call Stack
 
-Here is a nice story to understand what the recursion is!
+
+1)Here is a nice story to understand what the recursion is!
 👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻👇🏻
 Once upon a time there was Martin a little boy named Martin.
 
@@ -124,5 +129,40 @@ There's no odds not less no odds not one and not one.
 And finally there are no odds in the entire first list that I asked you about.
 
 So no not and the dragon says Oh congratulations boy you have discovered recursion is very condescending
+
+
+
+--------------------------------------------------------------
+
+2)Why Use Recursion
+Recursion is a process calls itself!(A function calls itself in our case!)
+
+We have been using recursion constantly in web dev projects. For example, JSON.parse / JSON.stringify are written recursively! another example document.getElementById and DOM traversal algorithms are written recursively
+
+After undertanding the Call Stack below!
+
+writing recursive function is keep pushing same function onto the call stack!
+
+
+
+Example of recurive code---geme plan is invoking the same function with a different input until youreach the base case
+
+--------------------------------------------------------------
+
+
+3) Understanding Call Stack
+
+It is highly important to understand what happend when we call a function behind the seen!
+
+In almost all programing languages, there is a built in data structure that manages what happens when functions are invoked! There is a special order, in other words!
+So, the sequence itself can be considered or named call stack!
+
+Call Stack is stack data structure. So, stack is anouther data structure. The way or sequence of calling each stack in programming languages is calleed "Call Stack"
+
+what happens when a function invoked!?
+- Anytime a function is invoked. It is placed(pushed) on the top of the call stack!
+- When JavaScript sees the return keyword or when the function ends, the compiler will remove(pop)
+
+
 
 */
