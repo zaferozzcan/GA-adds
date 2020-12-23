@@ -4,6 +4,7 @@ Content of Object
 1)a story to illustrate recursion
 2)Why Use Recursion
 3)Understanding Call Stack
+4)Understanding common problems/pitfalls
 
 
 1)Here is a nice story to understand what the recursion is!
@@ -194,6 +195,10 @@ what happens when a function invoked!?
 - Anytime a function is invoked. It is placed(pushed) on the top of the call stack!
 - When JavaScript sees the return keyword or when the function ends, the compiler will remove(pop)
 
+4) Understanding Common Problems/Pitfalls
 
+--- there might be a huge problem if we forget or mess up with the base case(stop/return point), it will throw an error saying "reached max stack call!"--whick mean code have kept calling the functions infinitely.
+
+--- another problem we might run into when missing decremention in recursive function. from the example above if we forget to do (num-1 or num--;) the function will return same value in turn it will never reach the base case!
 
 */
