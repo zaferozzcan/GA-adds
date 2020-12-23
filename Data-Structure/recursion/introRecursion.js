@@ -5,6 +5,7 @@ Content of Object
 2)Why Use Recursion
 3)Understanding Call Stack
 4)Understanding common problems/pitfalls
+5)Helper Method recursion
 
 
 1)Here is a nice story to understand what the recursion is!
@@ -200,5 +201,42 @@ what happens when a function invoked!?
 --- there might be a huge problem if we forget or mess up with the base case(stop/return point), it will throw an error saying "reached max stack call!"--whick mean code have kept calling the functions infinitely.
 
 --- another problem we might run into when missing decremention in recursive function. from the example above if we forget to do (num-1 or num--;) the function will return same value in turn it will never reach the base case!
+
+--- another problem happens when upon teh base case hase no returning value!
+
+5)Helper Method Recursion
+In this case there is a outher function, and inside of it there is a nother recursive function is called "Helper Method or Helper Function"
+
+a sample illustration of use of helper method
+
+
+function outer() {
+  let outherScopVariable = [];
+  function helper(helperInput) {
+    //modify the outherScopVariable
+    helper(helper(helperInput--));
+  }
+  helper(input);
+  return outherScopVariable;
+}
+
+
+
+function collectOddValues(arr) {
+  let result = [];
+  function helper(helperInput) {
+    if (helperInput.length === 0) {
+      return;
+    }
+    if (helperInput[0] % 2 !== 0) {
+      result.push(helperInput[0]);
+    }
+    helper(helperInput.slice(1));
+  }
+  helper(arr);
+  return result;
+}
+
+console.log(collectOddValues([1, 2, 3, 4, 5, 6, 7]));
 
 */
