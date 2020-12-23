@@ -135,6 +135,9 @@ So no not and the dragon says Oh congratulations boy you have discovered recursi
 --------------------------------------------------------------
 
 2)Why Use Recursion
+Iterative loops don't have to rely on the call stack to store all their data, which means that when data gets large, they don't immediately run the risk of a stack overflow. Recursive functions do. Plus, if a loop is going to continue infinitely, it's much more obvious than if a recursive function is.
+
+git
 Recursion is a process calls itself!(A function calls itself in our case!)
 
 We have been using recursion constantly in web dev projects. For example, JSON.parse / JSON.stringify are written recursively! another example document.getElementById and DOM traversal algorithms are written recursively
@@ -145,7 +148,28 @@ writing recursive function is keep pushing same function onto the call stack!
 
 
 
-Example of recurive code---geme plan is invoking the same function with a different input until youreach the base case
+Example of recurive code---geme plan is invoking the same function with a different input until youreach the base case.
+
+function countDownNaive(num) {
+  for (let i = num; i > 0; i--) {    <--this is a function how i do without recursion
+    console.log(i);
+  }
+}
+
+function countDown(number) {
+  if (number <= 0) {
+    console.log("All Done!");
+    return;
+  }
+  console.log(number);
+  number--;
+  countDown(number);
+}
+
+countDown(10);
+
+
+
 
 --------------------------------------------------------------
 
