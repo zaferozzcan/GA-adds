@@ -1,6 +1,8 @@
 /*
 It is similar to bubble sort, but isnted of first placing large values into sorted position, it places small values into sorted position.
 
+its time complexity is O(n^2)
+
 Psedo
 store the first element as a smallest value
 compoare this item to the nexxt item in the array until you find a smaller number
