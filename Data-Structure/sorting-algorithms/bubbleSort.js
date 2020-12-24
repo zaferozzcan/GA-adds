@@ -55,3 +55,20 @@ function bubbleSort(arr) {
 }
 
 console.log(bubbleSort(my_arr));
+
+//  the problem with bubble sort here, it does not stop if the arr is already sorted, What I mean by that, it completes looping over sorting values again, so this is a huge sort.
+// So we can add  mechanizm by adding a check if there is a sort then stop or go!
+
+function bubbleSort(arr) {
+  for (var i = arr.length; i > 0; i--) {
+    var noSwap = true;
+    for (var j = 0; j < i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        noSwap = false;
+      }
+      if (noSwap) break;
+    }
+  }
+  console.log("final return", arr);
+}
