@@ -25,19 +25,33 @@ Pseudo
 
 let my_arr = [29, 10, 14, 7];
 
+// function bubbleSort(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr.length; j++) {
+//       console.log(arr, arr[j], arr[j + 1]);
+//       if (arr[j] > arr[j + 1]) {
+//         // var temp = arr[j];
+//         // arr[j] = arr[j + 1];
+//         // arr[j + 1] = temp;
+//         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]; //es 2015 up
+//       }
+//     }
+//   }
+//   console.log(arr);
+// }
+
+// different from approach above, in this approach I will make try to cut some cost on time and space coplexity. Since the last item in the first iteration is the one sorted, I will not have to go over it one more time
+
 function bubbleSort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      console.log(arr, arr[j], arr[j + 1]);
+  for (var i = arr.length; i > 0; i--) {
+    for (var j = 0; j < i - 1; j++) {
+      console.log(arr);
       if (arr[j] > arr[j + 1]) {
-        // var temp = arr[j];
-        // arr[j] = arr[j + 1];
-        // arr[j + 1] = temp;
-        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]; //es 2015 up
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
       }
     }
   }
-  console.log(arr);
+  console.log("final return", arr);
 }
 
 console.log(bubbleSort(my_arr));
