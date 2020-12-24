@@ -15,7 +15,6 @@ and then you compare it to the next one.
 
 Is it larger swap again compared to the next one.
 
-
 Pseudo
 --Start looping with outre loop i 
 --have inner loop j
