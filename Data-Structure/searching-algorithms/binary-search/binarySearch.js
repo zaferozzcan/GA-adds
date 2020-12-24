@@ -5,6 +5,11 @@ How it works?
 We pick a middle point constantly check and pick another pick point!
 Divide and Conquer pattern is employed in binary search algo!
 
+Big O of binary search
+the best case is  O(1) and the avarage and the worst case  O(log n)
+ for example if you are looking for an element/value ot of 16 of elements, lets say  that the element is not in the array the max step you need to compute is 4  
+ so the worst case is  2 log4 = 16 so the big o is "O(log n)"
+
 -> Psude code!
 create two variables at the end and begginning of the array
 while the left pointer is smaller than left one
