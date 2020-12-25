@@ -52,4 +52,30 @@ function merge(arr1, arr2) {
   return result;
 }
 
-console.log(merge([1, 10, 50], [2, 14, 99, 100]));
+// console.log(merge([1, 10, 50], [2, 14, 99, 100]));
+
+/*
+Ok, so far I can merge sorted arrays. here below, I will focus on how to sort a chunk of array. 
+
+Pseudo of sort implementatuon
+
+--Break up the array nto two halves until you have arrays that area empty or have one element
+-- Onece you have smaller sorted arrays, merge those aarrays with other sorted arrays until you rae back at the full length of the array
+-- once the array has been merged back together, return the merged and sorted array!
+
+sorting an array
+
+
+
+*/
+
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+  //   divide the array into two
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+  return merge(left, right);
+}
+
+console.log(mergeSort([1, 45, 2, 43, 56, 77, 85, 34, 22, 12]));
