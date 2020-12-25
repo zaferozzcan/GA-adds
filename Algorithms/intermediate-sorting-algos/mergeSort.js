@@ -1,4 +1,9 @@
 /* 
+
+
+Big O of Merge Sort is O(nlog n)
+
+
 So the idea behind it it's really a combination of two things merging and sorting.
 
 And actually you can say it's really a combination of three things splitting up sorting and merging
@@ -70,6 +75,9 @@ sorting an array
 */
 
 function mergeSort(arr) {
+  var count = 1;
+  console.log(`megerSort${count}`);
+  count++;
   if (arr.length <= 1) return arr;
   //   divide the array into two
   let mid = Math.floor(arr.length / 2);
@@ -79,3 +87,7 @@ function mergeSort(arr) {
 }
 
 console.log(mergeSort([1, 45, 2, 43, 56, 77, 85, 34, 22, 12]));
+
+
+
+10 24 76 73
