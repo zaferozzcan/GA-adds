@@ -1,6 +1,7 @@
 /* 
+Big O of insertion sort is O(n^2)
 
-Actually it's pretty similar to the bubble sort.
+it's pretty similar to the bubble sort.
 
 And two selections sort I mean grips them all together.
 
