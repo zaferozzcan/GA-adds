@@ -28,23 +28,24 @@ So if you have ever worked with the Dom in javascript you've manipulated and int
 
 class Student {
   constructor(firstName, lastName) {
-    this.name = firstName;
-    this.last = lastName;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email;
+  }
+
+  static enrollStudent() {
+    console.log("Enrolled Student");
+  }
+
+  setName(newName) {
+    this.firstName = newName;
+  }
+
+  fullName() {
+    console.log(`My Name is ${this.firstName} ${this.lastName}`);
   }
 }
 
-const s1 = new Student("Zafer", "Ozcan");
+const z = new Student("Zafer", "Ozcan");
 
-class Teacher {
-  constructor() {
-    this.name = "Teacher1";
-  }
-  setName(name) {
-    this.name = name;
-  }
-}
-const t1 = new Teacher();
-
-t1.setName("Zafer");
-
-console.log(t1.name);
+Student.enrollStudent();
