@@ -45,5 +45,3 @@ class Student {
     console.log(`My Name is ${this.firstName} ${this.lastName}`);
   }
 }
-
-const z = new Student("Zafer", "Ozcan");
