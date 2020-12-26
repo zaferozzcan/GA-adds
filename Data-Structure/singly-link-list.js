@@ -46,7 +46,21 @@ class SinglyLinkList {
     this.tail = newTail;
     this.tail.next = null;
     this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
     return current;
+  }
+  shift() {
+    if (!this.head) return undefined;
+    var currentHead = this.head;
+    this.head = currentHead.next;
+    this.length--;
+    if (this.length === 0) {
+      this.tail === null;
+    }
+    return currentHead;
   }
 }
 
@@ -57,7 +71,9 @@ myList.push("Zafer");
 myList.push("Ozcan");
 console.log("before", myList.tail.val);
 myList.pop();
-console.log("after", myList.tail.val);
+console.log("1after", myList.tail.val);
+myList.pop();
+console.log("2after", myList.tail.val);
 
 // myList.push("Ozcan");
 
@@ -94,4 +110,32 @@ loop through the list until you reach the tail
 set the next property of the second to last node to be null
 devrement the lenghth of the list by 1
 return the value of the node removed
+
+ pop() {
+    if (!this.head) return undefined;
+    var current = this.head;
+    var newTail = current;
+    while (current.next) {
+      newTail = current;
+      current = current.next;
+    }
+    this.tail = newTail;
+    this.tail.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return current;
+  }
 */
+
+/*
+  SHIFTING the node at the begining of the list
+  if there is no node return undefined 
+  sthore the current head property in a variable 
+  set the head property to be the current head's next
+  property
+  decrement the length by 1
+  return the value of the node removed
+ */
