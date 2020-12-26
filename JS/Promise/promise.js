@@ -9,19 +9,21 @@ const uno = () => {
 };
 
 const dos = () => {
-  setTimeout(() => {
-    return "Two";
-  }, 1000);
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Two");
+    }, 1000);
+  });
 };
 
 const tres = () => {
   return "Three";
 };
 
-const callMe = () => {
+const callMe = async () => {
   let valOne = uno();
   console.log(valOne);
-  let valTwo = dos();
+  let valTwo = await dos();
   console.log(valTwo);
   let valThree = tres();
   console.log(valThree);
