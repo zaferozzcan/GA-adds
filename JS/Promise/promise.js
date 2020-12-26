@@ -1,7 +1,5 @@
 /*
 Promise is an Object!
-
-
 */
 
 const uno = () => {
@@ -29,4 +27,11 @@ const callMe = async () => {
   console.log(valThree);
 };
 
-callMe();
+// callMe();
+
+class Student {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
