@@ -47,5 +47,3 @@ class Student {
 }
 
 const z = new Student("Zafer", "Ozcan");
-
-Student.enrollStudent();
