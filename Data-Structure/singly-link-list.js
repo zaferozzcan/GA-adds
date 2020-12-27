@@ -92,6 +92,19 @@ class SinglyLinkList {
     }
     return false;
   }
+  insert(index, val) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return !!this.push(val);
+    if (index === 0) return !!this.unshift(val);
+
+    var newNode = new Node(val);
+    var prev = this.get(index - 1);
+    var temp = prev.next;
+    prev.next = newNode;
+    newNode.next = temp;
+    this.length++;
+    return true;
+  }
 }
 
 var myList = new SinglyLinkList();
@@ -201,3 +214,16 @@ if the node is not found, return false
 if the node is found, set the value of that node to be the value passed to the function and return true
 
 */
+
+/*
+INSERT Method
+If the index is less than zero or greater  than the length, return false
+If the index is the same as th length, push a new node to the end of the list
+if the index i 0, unshift a new node to the start of the list
+otherwise, using the GET method, access the node at the index -1
+set the next property on that node to be new node
+set the next property on the new node to be the previous next 
+increment the length
+return true
+
+ */
