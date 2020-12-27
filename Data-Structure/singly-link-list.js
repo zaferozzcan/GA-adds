@@ -74,6 +74,16 @@ class SinglyLinkList {
       return this;
     }
   }
+  get(index) {
+    if (index < 0 || index >= this.length) return null;
+    var counter = 0;
+    var current = this.head;
+    while (counter !== index) {
+      current = current.next;
+      counter++;
+    }
+    return current;
+  }
 }
 
 var myList = new SinglyLinkList();
@@ -81,17 +91,13 @@ var myList = new SinglyLinkList();
 myList.push("Hello");
 myList.push("Zafer");
 myList.push("Ozcan");
-// console.log("before", myList.tail.val);
-// myList.pop();
-// console.log("1after", myList.tail.val);
-// myList.pop();
-// console.log("2after", myList.tail.val);
 
-myList.unshift("Hi");
-console.log("head", myList.head);
+/*
 
-// myList.push("Ozcan");
+            IMPLEMENTATION
 
+
+*/
 /*
 adding PUSH method to singly data structure
 This function should accept a value
@@ -166,3 +172,12 @@ return the value of the node removed
  increment the length of the list by 1 
  return the linked list
  */
+
+/*
+GET Method
+Retrieving a node by it's position in the Linked list!
+This function should accept an index
+if the index less than zero or greater than or equal to the length of the list, return null
+Loop through the list until you reach the index and return the node at the spesific index
+
+*/
