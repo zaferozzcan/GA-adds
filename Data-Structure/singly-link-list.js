@@ -84,6 +84,14 @@ class SinglyLinkList {
     }
     return current;
   }
+  set(index, val) {
+    var foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.val = val;
+      return true;
+    }
+    return false;
+  }
 }
 
 var myList = new SinglyLinkList();
@@ -91,6 +99,8 @@ var myList = new SinglyLinkList();
 myList.push("Hello");
 myList.push("Zafer");
 myList.push("Ozcan");
+myList.set(2, "NewOzcan");
+console.log(myList);
 
 /*
 
@@ -179,5 +189,15 @@ Retrieving a node by it's position in the Linked list!
 This function should accept an index
 if the index less than zero or greater than or equal to the length of the list, return null
 Loop through the list until you reach the index and return the node at the spesific index
+*/
+
+/*
+SET Method
+Changing the value of a node based on it's possition in the linked list
+
+This function accepts a value and an index
+User get function to find the spesific node
+if the node is not found, return false
+if the node is found, set the value of that node to be the value passed to the function and return true
 
 */
