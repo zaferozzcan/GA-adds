@@ -62,6 +62,17 @@ class SinglyLinkList {
     }
     return currentHead;
   }
+  unshift(val) {
+    var newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = this.head;
+    }
+    newNode.next = this.head;
+    this.head = newNode;
+    this.length++;
+    return this;
+  }
 }
 
 var myList = new SinglyLinkList();
@@ -69,11 +80,14 @@ var myList = new SinglyLinkList();
 myList.push("Hello");
 myList.push("Zafer");
 myList.push("Ozcan");
-console.log("before", myList.tail.val);
-myList.pop();
-console.log("1after", myList.tail.val);
-myList.pop();
-console.log("2after", myList.tail.val);
+// console.log("before", myList.tail.val);
+// myList.pop();
+// console.log("1after", myList.tail.val);
+// myList.pop();
+// console.log("2after", myList.tail.val);
+
+myList.unshift("Hi");
+console.log("head", myList.head);
 
 // myList.push("Ozcan");
 
@@ -138,4 +152,16 @@ return the value of the node removed
   property
   decrement the length by 1
   return the value of the node removed
+ */
+
+/*
+ Unshift
+ Adding a new node to the beggining of the Linked List!
+ this function should accept a value
+ create a nee node 
+ if there is no head property on the list, set the head and tail to be the newly created node. 
+ otherwise set the newly created nod's next property to be  the current head propert on the list 
+ set the head property on the list to be that newly created node 
+ increment the length of the list by 1 
+ return the linked list
  */
