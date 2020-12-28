@@ -125,6 +125,20 @@ class SinglyLinkList {
     this.length--;
     return removed;
   }
+  reverse() {
+    var node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    var next;
+    var prev = null;
+    for (var i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
 }
 
 var myList = new SinglyLinkList();
@@ -256,6 +270,15 @@ return true
  decrement the length
  return the value of the node removed
   */
+/*
+REVERSE Method
+Swap the head and the tail
+create variable called next 
+create variable cllled prev
+create a variable called node and initialze it to the head property
+loop through the list 
+
+*/
 
 var myArray = [1, 2, 3, 4];
 myArray.push(5);
