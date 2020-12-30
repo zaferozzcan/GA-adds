@@ -1,7 +1,20 @@
 /*
 It is a data structure contains a head, tail and length property.
 
+-Singly link lists are excellent alternatives to arrays when insertion and deletion at the beginning that are frequently required
+-Arrays contain a built in index where as linked lists do not 
+-The idea of a list data structure that consists of nodes is the foundation for other data structures like Stacks and Quesues
+-
+
+Big o
+insertation - O(1)
+removal - it depends where we are removing from if removing from beggining O(1), the worst case O(n).
+searching O(n)
+access O(n)
+
+
 Both Arrays and Linked List can be used to store linear data of similar types, but they both have some advantages and disadvantages over each other. 
+
 
 1. An array is the data structure that contains a collection of similar type data elements whereas the Linked list is considered as a non-primitive data structure contains a collection of unordered linked elements known as nodes. 
 2. In the array the elements belong to indexes, i.e., if you want to get into the fourth element you have to write the variable name with its index or location within the square bracket while in a linked list though, you have to start from the head and work your way through until you get to the fourth element. 
@@ -156,7 +169,7 @@ myList.push("Hello");
 myList.push("Zafer");
 myList.push("Ozcan");
 myList.set(2, "NewOzcan");
-console.log(myList);
+// console.log(myList);
 
 /*
 
@@ -289,6 +302,41 @@ loop through the list
 
 */
 
-var myArray = [1, 2, 3, 4];
-myArray.push(5);
-console.log(myArray);
+// Practices \\
+
+class MyNode {
+  constructor(value) {
+    this.val = value;
+    this.next = null;
+  }
+}
+
+class Singly {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+
+  push(val) {
+    const newVal = new MyNode(val);
+    if (!this.head) {
+      this.length++;
+      this.head = newVal;
+      this.tail = newVal;
+      this.next = null;
+    } else {
+      this.length++;
+      let prevHead = this.head;
+      this.head = newVal;
+      this.next = prevHead;
+    }
+  }
+}
+
+const myList1 = new Singly();
+
+myList1.push(1);
+myList1.push(2);
+
+console.log(myList1);

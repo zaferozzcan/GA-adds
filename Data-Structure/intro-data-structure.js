@@ -5,9 +5,7 @@ Different ways of storing data, in other words!
 ****** WHY SO MANY ? ******
 Different data structures excel at different things. Some are highly specialized, while others (like arrays) are more generally used!
 
-
 ****** WHY CARE ? ******
-
 ----First of all the more time you spend as a developer the more likely you'll need to use one of these
 more advanced data structures.
 Usually there's a time and every developer's life when using an array for every single possible problem
