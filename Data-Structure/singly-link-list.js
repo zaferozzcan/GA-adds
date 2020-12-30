@@ -319,17 +319,24 @@ class Singly {
   }
 
   push(val) {
-    const newVal = new MyNode(val);
+    let newValue = new Node(val);
     if (!this.head) {
-      this.length++;
-      this.head = newVal;
-      this.tail = newVal;
-      this.next = null;
+      this.head = newValue;
+      this.tail = this.head;
     } else {
-      this.length++;
-      let prevHead = this.head;
-      this.head = newVal;
-      this.next = prevHead;
+      this.tail.next = newValue;
+      this.tail = newValue;
+    }
+    this.length++;
+    return this;
+  }
+  pop() {
+    if (!this.head) return undefined;
+    var current = this.head;
+    var newTail = current;
+    while (current.next) {
+      newTail = current;
+      current = current.next;
     }
   }
 }
@@ -338,5 +345,6 @@ const myList1 = new Singly();
 
 myList1.push(1);
 myList1.push(2);
-
+myList1.push(3);
+myList1.pop();
 console.log(myList1);
