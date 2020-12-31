@@ -1,4 +1,4 @@
-/*  This pattern involc=ves creating a window which can either be an array or number from one position to another
+/*  This pattern involves creating a window which can either be an array or number from one position to another
     Depending on a certain condition, the window either increase or closes(and a new window is created)
 
     Very useful for keeping track of a subset of data in an array/string etc
@@ -23,4 +23,21 @@ function maxSubArraySum(arr, num) {
   return maxSum;
 }
 
-console.log(maxSubArraySum([2, 6, 9, 2, 1, 8, 5, 6, 3], 3));
+// console.log(maxSubArraySum([2, 6, 9, 2, 1, 8, 5, 6, 3], 3));
+
+function myMaxSum(arr, num) {
+  let maxSum = 0;
+  let tempSum = 0;
+  if (arr.length < num) return false;
+  for (let i = 0; i < num; i++) {
+    maxSum += arr[i];
+  }
+  tempSum = maxSum;
+  for (let i = num; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - num] + arr[i];
+    maxSum = Math.max(tempSum, maxSum);
+  }
+  return maxSum;
+}
+
+console.log(myMaxSum([2, 6], 3));
