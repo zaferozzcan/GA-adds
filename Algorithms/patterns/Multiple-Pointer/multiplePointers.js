@@ -44,4 +44,21 @@ function countUniqueValues(arr) {
 
 // console.log(countUniqueValues([1, 1, 1, 2, 2, 2, 3, 4, 5, 5, 6, 6, 7, 8]));
 // console.log(countUniqueValues([1, 1, 1, 1, 1, 2]));
-console.log(countUniqueValues([]));
+// console.log(countUniqueValues([]));
+
+function findZero(arr) {
+  let left = 0;
+  let right = arr.length - 1;
+  while (left < right) {
+    let sum = arr[left] + arr[right];
+    if (sum === 0) return [arr[left], arr[right]];
+    if (sum > 0) {
+      right--;
+    } else {
+      left++;
+    }
+  }
+  return false;
+}
+
+console.log(findZero([-5, -3, -2, 0, 1, 2, 4, 5, 6]));
