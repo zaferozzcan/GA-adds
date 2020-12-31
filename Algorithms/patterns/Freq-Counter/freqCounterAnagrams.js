@@ -52,4 +52,24 @@ function checkAnagram(str1, str2) {
   return true;
 }
 
-console.log("check", checkAnagram("zafere", "refaza"));
+// console.log("check", checkAnagram("zafere", "refaza"));
+
+function ifAnagram(str1, str2) {
+  if (str1.length !== str2.length) return false;
+
+  let freqCount1 = {};
+  let freqCount2 = {};
+  for (let char of str1) {
+    freqCount1[char] = (freqCount1[char] || 0) + 1;
+  }
+  for (let char of str2) {
+    freqCount2[char] = (freqCount2[char] || 0) + 1;
+  }
+
+  for (let key in str1) {
+    if (freqCount1[key] !== freqCount2[key]) return false;
+  }
+  return true;
+}
+
+console.log(ifAnagram("zafer", "feraz"));
