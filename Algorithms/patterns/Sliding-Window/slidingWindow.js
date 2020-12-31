@@ -25,19 +25,20 @@ function maxSubArraySum(arr, num) {
 
 // console.log(maxSubArraySum([2, 6, 9, 2, 1, 8, 5, 6, 3], 3));
 
-function myMaxSum(arr, num) {
-  let maxSum = 0;
-  let tempSum = 0;
-  if (arr.length < num) return false;
-  for (let i = 0; i < num; i++) {
+function myMax(arr, num) {
+  var maxSum = 0;
+  var tempSum = 0;
+  if (arr.length < num) return undefined;
+  for (var i = 0; i < num; i++) {
     maxSum += arr[i];
   }
-  tempSum = maxSum;
-  for (let i = num; i < arr.length; i++) {
+  maxSum += arr[i];
+  for (var i = num; i < arr.length; i++) {
     tempSum = tempSum - arr[i - num] + arr[i];
-    maxSum = Math.max(tempSum, maxSum);
+    console.log("tempsums", tempSum);
+    maxSum = Math.max(maxSum, tempSum);
   }
   return maxSum;
 }
 
-console.log(myMaxSum([2, 6], 3));
+console.log(myMax([2, 6, 9, 2, 1, 8, 5, 6, 3], 3));
