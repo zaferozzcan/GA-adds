@@ -5,7 +5,7 @@
 // In my first solution, I will try to solve this problem with two nested foor loops, which is a naive solution in terms of time complexity
 
 function findTwoSum(arr, target) {
-  if (arr.length < 2) return false;
+  if (arr.length < 2) return null;
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
       if (arr[i] + arr[j] === target) {
@@ -13,7 +13,27 @@ function findTwoSum(arr, target) {
       }
     }
   }
-  return false;
+  return null;
 }
 
-console.log(findTwoSum([1, 5, 3, 2, 6, 7], 13));
+// console.log(findTwoSum([1, 5, 3, 2, 6, 7], 13));
+
+// the solition above is O^2 time complexity, which is considered a horibble category for a solution, So we can optimize the solution!
+
+function optSumTwo(nums, target) {
+  const numsMap = {};
+  for (let p = 0; p < nums.length; p++) {
+    const currentMapVal = numsMap[nums[p]];
+    console.log("currentMapVal", currentMapVal);
+    if (currentMapVal >= 0) {
+      return [currentMapVal, p];
+    } else {
+      const numberToFind = target - nums[p];
+      numsMap[numberToFind] = p;
+      console.log("numsMap", numsMap);
+    }
+  }
+  return null;
+}
+
+console.log(optSumTwo([1, 5, 3, 2, 6, 7], 13));
