@@ -1,4 +1,5 @@
 /*
+Nodes are the fundamental building blocks of many computer science data structures. They form the basis for linked lists, stacks, queues, trees, and more.
 It is a data structure contains a head, tail and length property.
 
 -Singly link lists are excellent alternatives to arrays when insertion and deletion at the beginning that are frequently required
@@ -348,3 +349,41 @@ myList1.push(2);
 myList1.push(3);
 myList1.pop();
 console.log(myList1);
+
+class Nodes {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+
+  setNextNode(node) {
+    if (node instanceof Nodes || node === null) {
+      this.next = node;
+    } else {
+      throw new Error("Next node must be a member of the Node class.");
+    }
+  }
+
+  getNextNode() {
+    return this.next;
+  }
+}
+
+const strawberryNode = new Nodes("Berry Tasty");
+
+const vanillaNode = new Nodes("Vanilla");
+
+const coconutNode = new Nodes("Coconuts for Coconut");
+
+vanillaNode.setNextNode(strawberryNode);
+
+strawberryNode.setNextNode(coconutNode);
+
+let currentNode = vanillaNode;
+
+while (currentNode) {
+  console.log(currentNode);
+  currentNode = currentNode.next;
+}
+
+module.exports = Node;
