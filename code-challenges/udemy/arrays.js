@@ -24,16 +24,29 @@ function optSumTwo(nums, target) {
   const numsMap = {};
   for (let p = 0; p < nums.length; p++) {
     const currentMapVal = numsMap[nums[p]];
-    console.log("currentMapVal", currentMapVal);
     if (currentMapVal >= 0) {
       return [currentMapVal, p];
     } else {
       const numberToFind = target - nums[p];
       numsMap[numberToFind] = p;
-      console.log("numsMap", numsMap);
     }
   }
   return null;
 }
 
-console.log(optSumTwo([1, 5, 3, 2, 6, 7], 13));
+// console.log(optSumTwo([1, 5, 3, 2, 6, 7], 13));
+
+function exercise(arr, target) {
+  let allNums = {};
+  for (let p = 0; p < arr.length; p++) {
+    let currentMapVal = allNums[arr[p]];
+    if (currentMapVal >= 0) {
+      return [currentMapVal, p];
+    } else {
+      let numberToFind = target - arr[p];
+      allNums[numberToFind] = p;
+    }
+  }
+}
+
+console.log(exercise([1, 5, 3, 2, 6, 7], 13));
