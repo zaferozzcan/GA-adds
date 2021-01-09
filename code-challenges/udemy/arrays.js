@@ -35,18 +35,3 @@ function optSumTwo(nums, target) {
 }
 
 // console.log(optSumTwo([1, 5, 3, 2, 6, 7], 13));
-
-function exercise(arr, target) {
-  let allNums = {};
-  for (let p = 0; p < arr.length; p++) {
-    let currentMapVal = allNums[arr[p]];
-    if (currentMapVal >= 0) {
-      return [currentMapVal, p];
-    } else {
-      let numberToFind = target - arr[p];
-      allNums[numberToFind] = p;
-    }
-  }
-}
-
-console.log(exercise([1, 5, 3, 2, 6, 7], 13));
