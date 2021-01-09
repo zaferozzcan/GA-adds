@@ -3,17 +3,16 @@
 function mostWater(arr) {
   let area = 0;
   let loc = [];
+  if (arr.length <= 0) return 0;
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
       let width = j - i;
       let heigth = Math.min(arr[i], arr[j]);
-      if (width * heigth > area) {
-        area = width * heigth;
-        loc.push(i);
-        loc.push(j);
-      }
+      area = Math.max(area, width * heigth);
     }
   }
-  return loc.slice(loc.length - 2, loc.length);
+  return area;
 }
-console.log(mostWater([7, 2, 1, 3, 10, 6]));
+console.log(mostWater([1, 7, 4, 2]));
+
+// OPTIMAL SOLUTION \\
