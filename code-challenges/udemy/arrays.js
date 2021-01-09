@@ -34,4 +34,18 @@ function optSumTwo(nums, target) {
   return null;
 }
 
-console.log(optSumTwo([1, 5, 3, 2, 6, 7], 13));
+// console.log(optSumTwo([1, 5, 3, 2, 6, 7], 13));
+
+function example(arr, target) {
+  let allNums = {};
+  for (let p = 0; p < arr.length; p++) {
+    currentPointerValue = allNums[arr[p]];
+    if (currentPointerValue !== undefined) {
+      console.log([currentPointerValue, p]);
+    } else {
+      let numberToFind = target - arr[p];
+      allNums[numberToFind] = p;
+    }
+  }
+}
+example([1, 5, 4, 3, 2], 9);
