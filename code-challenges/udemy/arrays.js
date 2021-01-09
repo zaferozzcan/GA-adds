@@ -34,4 +34,4 @@ function optSumTwo(nums, target) {
   return null;
 }
 
-// console.log(optSumTwo([1, 5, 3, 2, 6, 7], 13));
+console.log(optSumTwo([1, 5, 3, 2, 6, 7], 13));
