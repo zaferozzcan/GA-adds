@@ -1,24 +1,48 @@
 /* Given a string, find the longest substring without repeating chars */
-function longest(S) {
-  let longest = [];
+
+function longest1(s) {
+  let longestArr = [];
   let count = 0;
   let finalCount = 0;
-  for (let i = 0; i < S.length; i++) {
-    if (!S.length) return 0;
-    if (longest.includes(S[i])) {
-      finalCount = Math.max(finalCount, count);
-      console.log("longest", longest);
-      longest = [];
-      longest.push(S[i]);
-      count = 0;
-      count++;
+  if (!s.length) return 0;
+  for (let i = 0; i < s.length; i++) {
+    if (longestArr.includes(s[i])) {
+      finalCount = Math.max(count, finalCount);
+      longestArr = [];
+      longestArr.push(s[i]);
+      count = 1;
     } else {
-      console.log("count", count);
-      longest.push(S[i]);
       count++;
+      longestArr.push(s[i]);
     }
   }
-  return finalCount;
+  return count;
 }
+console.log(longest1("abcbdauc"));
 
-console.log(longest("abccbaa"));
+//the one above has a bug
+
+const lengthOfLongestSubstring = function (s) {
+  if (s.length <= 1) return s.length;
+
+  let longest = 0;
+
+  for (let left = 0; left < s.length; left++) {
+    let seenChars = {},
+      currentLength = 0;
+
+    for (let right = left; right < s.length; right++) {
+      const currentChar = s[right];
+
+      if (!seenChars[currentChar]) {
+        currentLength++;
+        seenChars[currentChar] = true;
+        longest = Math.max(longest, currentLength);
+      } else {
+        break;
+      }
+    }
+  }
+
+  return longest;
+};
