@@ -7,6 +7,7 @@ function longest1(s) {
   if (!s.length) return 0;
   for (let i = 0; i < s.length; i++) {
     if (longestArr.includes(s[i])) {
+      console.log(finalCount);
       finalCount = Math.max(count, finalCount);
       longestArr = [];
       longestArr.push(s[i]);
@@ -16,9 +17,8 @@ function longest1(s) {
       longestArr.push(s[i]);
     }
   }
-  return count;
+  return finalCount;
 }
-console.log(longest1("abcbdauc"));
 
 //the one above has a bug
 
@@ -46,3 +46,32 @@ const lengthOfLongestSubstring = function (s) {
 
   return longest;
 };
+//time(o(n^2))
+//space(o(1))
+
+// OPTIMIZATION
+
+const lengthOfLongestSubstringOptim = function (s) {
+  if (s.length <= 1) return s.length;
+
+  const seen = {};
+  let left = 0,
+    longest = 0;
+
+  for (let right = 0; right < s.length; right++) {
+    const currentChar = s[right];
+    const previouslySeenChar = seen[currentChar];
+
+    if (previouslySeenChar >= left) {
+      left = previouslySeenChar + 1;
+    }
+
+    seen[currentChar] = right;
+
+    longest = Math.max(longest, right - left + 1);
+  }
+
+  return longest;
+};
+
+// console.log(lengthOfLongestSubstringOptim(string));
