@@ -11,6 +11,15 @@ class singlyLinkedList {
     this.head = null;
     this.tail = null;
   }
+  print() {
+    var arr = [];
+    var current = this.head;
+    while (current) {
+      arr.push(current.val);
+      current = current.next;
+    }
+    console.log(arr);
+  }
 
   push(val) {
     var newNode = new Node(val);
@@ -24,42 +33,6 @@ class singlyLinkedList {
     }
     this.length++;
     return this;
-  }
-  print() {
-    var arr = [];
-    var current = this.head;
-    while (current) {
-      arr.push(current.val);
-      current = current.next;
-    }
-    console.log(arr);
-  }
-  pop() {
-    if (!this.head) return undefined;
-    var current = this.head;
-    var newTail = current;
-    while (current.next) {
-      newTail = current;
-      current = current.next;
-    }
-    this.tail = newTail;
-    this.tail.next = null;
-    this.length--;
-    if (this.length === 0) {
-      this.head = null;
-      this.tail = null;
-    }
-    return current;
-  }
-  shift() {
-    if (!this.head) return undefined;
-    var currentHead = this.head;
-    this.head = currentHead.next;
-    this.length--;
-    if (this.length === 0) {
-      this.tail === null;
-    }
-    return currentHead;
   }
 }
 
