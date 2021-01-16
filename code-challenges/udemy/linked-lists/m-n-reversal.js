@@ -34,6 +34,9 @@ class singlyLinkedList {
     this.length++;
     return this;
   }
+  pop() {
+    if (this.length < 1) return undefined;
+  }
 }
 
 const myList = new singlyLinkedList();
@@ -41,5 +44,4 @@ const myList = new singlyLinkedList();
 myList.push(1);
 myList.push(2);
 myList.push(3);
-// console.log(myList);
-myList.print();
+console.log(myList);
