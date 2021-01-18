@@ -30,3 +30,9 @@ let mixed: (String | Number)[] = []; // this enables us to initialize an empty a
 mixed.push("hello");
 mixed.push(20);
 // mixed.push(true); // this is not allowed
+
+let myAge: any = 25;
+
+myAge = "hellop";
+
+console.log(myAge);

@@ -20,3 +20,6 @@ var mixed = []; // this enables us to initialize an empty array then we can push
 mixed.push("hello");
 mixed.push(20);
 // mixed.push(true); // this is not allowed
+var myAge = 25;
+myAge = "hellop";
+console.log(myAge);
