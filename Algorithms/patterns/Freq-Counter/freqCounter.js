@@ -85,5 +85,3 @@ function theSame2(arr1, arr2) {
   }
   return true;
 }
-
-console.log(theSame2([], []));
