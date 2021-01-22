@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import Loader from "./Loader";
 
 const buttonVariants = {
   visible: {
@@ -16,7 +17,8 @@ const buttonVariants = {
     boxShadow: "0px 0px 5px rgb(255,255,255)",
     transition: {
       yoyo: 10,
-      duration: 0.3,
+      duration: 0.25,
+      ease: "easeOut",
     },
   },
 };
@@ -59,6 +61,7 @@ const Home = () => {
           Create Your Pizza
         </motion.button>
       </Link>
+      <Loader />
     </motion.div>
   );
 };
