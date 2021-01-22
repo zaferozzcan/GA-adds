@@ -17,9 +17,18 @@ const Base = ({ addBase, pizza }) => {
         {bases.map((base) => {
           let spanClass = pizza.base === base ? "active" : "";
           return (
-            <li key={base} onClick={() => addBase(base)}>
+            <motion.li
+              whileHover={{
+                scale: 1.3,
+                color: "#f8e112",
+                originX: 0,
+              }}
+              transition={{ type: "spring", stiffness: 200 }}
+              key={base}
+              onClick={() => addBase(base)}
+            >
               <span className={spanClass}>{base}</span>
-            </li>
+            </motion.li>
           );
         })}
       </ul>
@@ -31,7 +40,15 @@ const Base = ({ addBase, pizza }) => {
           animate={{ x: 0 }}
         >
           <Link to="/toppings">
-            <button>Next</button>
+            <motion.button
+              whileHover={{
+                scale: 1.1,
+                textShadow: "0px 0px 5px rgb(255,255,255)",
+                boxShadow: "0px 0px 5px rgb(255,255,255)",
+              }}
+            >
+              Next
+            </motion.button>
           </Link>
         </motion.div>
       )}

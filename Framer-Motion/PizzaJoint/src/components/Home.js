@@ -8,13 +8,21 @@ const Home = () => {
       className="home container"
       initial={{ opacity: 0 }}
       animate={{ rotateZ: 360, opacity: 1, marginTop: 200, y: -30 }}
-      transition={{ delay: 0.9, duration: 2 }}
+      transition={{ delay: 0.3, duration: 1.3 }}
     >
       <motion.h2 animate={{ fontSize: 40, color: "white", x: 0, y: -150 }}>
         Welcome to Pizza Joint
       </motion.h2>
       <Link to="/base">
-        <motion.button animate={{ scale: 2 }}>Create Your Pizza</motion.button>
+        <motion.button
+          whileHover={{
+            scale: 1.1,
+            textShadow: "0px 0px 5px rgb(255,255,255)",
+            boxShadow: "0px 0px 5px rgb(255,255,255)",
+          }}
+        >
+          Create Your Pizza
+        </motion.button>
       </Link>
     </motion.div>
   );
