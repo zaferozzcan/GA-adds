@@ -24,6 +24,19 @@ const Toppings = ({ addTopping, pizza }) => {
     },
   };
 
+  const buttonVariants = {
+    hover: {
+      // scale: [1, 1.1, 1, 1.1, 1, 1, 1.1, 1, 1.1, 1], this is custon key frame to make it indefine use "yoyo in transition"
+      scale: 1.1,
+      textShadow: "0px 0px 5px rgb(255,255,255)",
+      boxShadow: "0px 0px 5px rgb(255,255,255)",
+      transition: {
+        yoyo: 10,
+        duration: 0.3,
+      },
+    },
+  };
+
   return (
     <motion.div
       className="toppings container"
@@ -53,13 +66,7 @@ const Toppings = ({ addTopping, pizza }) => {
       </ul>
 
       <Link to="/order">
-        <motion.button
-          whileHover={{
-            scale: 1.1,
-            textShadow: "0px 0px 5px rgb(255,255,255)",
-            boxShadow: "0px 0px 5px rgb(255,255,255)",
-          }}
-        >
+        <motion.button variants={buttonVariants} whileHover="hover">
           Order
         </motion.button>
       </Link>

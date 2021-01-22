@@ -10,9 +10,14 @@ const buttonVariants = {
     },
   },
   hover: {
-    scale: [1, 1.1, 1, 1.1, 1, 1, 1.1, 1, 1.1, 1],
+    // scale: [1, 1.1, 1, 1.1, 1, 1, 1.1, 1, 1.1, 1], this is custon key frame to make it indefine use "yoyo in transition"
+    scale: 1.1,
     textShadow: "0px 0px 5px rgb(255,255,255)",
     boxShadow: "0px 0px 5px rgb(255,255,255)",
+    transition: {
+      yoyo: 10,
+      duration: 0.3,
+    },
   },
 };
 
