@@ -6,7 +6,9 @@ const Home = () => {
   return (
     <motion.div
       className="home container"
-      animate={{ rotateZ: 360, opacity: 0.5, marginTop: 200, y: -30 }}
+      initial={{ opacity: 0 }}
+      animate={{ rotateZ: 360, opacity: 1, marginTop: 200, y: -30 }}
+      transition={{ delay: 0.9, duration: 2 }}
     >
       <motion.h2 animate={{ fontSize: 40, color: "white", x: 0, y: -150 }}>
         Welcome to Pizza Joint
