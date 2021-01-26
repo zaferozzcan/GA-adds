@@ -32,3 +32,26 @@ resources = {
     "coffee": 100,
 }
 
+is_on= True
+
+while is_on:
+    choice =input("What would you like to drink?(Expresso,Latte,Cappuccino)\n")
+    if(choice == "off"):
+        print(f"Machine's turned off")
+        is_on = False
+    elif choice=="report":
+        print(f"Water:{resources['water']}")
+        print(f"Water:{resources['milk']}")
+        print(f"Water:{resources['coffee']}")
+        print(f"{profit}")
+    else:
+
+
+def is_resource_sufficient(order_item):
+
+    for ings in menu[order_item]["ingredients"]:
+
+        print(ings)
+
+
+is_resource_sufficient("latte")
