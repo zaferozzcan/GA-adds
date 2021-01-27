@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const buttonVariants = {
   visible: {
@@ -17,9 +17,17 @@ const buttonVariants = {
 };
 
 const Home = () => {
+  const [showGreet, setShowGreet] = useState(true);
+  setTimeout(() => {
+    setShowGreet(false);
+  }, 4000);
   return (
     <motion.div className="home container">
-      <motion.h2>Welcome to Pizza Joint</motion.h2>
+      <AnimatePresence>
+        {showGreet && (
+          <motion.h2 exit={{ y: -1000 }}>Welcome to Pizza Joint</motion.h2>
+        )}
+      </AnimatePresence>
       <Link to="/base">
         <motion.button
           variants={buttonVariants}
