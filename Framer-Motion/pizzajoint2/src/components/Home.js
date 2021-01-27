@@ -6,12 +6,13 @@ const Home = () => {
   return (
     <motion.div className="home container">
       <motion.h2
+        initial={{ opacity: 0 }}
         animate={{
-          rotateY: 360,
+          type: "zoomIn",
+          opacity: 1,
           fontSize: 80,
           color: "#ff2994",
-
-          transition: { duration: 2.1 },
+          transition: { duration: 3.1, ease: "easeInOut" },
         }}
       >
         Welcome to Pizza Joint
