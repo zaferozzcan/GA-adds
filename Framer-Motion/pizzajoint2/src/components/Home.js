@@ -22,22 +22,28 @@ const Home = () => {
     setShowGreet(false);
   }, 4000);
   return (
-    <motion.div className="home container">
+    <>
       <AnimatePresence>
         {showGreet && (
-          <motion.h2 exit={{ y: -1000 }}>Welcome to Pizza Joint</motion.h2>
+          <motion.div
+            exit={{ y: -1000, transition: { duration: 2.2 } }}
+            className="piic"
+          ></motion.div>
         )}
       </AnimatePresence>
-      <Link to="/base">
-        <motion.button
-          variants={buttonVariants}
-          animate="visible"
-          whileHover="hover"
-        >
-          Create Your Pizza
-        </motion.button>
-      </Link>
-    </motion.div>
+      <motion.div className="home container">
+        <motion.h2 exit={{ y: -1000 }}>Welcome to Pizza Joint</motion.h2>
+        <Link to="/base">
+          <motion.button
+            variants={buttonVariants}
+            animate="visible"
+            whileHover="hover"
+          >
+            Create Your Pizza
+          </motion.button>
+        </Link>
+      </motion.div>
+    </>
   );
 };
 
