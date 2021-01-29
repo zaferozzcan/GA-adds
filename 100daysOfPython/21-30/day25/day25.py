@@ -22,4 +22,10 @@ with open("names.txt") as names_list:
     names = names_list.readlines()
    
 
-with open("startig_file.txt")
+with open("starting_file.txt") as letter_file:
+    letter_content = letter_file.read()
+    for name in names:
+        new_letter = letter_content.replace("[name]", name)
+        with open(f"./output/{name}.txt","w") as completed_letter:
+
+            completed_letter.write(new_letter)
