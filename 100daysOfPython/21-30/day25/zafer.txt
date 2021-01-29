@@ -1,2 +1,4 @@
-Hello World
-this is text file
+I am a line written by the write method!I am a line written by the write method!
+I am a line written by the write method!
+I am a line written by the write method!
+I am a line written by the write method!
