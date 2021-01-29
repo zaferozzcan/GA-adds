@@ -1,4 +1,12 @@
-file = open("zafer.txt")
-contents = file.read()
+# file = open("zafer.txt")
 
-print(contents)
+# content = file.read()
+
+# print(content)
+
+# file.close()
+
+
+with open("zafer.txt") as file:
+    content = file.read()
+    print(content)
