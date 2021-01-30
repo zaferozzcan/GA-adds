@@ -1,18 +1,14 @@
-let steps = ["U", "D", "D", "D", "U", "D", "U", "U"];
+let path = ["U", "D", "D", "D", "U", "D", "U", "U"];
 
-for (let i = 0; i < steps.length; i++) {
-  let valleyCount = {};
-  let count = 0;
-  let enterTheValley = false;
-  let valleyStartIndex;
-  valleyCount[steps[i]] = (valleyCount[steps[i]] | 0) + 1;
-  if (valleyCount["D"] < valleyCount["U"]) {
-    enterTheValley = true;
-    valleyStartIndex = i;
-  }
-  if (valleyStartIndex) {
-    break;
+function countingValleys(steps, path) {
+  let valleyMap = {};
+  for (let i = 0; i < steps; i++) {
+    valleyMap[path[i]] = (valleyMap[path[i]] | 0) + 1;
+    if (valleyMap["D"] > valleyMap["U"]) {
+      console.log("entered the valley");
+      return;
+    }
   }
 }
 
-console.log(valleyStartIndex);
+countingValleys(path.length, path);
