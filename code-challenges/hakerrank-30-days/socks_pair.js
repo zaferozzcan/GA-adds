@@ -9,8 +9,6 @@
 // Returns
 // int: the number of pairs
 
-let ar = [1, 2, 1, 2, 1, 3, 2, 2];
-
 function sockMerchant(n, ar) {
   let pair = {};
   let pair_count = 0;
@@ -18,9 +16,11 @@ function sockMerchant(n, ar) {
     pair[ar[i]] = (pair[ar[i]] | 0) + 1;
   }
   console.log(pair);
-  for (key of Object.keys(pair)) {
+  for (let key of Object.keys(pair)) {
     pair_count = pair_count + Math.floor(pair[key] / 2);
   }
   console.log(pair_count);
 }
+
+let ar = [1, 2, 1, 2, 1, 3, 2, 2];
 sockMerchant(ar.length, ar);
