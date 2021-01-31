@@ -15,5 +15,4 @@ function countingValleys(steps, path) {
   }
   return valley;
 }
-
 console.log(countingValleys(path.length, path));
