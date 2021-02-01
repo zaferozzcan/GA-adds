@@ -15,23 +15,19 @@ function sumZero(arr) {
   }
 }
 
-// console.log(sumZero([-1, 0, 1, 2, 3, 4]));
-
-function findZero(arr) {
-  arr = arr.sort((a, b) => a - b);
-  console.log(arr);
-  let left = 0;
-  let right = arr.length - 1;
-  while (left < right) {
-    let sum = arr[left] + arr[right];
-    if (sum == 0) return [left, right];
-    if (sum > 0) {
-      right--;
+function findElem(arr, num) {
+  let min = 0;
+  let max = arr.length - 1;
+  while (min < max) {
+    let middleIndex = Math.floor((min + max) / 2);
+    let middleELem = arr[middleIndex];
+    if (middleELem > num) {
+      max = middleIndex - 1;
+    } else if (middleELem < num) {
+      min = middleIndex + 1;
     } else {
-      left++;
+      return middleIndex;
     }
   }
-  return;
 }
-
-console.log(findZero([3, 2, 1, 4, 5, 7, 9, -1, -3]));
+console.log(findElem([1, 3, 4, 5, 34, 56, 78, 99, 100], 99));
