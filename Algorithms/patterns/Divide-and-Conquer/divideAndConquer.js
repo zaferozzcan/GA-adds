@@ -10,8 +10,13 @@ function findElem(arr, num) {
   while (min < max) {
     let middleIndex = Math.floor((min + max) / 2);
     let middleELem = arr[middleIndex];
-    console.log(middleELem);
+    if (middleELem > num) {
+      max = middleIndex - 1;
+    } else if (middleELem < num) {
+      min = middleIndex + 1;
+    } else {
+      return middleIndex;
+    }
   }
 }
-
-findElem([1, 3, 4, 5, 34, 56, 78, 99, 100], 99);
+console.log(findElem([1, 3, 4, 5, 34, 56, 78, 99, 100], 99));

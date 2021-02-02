@@ -1,33 +1,40 @@
-function sumZero(arr) {
-  // set the first/ beggining /left pointer
-  let left = 0;
-  // set the last/ ending pointer
-  let right = arr.length - 1;
-  while (left < right) {
-    let sum = arr[left] + arr[right];
-    if (sum === 0) {
-      return [arr[left], arr[right]];
-    } else if (sum > 0) {
-      right--;
+function directionReduction(directions) {
+  let clear_path = [];
+  //   helper
+  function findOpposite(direction) {
+    if (direction == "NORTH") return "SOUTH";
+    if (direction == "SOUTH") return "NORTH";
+    if (direction == "WEST") return "EAST";
+    if (direction == "EAST") return "WEST";
+  }
+
+  for (let i = 0; i < directions.length; i++) {
+    let current = directions[i];
+    let next = directions[i + 1];
+
+    if (findOpposite(current) == next) {
+      directions.splice(i, 1);
+      directions.splice(i, 1);
+      console.log(directions);
+      //recursion
+
+      directionReduction(directions);
     } else {
-      left++;
+      clear_path.push(directions[i]);
     }
   }
+  return clear_path;
 }
 
-function findElem(arr, num) {
-  let min = 0;
-  let max = arr.length - 1;
-  while (min < max) {
-    let middleIndex = Math.floor((min + max) / 2);
-    let middleELem = arr[middleIndex];
-    if (middleELem > num) {
-      max = middleIndex - 1;
-    } else if (middleELem < num) {
-      min = middleIndex + 1;
-    } else {
-      return middleIndex;
-    }
-  }
-}
-console.log(findElem([1, 3, 4, 5, 34, 56, 78, 99, 100], 99));
+console.log(
+  directionReduction([
+    "NORTH",
+    "EAST",
+    "WEST",
+    "SOUTH",
+    "WEST",
+    "SOUTH",
+    "NORTH",
+    "WEST",
+  ])
+);
