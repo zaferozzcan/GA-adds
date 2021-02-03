@@ -49,24 +49,84 @@
 
 // console.log(mutateTheArray(5, [4, 0, 1, -2, 3]));
 
-let a = [1, 2, 3];
-let b = [1, 2, 3];
+// let a = [1, 2, 3];
+// let b = [1, 2, 3];
 
-function countTinyPairs(a, b, k) {
-  let tiny_count = 0;
-  let concat_array = [...a, ...b];
-  let left = 0;
-  let right = concat_array.length - 1;
-  for (let i = 0; i < a.length; i++) {
-    let left_number = concat_array[left];
-    let right_number = concat_array[right];
-    let concated_numbers = Number(String(left_number) + String(right_number));
-    left++;
-    right--;
-    if (concated_numbers < k) {
-      tiny_count++;
+// function countTinyPairs(a, b, k) {
+//   let tiny_count = 0;
+//   let concat_array = [...a, ...b];
+//   let left = 0;
+//   let right = concat_array.length - 1;
+//   for (let i = 0; i < a.length; i++) {
+//     let left_number = concat_array[left];
+//     let right_number = concat_array[right];
+//     let concated_numbers = Number(String(left_number) + String(right_number));
+//     left++;
+//     right--;
+//     if (concated_numbers < k) {
+//       tiny_count++;
+//     }
+//   }
+//   return tiny_count;
+// }
+// console.log(countTinyPairs(a, b, 31));
+
+let s1 = "dce";
+let s2 = "cccbd";
+
+function mergeStrings(s1, s2) {
+  let freqS1 = {};
+  let freqS2 = {};
+
+  function freqChecker(str) {
+    let freq = {};
+    for (let i = 0; i < str.length; i++) {
+      freq[str[i]] = (freq[str[i]] | 0) + 1;
     }
+    return freq;
   }
-  return tiny_count;
+  freqS1 = freqChecker(s1);
+  freqS2 = freqChecker(s2);
+
+  function decider(freqS1, freqS2) {
+    for (let key in freqS1) {
+      console.log(freqS1[key]);
+      if (freqS1[key] > 1) return false;
+    }
+    for (let key in freqS2) {
+      if (freqS2[key] > 1) return false;
+    }
+    return true;
+  }
+
+  function v1(s1, s2) {
+    let final_string = "";
+    let temp_array = [];
+    let loop_max_limit = Math.min(s1.length, s2.length);
+    for (let i = 0; i < loop_max_limit; i++) {
+      temp_array.push(s1[i]);
+      temp_array.push(s2[i]);
+      final_string += temp_array.sort()[0];
+      temp_array = [];
+    }
+    let remaining_chars =
+      s2.length > s1.length
+        ? s2.substr(s1.length, s2.length)
+        : s1.substr(s2.length, s1.length);
+
+    return final_string + remaining_chars;
+  }
+
+  function v2(s1, s2) {
+    return s1 + s2;
+  }
+
+  if (decider) {
+    return v2(s1, s2);
+  } else {
+    v1(s1, s2);
+  }
 }
-console.log(countTinyPairs(a, b, 31));
+// console.log(mergeStrings(s1, s2));
+
+console.log("a b c".replace(" ", ""));
