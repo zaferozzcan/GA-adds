@@ -159,21 +159,25 @@ function numKeypadSolutions(wordlist, keypads) {
   }
 
   function words_validator(wl, kp) {
-    let freq1 = {};
-    let freq2 = {};
-    freqWl = freq_counter(wl);
-    freqKp = freq_counter(kp);
-    if (!wl.includes(kp[0])) false;
+    let freqWl = freq_counter(wl);
+    let freqKp = freq_counter(kp);
+    if (wl.includes(kp[0])) false;
+    let quitter = false;
     for (let key in freqWl) {
-      if (freqKp[key] == undefined) false;
+      if (freqKp[key] == undefined) {
+        quitter = true;
+      }
     }
+    if (quitter) return false;
     return true;
   }
 
   let counter = 0;
   for (let i = 0; i < keypads.length; i++) {
     for (let j = 0; j < wordlist.length; j++) {
-      if (words_validator(keypads[i], wordlist[j])) {
+      //   console.log(keypads[i], wordlist[j]);
+      //   console.log(words_validator(wordlist[j], keypads[i]));
+      if (words_validator(wordlist[j], keypads[i])) {
         counter++;
       }
     }
@@ -184,3 +188,20 @@ function numKeypadSolutions(wordlist, keypads) {
 }
 
 console.log(numKeypadSolutions(wordlist, keypads));
+
+// let counter = 0;
+// for (let i = 0; i < keypads.length; i++) {
+//   for (let j = 0; j < wordlist.length; j++) {
+//     console.log(
+//       [keypads[i], wordlist[j]],
+//       words_validator(wordlist[j], keypads[i])
+//     );
+//     if (words_validator(keypads[i], wordlist[j])) {
+//       counter++;
+//     }
+//     break;
+//   }
+//   final_array.push(counter);
+//   counter = 0;
+// }
+// return final_array;
