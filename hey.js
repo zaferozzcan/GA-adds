@@ -1,14 +1,12 @@
-function makeArrayConsecutive2(statues) {
-  let freq_statues = {};
-  let counter = 0;
-  for (let i = 0; i < statues.length; i++) {
-    freq_statues[statues[i]] = (freq_statues[statues[i]] | 0) + 1;
-  }
-  for (let i = Math.min(...statues); i < Math.max(...statues) + 1; i++) {
-    if (freq_statues[i] === undefined) counter++;
-  }
-  return counter;
+function almostIncreasingSequence(seq) {
+  var bad = 0;
+  for (var i = 1; i < seq.length; i++)
+    if (seq[i] <= seq[i - 1]) {
+      bad++;
+      if (bad > 1) return false;
+      if (seq[i] <= seq[i - 2] && seq[i + 1] <= seq[i - 1]) return false;
+    }
+  return true;
 }
-statues = [6, 2, 3, 8];
 
-console.log(makeArrayConsecutive2(statues));
+console.log(almostIncreasingSequence([1, 3, 2, 3]));
