@@ -1,23 +1,11 @@
-function matrixElementsSum(matrix) {
-  let gosted_room_index = {};
-  let total = 0;
-  for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length; j++) {
-      if (matrix[i][j] == 0) {
-        gosted_room_index[j] ? null : (gosted_room_index[j] = 1);
-      } else {
-        if (!gosted_room_index[j]) {
-          total += matrix[i][j];
-        }
-      }
-    }
-  }
-  return matrix;
-}
+function firstDuplicate(a) {
+  var dictionary = {};
 
-let matrix = [
-  [1, 1, 1, 0],
-  [0, 5, 0, 1],
-  [2, 1, 3, 10],
-];
-matrixElementsSum(matrix);
+  for (var i = 0; i < a.length; i++) {
+    if (dictionary[a[i]] !== undefined) return a[i];
+    else dictionary[a[i]] = i;
+  }
+
+  return -1;
+}
+console.log(firstDuplicate([2, 1, 3, 5, 3, 2]));
