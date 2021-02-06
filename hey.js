@@ -15,3 +15,19 @@ function reverseInParentheses(inputString) {
   }
   return s;
 }
+
+let s = "bar(buzz)bar";
+
+let open = s.indexOf("(");
+let close = s.indexOf(")");
+console.log(open, close);
+
+let par = s
+  .slice(open + 1, close)
+  .split("")
+  .reverse()
+  .join("");
+
+let final = s.slice(0, open) + par + s.slice(close + 1, s.length);
+
+console.log(final);
