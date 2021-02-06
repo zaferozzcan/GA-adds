@@ -1,10 +1,23 @@
-let a = [50, 60, 60, 45, 70];
-function alternatingSums(a) {
-  let first = 0;
-  let second = 0;
-  for (let i = 0; i < a.length; i++) {
-    i % 2 == 0 ? (first += a[i]) : (second += a[i]);
+picture = ["abc", "ded"];
+
+function addBorder(picture) {
+  let borderLen = picture[0].length + 2;
+  let top = "";
+  let bottom = "";
+
+  for (let i = 0; i < borderLen; i++) {
+    bottom += "*";
+    top += "*";
   }
-  return [first, second];
+
+  let new_a = picture.map((item) => {
+    let a = item.split("");
+    a.push("*");
+    a.unshift("*");
+    return a.join("");
+  });
+  new_a.push(bottom);
+  new_a.unshift(top);
+  return new_a;
 }
-console.log(alternatingSums(a));
+console.log(addBorder(picture));
