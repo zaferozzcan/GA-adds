@@ -1,23 +1,17 @@
-let a = [-1, 150, 190, 170, -1, -1, 160, 180];
+function reverseInParentheses(inputString) {
+  var s = inputString;
 
-function sortByHeight(a) {
-  var s = a.filter((h) => h > 0).sort((a, b) => a - b);
-  console.log(s);
-  return a.map((p) => {
-    if (p !== -1) {
-      return s.shift();
-    }
+  while (s.indexOf(")", 0) != -1) {
+    var c = s.indexOf(")", 0);
+    var a = s.lastIndexOf("(", c);
+    var b = s
+      .slice(a + 1, c)
+      .split("")
+      .reverse()
+      .join("");
+    s = s.slice(0, a) + b + s.slice(c + 1);
 
-    return -1;
-  });
-}
-
-var s = a.filter((a) => a > 0).sort((a, b) => a - b);
-
-t = a.map((n) => {
-  if (n != -1) {
-    return s.shift();
+    console.log(c, a, b, s);
   }
-  return -1;
-});
-console.log(t);
+  return s;
+}
