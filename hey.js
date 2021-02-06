@@ -1,33 +1,10 @@
-function reverseInParentheses(inputString) {
-  var s = inputString;
-
-  while (s.indexOf(")", 0) != -1) {
-    var c = s.indexOf(")", 0);
-    var a = s.lastIndexOf("(", c);
-    var b = s
-      .slice(a + 1, c)
-      .split("")
-      .reverse()
-      .join("");
-    s = s.slice(0, a) + b + s.slice(c + 1);
-
-    console.log(c, a, b, s);
+let a = [50, 60, 60, 45, 70];
+function alternatingSums(a) {
+  let first = 0;
+  let second = 0;
+  for (let i = 0; i < a.length; i++) {
+    i % 2 == 0 ? (first += a[i]) : (second += a[i]);
   }
-  return s;
+  return [first, second];
 }
-
-let s = "bar(buzz)bar";
-
-let open = s.indexOf("(");
-let close = s.indexOf(")");
-console.log(open, close);
-
-let par = s
-  .slice(open + 1, close)
-  .split("")
-  .reverse()
-  .join("");
-
-let final = s.slice(0, open) + par + s.slice(close + 1, s.length);
-
-console.log(final);
+console.log(alternatingSums(a));
