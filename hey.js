@@ -1,9 +1,18 @@
-let a = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-];
+let inputArray = ["aba", "aa", "ad", "vcd", "aba"];
 
-function rotateImage(a) {}
+function allLongestStrings(inputArray) {
+  let longestStringArray = [];
+  let longestLength = 0;
+  for (let i = 0; i < inputArray.length; i++) {
+    if (inputArray[i].length > longestLength) {
+      longestStringArray = [];
+      longestLength = inputArray[i].length;
+      longestStringArray.push(inputArray[i]);
+    } else if (inputArray[i].length == longestLength) {
+      longestStringArray.push(inputArray[i]);
+    }
+  }
+  return longestStringArray;
+}
 
-console.log(rotateImage(a));
+console.log(allLongestStrings(inputArray));
