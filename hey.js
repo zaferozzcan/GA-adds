@@ -4,19 +4,6 @@ let a = [
   [7, 8, 9],
 ];
 
-function rotateImage(a) {
-  for (var i = 0; i < a.length; i++) {
-    for (var j = 0; j < i; j++) {
-      a[i][j] ^= a[j][i];
-      a[j][i] ^= a[i][j];
-      a[i][j] ^= a[j][i];
-    }
-  }
-
-  for (var i in a) {
-    a[i] = a[i].reverse();
-  }
-  return a;
-}
+function rotateImage(a) {}
 
 console.log(rotateImage(a));
