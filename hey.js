@@ -1,18 +1,16 @@
-let inputArray = ["aba", "aa", "ad", "vcd", "aba"];
-
-function allLongestStrings(inputArray) {
-  let longestStringArray = [];
-  let longestLength = 0;
-  for (let i = 0; i < inputArray.length; i++) {
-    if (inputArray[i].length > longestLength) {
-      longestStringArray = [];
-      longestLength = inputArray[i].length;
-      longestStringArray.push(inputArray[i]);
-    } else if (inputArray[i].length == longestLength) {
-      longestStringArray.push(inputArray[i]);
+function isLucky(n) {
+  function adder(str) {
+    let sum = 0;
+    for (let i = 0; i < str.length; i++) {
+      sum += Number(str[i]);
     }
+    return sum;
   }
-  return longestStringArray;
+
+  let sumFirstHalf = adder(String(n).substr(0, String(n).length / 2));
+  let sumSecondHalf = adder(String(n).substr(String(n).length / 2));
+
+  return sumFirstHalf == sumSecondHalf ? true : false;
 }
 
-console.log(allLongestStrings(inputArray));
+console.log(isLucky(1230));
