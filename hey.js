@@ -1,16 +1,23 @@
-function isLucky(n) {
-  function adder(str) {
-    let sum = 0;
-    for (let i = 0; i < str.length; i++) {
-      sum += Number(str[i]);
+let a = [-1, 150, 190, 170, -1, -1, 160, 180];
+
+function sortByHeight(a) {
+  var s = a.filter((h) => h > 0).sort((a, b) => a - b);
+  console.log(s);
+  return a.map((p) => {
+    if (p !== -1) {
+      return s.shift();
     }
-    return sum;
-  }
 
-  let sumFirstHalf = adder(String(n).substr(0, String(n).length / 2));
-  let sumSecondHalf = adder(String(n).substr(String(n).length / 2));
-
-  return sumFirstHalf == sumSecondHalf ? true : false;
+    return -1;
+  });
 }
 
-console.log(isLucky(1230));
+var s = a.filter((a) => a > 0).sort((a, b) => a - b);
+
+t = a.map((n) => {
+  if (n != -1) {
+    return s.shift();
+  }
+  return -1;
+});
+console.log(t);
