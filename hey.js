@@ -1,20 +1,22 @@
-let s = "abacabad";
+let a = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
 
-function firstNotRepeatingCharacter(s) {
-  let freq = {};
-  let nonRepeatingChars = [];
-  for (let i = 0; i < s.length; i++) {
-    freq[s[i]] = (freq[s[i]] | 0) + 1;
-  }
-  for (let key in freq) {
-    if (freq[key] === 1) {
-      nonRepeatingChars.push(key);
+function rotateImage(a) {
+  for (var i = 0; i < a.length; i++) {
+    for (var j = 0; j < i; j++) {
+      a[i][j] ^= a[j][i];
+      a[j][i] ^= a[i][j];
+      a[i][j] ^= a[j][i];
     }
   }
-  for (let i = 0; i < s.length; i++) {
-    if (nonRepeatingChars.includes(s[i])) return s[i];
+
+  for (var i in a) {
+    a[i] = a[i].reverse();
   }
-  return "_";
+  return a;
 }
 
-console.log(firstNotRepeatingCharacter(s));
+console.log(rotateImage(a));
