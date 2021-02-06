@@ -1,25 +1,20 @@
-// function firstDuplicate(a) {
-//   var dictionary = {};
+let s = "abacabad";
 
-//   for (var i = 0; i < a.length; i++) {
-//     console.log(dictionary[a[i]]);
-//     if (dictionary[a[i]] !== undefined) return a[i];
-//     else dictionary[a[i]] = i;
-//   }
-
-//   return -1;
-// }
-// console.log(firstDuplicate([2, 1, 3, 5, 3, 2]));
-
-function firstDuplicate(a) {
-  let freqOfNumbers = {};
-  for (let i = 0; i < a.length; i++) {
-    if (freqOfNumbers[a[i]] != undefined) {
-      return a[i];
-    } else {
-      freqOfNumbers[a[i]] = (freqOfNumbers[a[i]] | 0) + 1;
+function firstNotRepeatingCharacter(s) {
+  let freq = {};
+  let nonRepeatingChars = [];
+  for (let i = 0; i < s.length; i++) {
+    freq[s[i]] = (freq[s[i]] | 0) + 1;
+  }
+  for (let key in freq) {
+    if (freq[key] === 1) {
+      nonRepeatingChars.push(key);
     }
   }
-  return -1;
+  for (let i = 0; i < s.length; i++) {
+    if (nonRepeatingChars.includes(s[i])) return s[i];
+  }
+  return "_";
 }
-console.log(firstDuplicate([2, 1, 3, 5, 3, 2]));
+
+console.log(firstNotRepeatingCharacter(s));
