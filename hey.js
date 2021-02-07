@@ -1,30 +1,16 @@
-// picture = ["abc", "ded"];
-
-// // function addBorder(picture) {
-// //   let borderLen = picture[0].length + 2;
-// //   let top = "*".repeat(borderLen);
-// //   let bottom = "*".repeat(borderLen);
-
-let matrix = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-];
-
-// rotate 90 deg
-
-let rotate = (matrix) => {
-  for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < i; j++) {
-      matrix[i][j] ^= matrix[j][i];
-      matrix[j][i] ^= matrix[i][j];
-      matrix[i][j] ^= matrix[j][i];
+function palindromeRearranging(inputString) {
+  let freq = {};
+  for (let i = 0; i < inputString.length; i++) {
+    freq[inputString[i]] = (freq[inputString[i]] | 0) + 1;
+  }
+  var count = 0;
+  for (let key in freq) {
+    if (freq[key] % 2 != 0) {
+      count++;
     }
+    if (count > 1) return false;
   }
-  for (let i of matrix) {
-    i = i.reverse();
-  }
-  console.log(matrix);
-};
+}
+let str = "abbcabb";
 
-rotate(matrix);
+console.log(palindromeRearranging(str));
