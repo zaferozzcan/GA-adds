@@ -5,14 +5,26 @@
 // //   let top = "*".repeat(borderLen);
 // //   let bottom = "*".repeat(borderLen);
 
-function arrayChange(inputArray) {
-  let count = 0;
-  for (let i = 0; i < inputArray.length - 1; i++) {
-    let diff = inputArray[i] - inputArray[i + 1] + 1;
-    inputArray[i + 1] += diff;
-    count += diff;
-  }
-  return count;
-}
+let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
 
-console.log(arrayChange([1, 1, 1]));
+// rotate 90 deg
+
+let rotate = (matrix) => {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < i; j++) {
+      matrix[i][j] ^= matrix[j][i];
+      matrix[j][i] ^= matrix[i][j];
+      matrix[i][j] ^= matrix[j][i];
+    }
+  }
+  for (let i of matrix) {
+    i = i.reverse();
+  }
+  console.log(matrix);
+};
+
+rotate(matrix);
