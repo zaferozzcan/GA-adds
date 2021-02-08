@@ -1,12 +1,14 @@
-function palindromeRearranging(inputString) {
+var employee1 = { firstName: "John", lastName: "Rodson" };
+var employee2 = { firstName: "Jimmy", lastName: "Baily" };
+
+function invite(greeting1, greeting2) {
   console.log(
-    inputString
-      .split("")
-      .sort()
-      .join("")
-      .replace(/(\w)\1/g, "")
+    greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2
   );
 }
-let str = "abbcabb";
 
-// console.log(palindromeRearranging(str));
+invite.call(employee1, "Merhaba", "Nasilsin?");
+
+// call method invokes a function with this value and argumests one by one
+
+invite.apply(employee1, ["Salak", "nabe"]);
