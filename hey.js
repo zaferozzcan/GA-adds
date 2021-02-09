@@ -1,17 +1,21 @@
-function knapsackLight(value1, weight1, value2, weight2, maxW) {
-  if (weight1 + weight2 <= maxW) {
-    return value1 + value2;
-  } else {
-    let per_w1 = value1 / weight1;
-    let per_w2 = value2 / weight2;
-    if (per_w1 > per_w2 && weight1 <= maxW) {
-      return value1;
-    } else if (weight2 <= maxW) {
-      return value2;
-    } else {
-      return 0;
+let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+function rotate(matrix) {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < i; j++) {
+      matrix[i][j] ^= matrix[j][i];
+      matrix[j][i] ^= matrix[i][j];
+      matrix[i][j] ^= matrix[j][i];
     }
   }
+  for (let i of matrix) {
+    console.log(i);
+  }
+  console.log(matrix);
 }
 
-console.log(knapsackLight(10, 5, 6, 4, 8));
+rotate(matrix);
