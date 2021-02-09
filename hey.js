@@ -1,13 +1,11 @@
-
-function Horse(name, breed) {
-  this.name = name;
-  this.breed = breed
+function lateRide(n) {
+  var hours = (n / 60) | 0,
+    minutes = n % 60;
+  console.log(hours);
+  console.log(minutes);
+  return (
+    ((hours / 10) | 0) + (hours % 10) + ((minutes / 10) | 0) + (minutes % 10)
+  );
 }
 
-Horse.prototype.getDetails = function(){
-  console.log(`Name:${this.name}   Breed:${this.breed}`);
-}
-
-const horse1 = new Horse("Grand Ekinoks", "Throghbreed");
-
-horse1.getDetails();
+lateRide(50);
