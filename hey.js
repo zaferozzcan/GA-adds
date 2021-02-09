@@ -1,28 +1,30 @@
-/*
-Given an integer n and an array a of length n, your task is to apply the following mutation to a:
+let a = [
+  [3, 3, 4, 2],
+  [4, 4],
+  [4, 0, 3, 3],
+  [2, 3],
+  [3, 3, 3],
+];
 
-Array a mutates into a new array b of length n.
-For each i from 0 to n - 1, b[i] = a[i - 1] + a[i] + a[i + 1].
-If some element in the sum a[i - 1] + a[i] + a[i + 1] does not exist, it should be set to 0. For example, b[0] should be equal to 0 + a[0] + a[1].
-*/
-function alternatingSort(a) {
-  let new_array = [];
-  let left = 0;
-  let right = a.length - 1;
-  while (left <= right) {
-    new_array.push(a[left]);
-    new_array.push(a[right]);
-    left++;
-    right--;
-  }
-  new_array.pop();
-  console.log(new_array);
-  for (let i = 0; i < new_array.length; i++) {
-    if (new_array[i + 1] <= new_array[i]) return false;
+function meanGroups(a) {
+  let meanFreq = {};
+
+  function mn(arr) {
+    let sum = 0;
+    arr.map((item) => (sum += item));
+    return sum / arr.length;
   }
 
-  return true;
+  for (let i = 0; i < a.length; i++) {
+    let mean = mn(a[i]);
+    meanFreq[mean] ? meanFreq[mean].push(i) : (meanFreq[mean] = [i]);
+  }
+  let final_array = [];
+  for (let key in meanFreq) {
+    final_array.push(meanFreq[key]);
+  }
+
+  return final_array;
 }
-console.log(
-  alternatingSort([-92, -23, 0, 45, 89, 96, 99, 95, 89, 41, -17, -48])
-);
+
+console.log(meanGroups(a));
