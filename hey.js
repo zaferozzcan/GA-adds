@@ -1,14 +1,7 @@
-var employee1 = { firstName: "John", lastName: "Rodson" };
-var employee2 = { firstName: "Jimmy", lastName: "Baily" };
-
-function invite(greeting1, greeting2) {
-  console.log(
-    greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2
-  );
+function greeting() {
+  return function sayHi() {
+    console.log("Hiey");
+  };
 }
 
-invite.call(employee1, "Merhaba", "Nasilsin?");
-
-// call method invokes a function with this value and argumests one by one
-
-invite.apply(employee1, ["Salak", "nabe"]);
+greeting()();
