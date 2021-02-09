@@ -1,30 +1,17 @@
-let a = [
-  [3, 3, 4, 2],
-  [4, 4],
-  [4, 0, 3, 3],
-  [2, 3],
-  [3, 3, 3],
-];
-
-function meanGroups(a) {
-  let meanFreq = {};
-
-  function mn(arr) {
-    let sum = 0;
-    arr.map((item) => (sum += item));
-    return sum / arr.length;
+function knapsackLight(value1, weight1, value2, weight2, maxW) {
+  if (weight1 + weight2 <= maxW) {
+    return value1 + value2;
+  } else {
+    let per_w1 = value1 / weight1;
+    let per_w2 = value2 / weight2;
+    if (per_w1 > per_w2 && weight1 <= maxW) {
+      return value1;
+    } else if (weight2 <= maxW) {
+      return value2;
+    } else {
+      return 0;
+    }
   }
-
-  for (let i = 0; i < a.length; i++) {
-    let mean = mn(a[i]);
-    meanFreq[mean] ? meanFreq[mean].push(i) : (meanFreq[mean] = [i]);
-  }
-  let final_array = [];
-  for (let key in meanFreq) {
-    final_array.push(meanFreq[key]);
-  }
-
-  return final_array;
 }
 
-console.log(meanGroups(a));
+console.log(knapsackLight(10, 5, 6, 4, 8));
