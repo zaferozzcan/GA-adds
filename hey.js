@@ -1,19 +1,12 @@
-function validAnagram(str1, str2) {
-  let freq1 = freqMapCreator(str1);
-  let freq2 = freqMapCreator(str2);
-  function freqMapCreator(str) {
-    let freq = {};
-    for (let i = 0; i < str.length; i++) {
-      freq[str[i]] = (freq[str[i]] | 0) + 1;
-    }
-    return freq;
+function sumZero(arr) {
+  let left = 0;
+  let right = arr.length - 1;
+  while (left < right) {
+    let sum = arr[left] + arr[right];
+    if (sum === 0) return [arr[left], arr[right]];
+    if (sum > 0) right--;
+    else left++;
   }
-  console.log(freq1);
-  console.log(freq2);
-  for (let key in freq1) {
-    if (freq2[key] != freq1[key]) return false;
-  }
-  return true;
 }
 
-console.log(validAnagram("racecar", "carrace"));
+console.log(sumZero([-5, -2, -1, 0, 2]));
