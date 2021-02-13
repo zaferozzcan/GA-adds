@@ -11,9 +11,11 @@ function shopInAndOutEvents(events) {
   events.forEach((item) => {
     console.log(obj);
     if (obj[item[0]]) {
-    } else {
-      obj[item[0]] = item[1];
+      if (item[1] === obj[item[0]]) {
+        return false;
+      }
     }
+    obj[item[0]] = item[1];
   });
 }
 console.log(shopInAndOutEvents(events));
