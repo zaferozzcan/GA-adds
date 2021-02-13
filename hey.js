@@ -1,12 +1,21 @@
-function countTinyPairs(a, b, k) {
-  let count = 0;
-  for (let i = 0; i < a.length; i++) {
-    console.log(eval(`${a[i]}` + `${b[a.length - 1 - i]}`));
-    if (eval(`${a[i]}` + `${b[a.length - 1 - i]}`) < k) {
-      count++;
-    }
-  }
-  return count;
-}
+let events = [
+  ["John_0", "in"],
+  ["Mary_0", "out"],
+  ["John_0", "out"],
+  ["Mary_0", "out"],
+];
 
-console.log(countTinyPairs([16, 1, 4, 2, 14], [7, 11, 2, 0, 15], 743));
+function shopInAndOutEvents(events) {
+  if (events.length % 2 !== 0) return false;
+  let freqMap = {};
+  events.forEach((item) => {
+    if (freqMap[item[0]] === (freqMap[item[0]] == "out" ? "in" : "out")) {
+      return false;
+    }
+    freqMap[item[0]] = item[1];
+    console.log(freqMap);
+  });
+
+  return true;
+}
+console.log(shopInAndOutEvents(events));
