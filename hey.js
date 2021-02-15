@@ -29,7 +29,6 @@ const lengthOfLongestSubstring = (s) => {
     let se = new Set();
     for (let j = i; j < n; j++) {
       if (se.has(s[j])) {
-        // if find duplicate, the longest substring is [i, j - 1], so length is: j - 1 - i + 1 = j - i;
         len = j - i;
         break;
       } else {
@@ -40,3 +39,4 @@ const lengthOfLongestSubstring = (s) => {
   }
   return res;
 };
+//
