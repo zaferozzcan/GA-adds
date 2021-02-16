@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <h1 style={{ color: "red" }}>Here is the lists of Components</h1>
-      <Documentation />
+      <Documentation start={11} />
     </div>
   );
 }

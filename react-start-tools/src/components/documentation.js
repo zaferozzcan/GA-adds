@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-function Documentation() {
-  const [counter, setCounter] = useState(0);
+function Documentation(props) {
+  const [counter, setCounter] = useState(props.start);
   if (counter === 5) {
     setCounter(0);
   }
