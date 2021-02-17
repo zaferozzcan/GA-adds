@@ -1,22 +1,14 @@
-import "./App.css";
-import { useState, useEffect } from "react";
-import Counter from "./components/counter";
+import React, { Component } from "react";
+import ToDo from "./components/toDos";
 
-function App() {
-  const [showCounter, setShowCounter] = useState(false);
-  return (
-    <div className="App">
-      <button
-        onClick={() => {
-          setShowCounter(!showCounter);
-        }}
-      >
-        {showCounter ? "Show Counter" : "Hide Counter"}
-      </button>
-
-      {showCounter && <Counter />}
-    </div>
-  );
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      items: [],
+    };
+  }
+  render() {
+    return <div>items={this.state.items} /></div>;
+  }
 }
-
-export default App;
