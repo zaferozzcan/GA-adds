@@ -1,19 +1,23 @@
 import "./App.css";
-import { useState } from "react";
-import Employee from "./components/employee";
-const names = ["Zach", "Chris", "Json"];
-function App() {
-  const [employees, setEmployees] = useState(["Zafer", "Ecem", "Elif"]);
+import { useState, useEffect } from "react";
+import Counter from "./components/counter";
 
-  function handleDelete(id) {
-    setEmployees(employees.filter((item) => employees.indexOf(item) !== id));
-  }
+function App() {
+  const [showCounter, setShowCounter] = useState(false);
+  useEffect(() => {
+    console.log("I am rendered App components state changes");
+  });
   return (
     <div className="App">
-      <h1 style={{ color: "red" }}>Here is the lists of Employees</h1>
-      {employees.map((item, index) => {
-        return <Employee handleDelete={handleDelete} id={index} name={item} />;
-      })}
+      <button
+        onClick={() => {
+          setShowCounter(!showCounter);
+        }}
+      >
+        {showCounter ? "Show Counter" : "Hide Counter"}
+      </button>
+
+      {showCounter && <Counter />}
     </div>
   );
 }
