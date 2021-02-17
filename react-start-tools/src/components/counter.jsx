@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 
 function Counter() {
   const [count, setCount] = useState(0);
-  //   useEffect(() => {
-  //     console.log("We have run the useEffect hook!");
-  //   }, [count]);
+  useEffect(() => {
+    console.log("We have run the useEffect hook!");
+    return () => {
+      console.log("I am unmountted");
+    };
+  }, []);
   return (
     <div>
       <h1>{count}</h1>

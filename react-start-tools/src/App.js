@@ -4,9 +4,6 @@ import Counter from "./components/counter";
 
 function App() {
   const [showCounter, setShowCounter] = useState(false);
-  useEffect(() => {
-    console.log("I am rendered App components state changes");
-  });
   return (
     <div className="App">
       <button
