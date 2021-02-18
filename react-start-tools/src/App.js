@@ -10,12 +10,17 @@ export default function App() {
     });
   }
 
+  function onDelete(id) {
+    setData(data.filter((item) => data.indexOf(item) !== id));
+  }
   return (
     <div>
       <CreateArea addNote={addNote} />
       <div style={{ display: "flex" }}>
         {data.map((note, index) => {
-          return <Note key={index} data={note} />;
+          return (
+            <Note id={index} onDelete={onDelete} key={index} data={note} />
+          );
         })}
       </div>
     </div>

@@ -86,5 +86,5 @@ div > .create-area-form {
   color: white;
   border: none;
   border-radius: 50%;
-  transform: translateX(260px);
+  float: right;
 }

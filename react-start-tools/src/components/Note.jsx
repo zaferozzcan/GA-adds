@@ -1,13 +1,20 @@
 import React from "react";
 
-export default function Note({ data }) {
-  console.log("data  props in note", data);
+export default function Note({ data, onDelete, id }) {
+  const inputStyle = {
+    marginLeft: "10px",
+  };
+  function handleDelete(id) {
+    onDelete(id);
+  }
   return (
     <div className="note-container">
-      <h3> {data.title}</h3>
+      <h3 style={inputStyle}> {data.title}</h3>
       <hr />
-      <p>{data.content}</p>
-      <button>X</button>
+      <p style={inputStyle}>{data.content}</p>
+      <button onClick={() => handleDelete(id)} type="button">
+        X
+      </button>
     </div>
   );
 }
