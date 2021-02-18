@@ -41,3 +41,23 @@
 .done {
   text-decoration: line-through;
 }
+
+div > .create-area-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  background-color: antiquewhite;
+}
+
+.create-area-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-area-form input textarea {
+  padding: 10px;
+}
+.create-area-form button {
+  background-color: aqua;
+}

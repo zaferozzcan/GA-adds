@@ -1,11 +1,10 @@
 import React from "react";
 import "./App.css";
-import Coordinates from "./components/Coordinates";
-
+import CreateArea from "./components/CreateArea";
 export default function App() {
   return (
     <div>
-      <Coordinates />
+      <CreateArea />
     </div>
   );
 }
