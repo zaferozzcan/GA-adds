@@ -65,13 +65,26 @@ div > .create-area-form {
 }
 .create-area-form button {
   background-color: aqua;
+  border-radius: 50%;
+  transform: translateX(100px);
 }
 
-.note-continer {
+.note-container {
   width: 20rem;
   height: 10rem;
   background-color: antiquewhite;
   border: black;
   border-radius: 5px;
   margin: 20px;
+}
+
+.note-container button {
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  transform: translateX(260px);
 }

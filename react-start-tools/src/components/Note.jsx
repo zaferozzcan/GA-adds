@@ -1,11 +1,13 @@
 import React from "react";
 
-export default function Note() {
+export default function Note({ data }) {
+  console.log("data  props in note", data);
   return (
-    <div className="note-continer">
-      <h3> Note Title</h3>
+    <div className="note-container">
+      <h3> {data.title}</h3>
       <hr />
-      <title>Note Content</title>
+      <p>{data.content}</p>
+      <button>X</button>
     </div>
   );
 }
