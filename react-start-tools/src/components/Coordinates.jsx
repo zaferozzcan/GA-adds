@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../App.css";
 
 export default function Coordinates() {
@@ -8,12 +8,8 @@ export default function Coordinates() {
     let str = `${e.pageX} , ${e.pageY}`;
     setXY(str);
   }
-  return (
-    <div
-      style={{ width: "100vw", height: "100vh" }}
-      onMouseOver={mouseOverhandler}
-    >
-      {XY}
-    </div>
-  );
+  useEffect(() => {
+    window.addEventListener("mouseover", mouseOverhandler);
+  }, []);
+  return <div>{XY}</div>;
 }
