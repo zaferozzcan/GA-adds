@@ -57,7 +57,21 @@ div > .create-area-form {
 
 .create-area-form input textarea {
   padding: 10px;
+  margin: 10px;
+}
+.create-area-form input {
+  width: 16rem;
+  margin: 10px;
 }
 .create-area-form button {
   background-color: aqua;
+}
+
+.note-continer {
+  width: 20rem;
+  height: 10rem;
+  background-color: antiquewhite;
+  border: black;
+  border-radius: 5px;
+  margin: 20px;
 }
