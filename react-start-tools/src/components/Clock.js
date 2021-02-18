@@ -1,6 +1,13 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+let timeStamp = new Date().toLocaleTimeString();
 function Clock() {
-  const [time];
-  return <div>{}</div>;
+  const [time, setTime] = useState();
+
+  function timeChange() {
+    setTime(timeStamp);
+  }
+  console.log(time);
+  return <div></div>;
 }
+
+export default Clock;
