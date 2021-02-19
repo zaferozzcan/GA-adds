@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Dropdown from "./components/Dropdown";
 const items = [
   { text: "Learn JavaScript", done: false },
@@ -8,9 +8,17 @@ const items = [
 ];
 
 export default function App() {
+  const [data, setData] = useState(items);
+  function deleteItem(id) {
+    setData(
+      data.filter((item) => {
+        return data.indexOf(item) !== id;
+      })
+    );
+  }
   return (
     <div>
-      <Dropdown items={items} />
+      <Dropdown deleteItem={deleteItem} items={data} />
     </div>
   );
 }
