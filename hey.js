@@ -42,3 +42,14 @@
 // }
 
 // console.log(binaryPatternMatching("010", "amazing"));
+
+let inputArray = [2, 4, 1, 0];
+function arrayMaximalAdjacentDifference(inputArray) {
+  let max = 0;
+  for (let i = 1; i < inputArray.length; i++) {
+    max = Math.max(max, Math.abs(inputArray[i] - inputArray[i - 1]));
+  }
+  return max;
+}
+
+console.log(arrayMaximalAdjacentDifference(inputArray));
