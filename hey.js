@@ -24,25 +24,21 @@
 
 // console.log(isZigzag(numbers));
 
-function binaryPatternMatching(pattern, s) {
-  let vovelList = ["a", "e", "i", "o", "u", "y"];
-  let check = true;
-  let pattern_index = 0;
-  let final_counter = 0;
-  for (let i = 0; i < s.length; i++) {
-    for (let j = i; j < pattern.length; j++) {
-      console.log(vovelList.includes(s[j]) ? "0" : "1", pattern[pattern_index]);
-      if ((vovelList.includes(s[j]) ? "0" : "1") !== pattern[pattern_index]) {
-        check = false;
-      }
-      pattern_index++;
-    }
-    pattern_index = 0;
-    if (check) {
-      final_counter++;
-    }
-  }
-  return final_counter;
-}
+// function binaryPatternMatching(pattern, s) {
+//   let vovelList = ["a", "e", "i", "o", "u", "y"];
+//   let binary_string = "";
+//   let count = 0;
+//   for (let i = 0; i < s.length; i++) {
+//     binary_string += vovelList.includes(s[i]) ? "0" : "1";
+//   }
+//   let left = 0;
+//   let right = pattern.length;
+//   while (right <= s.length) {
+//     if (pattern == binary_string.slice(left, right)) count++;
+//     left++;
+//     right++;
+//   }
+//   return count;
+// }
 
-console.log(binaryPatternMatching("010", "amazing"));
+// console.log(binaryPatternMatching("010", "amazing"));
