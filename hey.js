@@ -43,13 +43,30 @@
 
 // console.log(binaryPatternMatching("010", "amazing"));
 
-let inputArray = [2, 4, 1, 0];
-function arrayMaximalAdjacentDifference(inputArray) {
-  let max = 0;
-  for (let i = 1; i < inputArray.length; i++) {
-    max = Math.max(max, Math.abs(inputArray[i] - inputArray[i - 1]));
+// let inputArray = [2, 4, 1, 0];
+// function arrayMaximalAdjacentDifference(inputArray) {
+//   let max = 0;
+//   for (let i = 1; i < inputArray.length; i++) {
+//     max = Math.max(max, Math.abs(inputArray[i] - inputArray[i - 1]));
+//   }
+//   return max;
+// }
+
+// console.log(arrayMaximalAdjacentDifference(inputArray));
+
+function isIPv4Address(inputString) {
+  let splittedInput = inputString.split(".");
+  console.log(
+    splittedInput[splittedInput.length - 1] == "0" ||
+      splittedInput[splittedInput.length - 1] == "1"
+  );
+  for (let i = 0; i < splittedInput.length; i++) {
+    if (splittedInput[i] == "") return false;
+    if (!(Number(splittedInput[i]) >= 0 && Number(splittedInput[i]) <= 255)) {
+      return false;
+    }
   }
-  return max;
+  return true;
 }
 
-console.log(arrayMaximalAdjacentDifference(inputArray));
+console.log(isIPv4Address(".16.254.1"));
