@@ -56,10 +56,7 @@
 
 function isIPv4Address(inputString) {
   let splittedInput = inputString.split(".");
-  console.log(
-    splittedInput[splittedInput.length - 1] == "0" ||
-      splittedInput[splittedInput.length - 1] == "1"
-  );
+  console.log();
   for (let i = 0; i < splittedInput.length; i++) {
     if (splittedInput[i] == "") return false;
     if (!(Number(splittedInput[i]) >= 0 && Number(splittedInput[i]) <= 255)) {
