@@ -54,16 +54,38 @@
 
 // console.log(arrayMaximalAdjacentDifference(inputArray));
 
-function isIPv4Address(inputString) {
-  let splittedInput = inputString.split(".");
-  console.log();
-  for (let i = 0; i < splittedInput.length; i++) {
-    if (splittedInput[i] == "") return false;
-    if (!(Number(splittedInput[i]) >= 0 && Number(splittedInput[i]) <= 255)) {
-      return false;
+// function isIPv4Address(inputString) {
+//   let splittedInput = inputString.split(".");
+//   console.log();
+//   for (let i = 0; i < splittedInput.length; i++) {
+//     if (splittedInput[i] == "") return false;
+//     if (!(Number(splittedInput[i]) >= 0 && Number(splittedInput[i]) <= 255)) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// console.log(isIPv4Address(".16.254.1"));
+
+let a = [8, 5, 6, 16, 5];
+let l = 1;
+let r = 3;
+function boundedRatio(a, l, r) {
+  let final_array = [];
+  for (let i = 0; i < a.length; i++) {
+    for (let j = l; j < r + 1; j++) {
+      let number = a[i];
+      if ((number / j) % 2 == 0 || (number / j) % 2 == 1) {
+        final_array.push(true);
+        break;
+      } else {
+        final_array.push(false);
+        break;
+      }
     }
   }
-  return true;
+  return final_array;
 }
 
-console.log(isIPv4Address(".16.254.1"));
+console.log(boundedRatio(a, l, r));
