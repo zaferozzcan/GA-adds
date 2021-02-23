@@ -66,26 +66,27 @@
 //   return true;
 // }
 
-// console.log(isIPv4Address(".16.254.1"));
+// // console.log(isIPv4Address(".16.254.1"));
 
-let a = [8, 5, 6, 16, 5];
-let l = 1;
-let r = 3;
-function boundedRatio(a, l, r) {
-  let final_array = [];
-  for (let i = 0; i < a.length; i++) {
-    for (let j = l; j < r + 1; j++) {
-      let number = a[i];
-      if ((number / j) % 2 == 0 || (number / j) % 2 == 1) {
-        final_array.push(true);
-        break;
-      } else {
-        final_array.push(false);
-        break;
-      }
-    }
-  }
-  return final_array;
-}
+// let a = [8, 5, 6, 16, 5];
+// let l = 1;
+// let r = 3;
+// function boundedRatio(a, l, r) {
+//   let final_array = [];
+//   for (let i = 0; i < a.length; i++) {
+//     let number = a[i];
+//     let zumber = number / (i + 1);
+//     if (zumber % 2 == 0 || zumber % 2 == 1) {
+//       if (zumber >= l && zumber <= r) {
+//         final_array.push(true);
+//       } else {
+//         final_array.push(false);
+//       }
+//     } else {
+//       final_array.push(false);
+//     }
+//   }
+//   return final_array;
+// }
 
-console.log(boundedRatio(a, l, r));
+// console.log(boundedRatio(a, l, r));
