@@ -90,3 +90,56 @@
 // }
 
 // console.log(boundedRatio(a, l, r));
+
+// function mostFrequentDigits(a) {
+//   let arr = [];
+//   let final_arr = [];
+//   for (let i = 0; i < a.length; i++) {
+//     arr = [...arr, ...String(a[i]).split("")];
+//   }
+//   let freq = {};
+//   for (let i = 0; i < arr.length; i++) {
+//     freq[arr[i]] = (freq[arr[i]] || 0) + 1;
+//   }
+//   var max = 0;
+//   for (let i in freq) {
+//     max = Math.max(freq[i], max);
+//   }
+//   for (let i in freq) {
+//     if (freq[i] == max) {
+//       final_arr.push(Number(i));
+//     }
+//   }
+//   return final_arr;
+// }
+
+// console.log(mostFrequentDigits([2, 33, 44]));
+
+function divideArray(a) {
+  let return_array = [];
+  let freq = {};
+  for (let i = 0; i < a.length; i++) {
+    freq[a[i]] = (freq[a[i]] | 0) + 1;
+  }
+  for (let i in freq) {
+    if (freq[i] > 2) {
+      return [];
+    }
+  }
+  let first = [];
+  let second = [];
+  for (let i = 0; i < a.length; i++) {
+    if (first.includes(a[i])) {
+      second.length <= a.length / 2 && second.push(a[i]);
+    } else {
+      first.length <= a.length && first.push(a[i]);
+    }
+  }
+  if (first.length > second.length) {
+    let p = first.pop();
+    second.push(p);
+  }
+  return [first, second];
+}
+
+console.log(divideArray([2, 1, 2, 3, 3, 4]));
