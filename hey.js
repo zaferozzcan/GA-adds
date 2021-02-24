@@ -115,31 +115,49 @@
 
 // console.log(mostFrequentDigits([2, 33, 44]));
 
-function divideArray(a) {
-  let return_array = [];
-  let freq = {};
-  for (let i = 0; i < a.length; i++) {
-    freq[a[i]] = (freq[a[i]] | 0) + 1;
-  }
-  for (let i in freq) {
-    if (freq[i] > 2) {
-      return [];
-    }
-  }
-  let first = [];
-  let second = [];
-  for (let i = 0; i < a.length; i++) {
-    if (first.includes(a[i])) {
-      second.length <= a.length / 2 && second.push(a[i]);
+// function divideArray(a) {
+//   let return_array = [];
+//   let freq = {};
+//   for (let i = 0; i < a.length; i++) {
+//     freq[a[i]] = (freq[a[i]] | 0) + 1;
+//   }
+//   for (let i in freq) {
+//     if (freq[i] > 2) {
+//       return [];
+//     }
+//   }
+//   let first = [];
+//   let second = [];
+//   for (let i = 0; i < a.length; i++) {
+//     if (first.includes(a[i])) {
+//       second.length <= a.length / 2 && second.push(a[i]);
+//     } else {
+//       first.length <= a.length && first.push(a[i]);
+//     }
+//   }
+//   if (first.length > second.length) {
+//     let p = first.pop();
+//     second.push(p);
+//   }
+//   return [first, second];
+// }
+
+// console.log(divideArray([2, 1, 2, 3, 3, 4]));
+
+function isIPv4Address(inputString) {
+  let splitted = inputString.split(".");
+
+  if (!(splitted.pop() != "0" || splitted.pop() != "1")) return false;
+
+  for (let i = 0; i < splitted.length - 1; i++) {
+    if (splitted[i] == "") return false;
+    if (Number(splitted[i]) == NaN) return false;
+    if (Number(splitted[i]) >= 0 && Number(splitted[i] <= 255)) {
     } else {
-      first.length <= a.length && first.push(a[i]);
+      return false;
     }
   }
-  if (first.length > second.length) {
-    let p = first.pop();
-    second.push(p);
-  }
-  return [first, second];
+  return true;
 }
 
-console.log(divideArray([2, 1, 2, 3, 3, 4]));
+console.log(isIPv4Address("1a.254.255.0"));
