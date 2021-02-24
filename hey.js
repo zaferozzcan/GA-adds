@@ -161,3 +161,9 @@ function isIPv4Address(inputString) {
 }
 
 console.log(isIPv4Address("1a.254.255.0"));
+function isIPv4Address(s) {
+  return (
+    s.split(".").every((i) => i != "" && Number(i) <= 255 && Number(i) >= 0) &&
+    s.split(".").length == 4
+  );
+}
