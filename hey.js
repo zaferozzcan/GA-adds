@@ -144,27 +144,27 @@
 
 // console.log(divideArray([2, 1, 2, 3, 3, 4]));
 
-function isIPv4Address(inputString) {
-  let splitted = inputString.split(".");
+// function isIPv4Address(inputString) {
+//   let splitted = inputString.split(".");
 
-  if (!(splitted.pop() != "0" || splitted.pop() != "1")) return false;
+//   if (!(splitted.pop() != "0" || splitted.pop() != "1")) return false;
 
-  for (let i = 0; i < splitted.length - 1; i++) {
-    if (splitted[i] == "") return false;
-    if (Number(splitted[i]) == NaN) return false;
-    if (Number(splitted[i]) >= 0 && Number(splitted[i] <= 255)) {
-    } else {
-      return false;
-    }
-  }
-  return true;
-}
+//   for (let i = 0; i < splitted.length - 1; i++) {
+//     if (splitted[i] == "") return false;
+//     if (Number(splitted[i]) == NaN) return false;
+//     if (Number(splitted[i]) >= 0 && Number(splitted[i] <= 255)) {
+//     } else {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
 
-console.log(isIPv4Address("1a.254.255.0"));
-function isIPv4Address(s) {
-  return (
-    s.split(".").every((i) => i != "" && Number(i) <= 255 && Number(i) >= 0) &&
-    s.split(".").length == 4
-  );
-}
+// console.log(isIPv4Address("1a.254.255.0"));
+// function isIPv4Address(s) {
+//   return (
+//     s.split(".").every((i) => i != "" && Number(i) <= 255 && Number(i) >= 0) &&
+//     s.split(".").length == 4
+//   );
+// }
 //  not the complete one
