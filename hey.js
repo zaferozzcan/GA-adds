@@ -1,3 +1,3 @@
-function secondRightmostZeroBit(n) {
-  return Math.pow(2,n.toString(2).split('').reverse().join("").split("0", 2).join("0").length);
+function swapAdjacentBits(n) {
+  return !n ? 0 : (n & 1) * 2 + (n & 2) / 2 + 4 * swapAdjacentBits(n >> 2);
 }
