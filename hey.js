@@ -1,10 +1,7 @@
-function leastFactorial(n) {
-  let fCount = 1;
-  let count = 1;
-  while (fCount < n) {
-    fCount = fCount * count++;
-  }
-  return fCount;
-}
+function countSumOfTwoRepresentations2(n, l, r) {
+  var count = 0;
 
-console.log(leastFactorial(17));
+  for (var i = l; i <= r; i++) if (i <= n - i && n - i <= r) count++;
+
+  return count;
+}
