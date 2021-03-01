@@ -1,7 +1,3 @@
-function countSumOfTwoRepresentations2(n, l, r) {
-  var count = 0;
+function magicalWell(a, b, n) {
 
-  for (var i = l; i <= r; i++) if (i <= n - i && n - i <= r) count++;
-
-  return count;
 }
