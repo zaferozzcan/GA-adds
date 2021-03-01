@@ -8,4 +8,5 @@ function lineUp(commands) {
     }
     if (same) result++;
   }
+  return result;
 }
