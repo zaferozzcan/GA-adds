@@ -1,13 +1,13 @@
-function lineUp(commands) {
+function additionWithoutCarrying(param1, param2) {
   var result = 0,
-    same = true;
-  for (var i = 0; i < commands.length; i++) {
-    var command = commands[i];
-    if (command == "L" || command == "R") {
-      same = !same;
-    }
-    if (same) result++;
+    num = 1;
+  while (param1 + param2 > 0) {
+    num *= 10;
+    result += (param1 + param2) % num;
+    param1 -= param1 % num;
+    param2 -= param2 % num;
   }
   return result;
 }
-//var result = 0,
+
+console.log(additionWithoutCarrying(456, 1734));
