@@ -10,4 +10,4 @@ function lineUp(commands) {
   }
   return result;
 }
-//
+//var result = 0,
