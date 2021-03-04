@@ -1,10 +1,23 @@
-function mutateTheArray(n, a) {
-  let b = [];
-  for (let i = 0; i < n; i++) {
-    b[i] =
-      (a[i - 1] ? a[i - 1] : 0) + (a[i] ? a[i] : 0) + (a[i + 1] ? a[i + 1] : 0);
+function sortMatrixByOccurrences(m) {
+  var arr = [];
+  var new_arr = [];
+  for (let i = 0; i < m.length; i++) {
+    m[i].map((item) => arr.push(item));
   }
-  return b;
+  arr.sort((a, b) => a - b);
+  let left = 0;
+  let right = m[0].length;
+  // while(right<=arr.length){
+
+  // }
+  console.log(arr);
+  console.log(arr.slice(3, 6));
 }
 
-console.log(mutateTheArray(5, [4, 0, 1, -2, 3]));
+console.log(
+  sortMatrixByOccurrences([
+    [1, 4, -2],
+    [-2, 3, 4],
+    [3, 1, 3],
+  ])
+);
