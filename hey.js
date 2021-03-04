@@ -1,7 +1,10 @@
-function additionWithoutCarrying(param1, param2) {
-  param1 = String(param1);
-  param2 = String(param2);
+function mutateTheArray(n, a) {
+  let b = [];
+  for (let i = 0; i < n; i++) {
+    b[i] =
+      (a[i - 1] ? a[i - 1] : 0) + (a[i] ? a[i] : 0) + (a[i + 1] ? a[i + 1] : 0);
+  }
+  return b;
 }
 
-console.log(additionWithoutCarrying(456, 1734));
-// sjajslkajslk
+console.log(mutateTheArray(5, [4, 0, 1, -2, 3]));
