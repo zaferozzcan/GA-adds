@@ -10,3 +10,5 @@ function appleBoxes(k) {
   }
   return even_sum - odd_sum;
 }
+
+console.log(appleBoxes(5));
