@@ -1,23 +1,12 @@
-function sortMatrixByOccurrences(m) {
-  var arr = [];
-  var new_arr = [];
-  for (let i = 0; i < m.length; i++) {
-    m[i].map((item) => arr.push(item));
+function appleBoxes(k) {
+  let even_sum = 0;
+  let odd_sum = 0;
+  for (let i = 1; i < k + 1; i++) {
+    if (i % 2 == 0) {
+      even_sum += i * i;
+    } else {
+      odd_sum += i * i;
+    }
   }
-  arr.sort((a, b) => a - b);
-  let left = 0;
-  let right = m[0].length;
-  // while(right<=arr.length){
-
-  // }
-  console.log(arr);
-  console.log(arr.slice(3, 6));
+  return even_sum - odd_sum;
 }
-
-console.log(
-  sortMatrixByOccurrences([
-    [1, 4, -2],
-    [-2, 3, 4],
-    [3, 1, 3],
-  ])
-);
