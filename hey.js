@@ -16,23 +16,22 @@
 function increaseNumberRoundness(n) {
   n = String(n);
   let sliced = "";
-  function findZero(n) {
+  function findZero(m) {
     var ind = 0;
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; i < m; i++) {
       if (n[i] == "0") {
         ind = i;
         break;
       }
+      return false;
     }
     return ind;
   }
-  findZero(n);
   sliced = n.substr(findZero(n));
-
-  //   for (let i = 0; i < sliced.length; i++) {
-  //     if (sliced[i] !== "0") return true;
-  //   }
-  //   return false;
+  for (let i = 0; i < sliced.length; i++) {
+    if (sliced[i] !== "0") return true;
+  }
+  return false;
 }
 
-console.log(increaseNumberRoundness(902210000));
+console.log(increaseNumberRoundness(888));
