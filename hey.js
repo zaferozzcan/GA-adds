@@ -14,6 +14,7 @@
 // console.log(appleBoxes(5));
 
 function increaseNumberRoundness(n) {
+  let ret = false;
   n = String(n);
   let sliced = "";
   function findZero(m) {
@@ -22,12 +23,14 @@ function increaseNumberRoundness(n) {
       if (n[i] == "0") {
         ind = i;
         break;
+      } else {
+        return false;
       }
-      return false;
     }
     return ind;
   }
   sliced = n.substr(findZero(n));
+  if (sliced == n) return false;
   for (let i = 0; i < sliced.length; i++) {
     if (sliced[i] !== "0") return true;
   }
@@ -35,4 +38,3 @@ function increaseNumberRoundness(n) {
 }
 
 console.log(increaseNumberRoundness(888));
-//
