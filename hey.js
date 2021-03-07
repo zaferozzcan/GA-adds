@@ -14,25 +14,13 @@
 // console.log(appleBoxes(5));
 
 function increaseNumberRoundness(n) {
-  let ret = false;
-  n = String(n);
-  let sliced = "";
-  function findZero(m) {
-    var ind = 0;
-    for (let i = 0; i < m; i++) {
-      if (n[i] == "0") {
-        ind = i;
-        break;
-      } else {
-        return false;
-      }
+  const parts = n.toString().split("").reverse();
+  let state = false;
+  for (let part of parts) {
+    if (part !== "0") state = true;
+    else if (state && part === "0") {
+      return true;
     }
-    return ind;
-  }
-  sliced = n.substr(findZero(n));
-  if (sliced == n) return false;
-  for (let i = 0; i < sliced.length; i++) {
-    if (sliced[i] !== "0") return true;
   }
   return false;
 }
