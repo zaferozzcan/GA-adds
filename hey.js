@@ -1,10 +1,6 @@
-function rounders(value) {
-  var r = 0;
-  while (value > 10) {
-    value = Math.round(value / 10);
-    r++;
-  }
-  return value * Math.pow(10, r);
-}
+let num = 12340;
 
-console.log(rounders(1445));
+while (num > 10) {
+  console.log(Math.floor(num / 10));
+  num = Math.floor(num / 10);
+}
