@@ -9,6 +9,15 @@
 //   return Math.floor((s - min1 - min2_10 * 9) / min11 + 10);
 // }
 
-var maxArea = function (height) {};
-
-console.log([1, 8, 6, 2, 5, 4, 8, 3, 7]);
+var maxArea = function (nums) {
+  let areas = [];
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      let h = Math.min(nums[i], nums[j]);
+      let w = j - i;
+      areas.push(h * w);
+    }
+  }
+  return Math.max(...areas);
+};
+console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
