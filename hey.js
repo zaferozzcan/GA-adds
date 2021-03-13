@@ -1,5 +1,3 @@
-function largestNumber(n) {
-  return 10 ** n - 1;
+function candies(n, m) {
+  return m - (m % n);
 }
-
-console.log(largestNumber(3));
