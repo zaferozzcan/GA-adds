@@ -1,3 +1,5 @@
-function addTwoDigits(n) {
-  return Math.floor(n / 10) + (n % 10);
+function largestNumber(n) {
+  return 10 ** n - 1;
 }
+
+console.log(largestNumber(3));
