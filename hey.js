@@ -7,4 +7,4 @@ function rounders(value) {
   return value * Math.pow(10, r);
 }
 
-// console.log(rounders(1445));
+console.log(rounders(1445));
