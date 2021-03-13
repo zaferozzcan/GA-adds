@@ -1,6 +1,3 @@
-let num = 12340;
-
-while (num > 10) {
-  console.log(Math.floor(num / 10));
-  num = Math.floor(num / 10);
+function addTwoDigits(n) {
+  return Math.floor(n / 10) + (n % 10);
 }
