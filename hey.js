@@ -11,11 +11,16 @@
 
 var maxArea = function (nums) {
   let areas = [];
-  for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
-      let h = Math.min(nums[i], nums[j]);
-      let w = j - i;
-      areas.push(h * w);
+  let left = 0;
+  let right = nums.length - 1;
+  while (left < right) {
+    let h = Math.min(nums[left], nums[right]);
+    let w = right - left;
+    areas.push(h * w);
+    if (nums[left + 1] > Math.min(nums[left], nums[right])) {
+      left++;
+    } else {
+      right--;
     }
   }
   return Math.max(...areas);
