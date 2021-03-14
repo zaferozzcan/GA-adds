@@ -26,3 +26,4 @@ var maxArea = function (nums) {
   return Math.max(...areas);
 };
 console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
+//
