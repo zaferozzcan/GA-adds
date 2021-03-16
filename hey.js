@@ -40,9 +40,9 @@ function isIPv4Address(s) {
   }
 
   if (s_arr.pop() != "0") {
-    if (s_arr.pop() != "1") {
-      ret = false;
-    }
+  } else if (s_arr.pop() != "1") {
+  } else {
+    ret = false;
   }
   s_arr.map((item) => {
     if (Number(item >= 0) && Number(item <= 255)) {
