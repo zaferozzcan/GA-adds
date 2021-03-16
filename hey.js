@@ -28,4 +28,24 @@
 // console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
 //
 
-function isIPv4Address(s) {}
+function isIPv4Address(s) {
+  let s_arr = s.split(".");
+  let ret = true;
+
+  if (s_arr.length < 4) {
+    ret = false;
+  }
+  if (s_arr.includes("")) {
+    ret = false;
+  }
+
+  s_arr.map((item) => {
+    if (Number(item >= 0) && Number(item <= 255)) {
+    } else {
+      ret = false;
+    }
+  });
+  return ret;
+}
+
+console.log(isIPv4Address("1"));
