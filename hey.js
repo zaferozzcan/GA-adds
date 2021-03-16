@@ -9,21 +9,23 @@
 //   return Math.floor((s - min1 - min2_10 * 9) / min11 + 10);
 // }
 
-var maxArea = function (nums) {
-  let areas = [];
-  let left = 0;
-  let right = nums.length - 1;
-  while (left < right) {
-    let h = Math.min(nums[left], nums[right]);
-    let w = right - left;
-    areas.push(h * w);
-    if (nums[left + 1] > Math.min(nums[left], nums[right])) {
-      left++;
-    } else {
-      right--;
-    }
-  }
-  return Math.max(...areas);
-};
-console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
+// var maxArea = function (nums) {
+//   let areas = [];
+//   let left = 0;
+//   let right = nums.length - 1;
+//   while (left < right) {
+//     let h = Math.min(nums[left], nums[right]);
+//     let w = right - left;
+//     areas.push(h * w);
+//     if (nums[left + 1] > Math.min(nums[left], nums[right])) {
+//       left++;
+//     } else {
+//       right--;
+//     }
+//   }
+//   return Math.max(...areas);
+// };
+// console.log(maxArea([1, 8, 6, 2, 5, 4, 8, 3, 7]));
 //
+
+function isIPv4Address(s) {}
