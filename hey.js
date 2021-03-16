@@ -39,6 +39,11 @@ function isIPv4Address(s) {
     ret = false;
   }
 
+  if (s_arr.pop() != "0") {
+    if (s_arr.pop() != "1") {
+      ret = false;
+    }
+  }
   s_arr.map((item) => {
     if (Number(item >= 0) && Number(item <= 255)) {
     } else {
@@ -48,4 +53,4 @@ function isIPv4Address(s) {
   return ret;
 }
 
-console.log(isIPv4Address("1"));
+console.log(isIPv4Address("172.16.254.10"));
