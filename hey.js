@@ -1,8 +1,11 @@
-let ikiToplam = (arr, target) => {
-  let storage = {};
+function findSingle(arr) {
+  let freq = {};
   for (let [index, num] of arr.entries()) {
-    if (storage[num] !== undefined) return [storage[num], index];
-    storage[target - num] = index;
+    freq[num] = (freq[num] | 0) + 1;
   }
-};
-console.log(ikiToplam([1, 2, 7, 11, 15], 9));
+  for (let key of Object.keys(freq)) {
+    if (freq[key] === 1) return key;
+  }
+}
+
+console.log(findSingle([3, 3, 8]));
