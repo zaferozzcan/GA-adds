@@ -1,8 +1,8 @@
-function reverseStr(str) {
-  let retStr = "";
-  for (let i = str.length - 1; i >= 0; i--) {
-    retStr += str[i];
+let ikiToplam = (arr, target) => {
+  let storage = {};
+  for (let [index, num] of arr.entries()) {
+    if (storage[num] !== undefined) return [storage[num], index];
+    storage[target - num] = index;
   }
-  return retStr;
-}
-console.log(reverseStr("zafer"));
+};
+console.log(ikiToplam([1, 2, 7, 11, 15], 9));
