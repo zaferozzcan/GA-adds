@@ -1,14 +1,15 @@
-//b[i] = a[i - 1] + a[i] + a[i + 1].
+let arr = [2, 1, 3, 5, 3, 2];
 
-function mutateTheArray(n, a) {
-  let newArray = [];
-  for (let i = 0; i < n; i++) {
-    let num =
-      (a[i - 1] ? a[i - 1] : 0) + (a[i] ? a[i] : 0) + (a[i + 1] ? a[i + 1] : 0);
-    newArray.push(num);
-    num = 0;
+function firstDuplicate(arr) {
+  let freq = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (freq[arr[i]] === undefined) {
+      freq[arr[i]] = 1;
+    } else {
+      return arr[i];
+    }
   }
-  return newArray;
+  return -1;
 }
 
-console.log(mutateTheArray(5, [4, 0, 1, -2, 3]));
+console.log(firstDuplicate(arr));
