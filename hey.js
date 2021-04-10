@@ -1,17 +1,14 @@
-// dvide and conquer
-function findElem(arr, target) {
-  let min = 0;
-  let max = arr.length - 1;
-  // loop
-  while (min < max) {
-    let middleIndex = Math.floor((min + max) / 2);
-    let middleNumber = arr[middleIndex];
-    if (middleNumber > target) {
-      max = middleIndex - 1;
-    } else if (middleNumber < target) {
-      min = middleIndex + 1;
-    } else return middleIndex;
+function maxSubArraySum(arr, num) {
+  let maxSum = 0;
+  for (let i = 0; i < num; i++) {
+    maxSum += arr[i];
   }
+  let tempSum = maxSum;
+  for (let i = num; i < arr.length; i++) {
+    tempSum = tempSum - arr[i - num] + arr[i];
+    maxSum = Math.max(maxSum, tempSum);
+  }
+  return maxSum;
 }
 
-console.log(findElem([1, 3, 4, 5, 34, 56, 78, 99, 100], 99));
+console.log(maxSubArraySum([2, 6, 9, 2, 1, 8, 5, 6, 3], 3));
