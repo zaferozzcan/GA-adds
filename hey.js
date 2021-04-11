@@ -30,25 +30,65 @@
 
 // console.log(maxSubArray(arr));
 
-let str = "abcabcbb";
+// let str = "abcabcbb";
 
-function lengthOfLongestSubstring(s) {
-  let mySet = new Set();
-  let left = 0;
-  let right = 0;
-  let maxSumArrLen = 0;
+// function lengthOfLongestSubstring(s) {
+//   let mySet = new Set();
+//   let left = 0;
+//   let right = 0;
+//   let maxSumArrLen = 0;
 
-  while (right < s.length) {
-    if (!mySet.has(s.charAt(right))) {
-      mySet.add(s.charAt(right));
-      maxSumArrLen = Math.max(maxSumArrLen, mySet.size);
-      right++;
+//   while (right < s.length) {
+//     if (!mySet.has(s.charAt(right))) {
+//       mySet.add(s.charAt(right));
+//       maxSumArrLen = Math.max(maxSumArrLen, mySet.size);
+//       right++;
+//     } else {
+//       mySet.delete(s.charAt(left));
+//       left++;
+//     }
+//   }
+//   return maxSumArrLen;
+// }
+
+// console.log(lengthOfLongestSubstring(str));
+
+let directions = ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"];
+
+let dir2 = [
+  "EAST",
+  "EAST",
+  "WEST",
+  "NORTH",
+  "WEST",
+  "EAST",
+  "EAST",
+  "SOUTH",
+  "NORTH",
+  "WEST",
+];
+
+function dirReduc(dirs) {
+  let solution = [];
+  let opposites = {
+    NORTH: "SOUTH",
+    SOUTH: "NORTH",
+    WEST: "EAST",
+    EAST: "WEST",
+  };
+
+  dirs.map((item) => {
+    if (solution.length) {
+      let prevItem = solution.pop();
+      if (prevItem !== opposites[item]) {
+        solution.push(prevItem);
+        solution.push(item);
+      }
     } else {
-      mySet.delete(s.charAt(left));
-      left++;
+      solution.push(item);
     }
-  }
-  return maxSumArrLen;
+  });
+  return solution;
 }
 
-console.log(lengthOfLongestSubstring(str));
+console.log(dirReduc(dir2));
