@@ -17,15 +17,38 @@
 
 // console.log(sumOfTwo(a, b, v));
 
-let arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+// let arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 
-function maxSubArray(nums) {
-  let solution = nums[0];
-  for (let i = 1; i < nums.length; i++) {
-    nums[i] = Math.max(nums[i], nums[i] + nums[i - 1]);
-    solution = Math.max(solution, nums[i]);
+// function maxSubArray(nums) {
+//   let solution = nums[0];
+//   for (let i = 1; i < nums.length; i++) {
+//     nums[i] = Math.max(nums[i], nums[i] + nums[i - 1]);
+//     solution = Math.max(solution, nums[i]);
+//   }
+//   return solution;
+// }
+
+// console.log(maxSubArray(arr));
+
+let str = "abcabcbb";
+
+function lengthOfLongestSubstring(s) {
+  let mySet = new Set();
+  let left = 0;
+  let right = 0;
+  let maxSumArrLen = 0;
+
+  while (right < s.length) {
+    if (!mySet.has(s.charAt(right))) {
+      mySet.add(s.charAt(right));
+      maxSumArrLen = Math.max(maxSumArrLen, mySet.size);
+      right++;
+    } else {
+      mySet.delete(s.charAt(left));
+      left++;
+    }
   }
-  return solution;
+  return maxSumArrLen;
 }
 
-console.log(maxSubArray(arr));
+console.log(lengthOfLongestSubstring(str));
