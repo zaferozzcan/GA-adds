@@ -18,3 +18,7 @@ const getMaxWaterContainer = function (heights) {
   }
   return maxArea;
 };
+
+let height = [1, 8, 6, 2, 5, 4, 8, 3, 7];
+
+console.log(getMaxWaterContainer(height));

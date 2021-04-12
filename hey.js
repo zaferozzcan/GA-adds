@@ -119,25 +119,61 @@
 
 // console.log(dirReduc(directions));
 
-let str = "abcabcbb";
+// let str = "abcabcbb";
 
-function lengthOfLongestSubstring(s) {
-  let set = new Set();
-  let left = 0;
-  let right = 0;
-  let maxSubArrLen = 0;
+// function lengthOfLongestSubstring(s) {
+//   let set = new Set();
+//   let left = 0;
+//   let right = 0;
+//   let maxSubArrLen = 0;
 
-  while (right < s.length) {
-    if (!set.has(s.charAt(right))) {
-      set.add(s.charAt(right));
-      right++;
-      maxSubArrLen = Math.max(maxSubArrLen, set.size);
+//   while (right < s.length) {
+//     if (!set.has(s.charAt(right))) {
+//       set.add(s.charAt(right));
+//       right++;
+//       maxSubArrLen = Math.max(maxSubArrLen, set.size);
+//     } else {
+//       set.delete(s.charAt(left));
+//       left++;
+//     }
+//   }
+//   return maxSubArrLen;
+// }
+
+// console.log(lengthOfLongestSubstring(str));
+
+// let arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+
+// function maxSubArray(nums) {
+//   let solution = nums[0];
+//   for (let i = 1; i < nums.length; i++) {
+//     nums[i] = Math.max(nums[i], nums[i] + nums[i - 1]);
+//     solution = Math.max(solution, nums[i]);
+//   }
+//   return solution;
+// }
+
+// console.log(maxSubArray(arr));
+
+const getMaxWaterContainer = function (heights) {
+  let p1 = 0,
+    p2 = heights.length - 1,
+    maxArea = 0;
+
+  while (p1 < p2) {
+    const height = Math.min(heights[p1], heights[p2]);
+    const width = p2 - p1;
+    const area = height * width;
+    maxArea = Math.max(maxArea, area);
+    if (heights[p1] <= heights[p2]) {
+      p1++;
     } else {
-      set.delete(s.charAt(left));
-      left++;
+      p2--;
     }
   }
-  return maxSubArrLen;
-}
+  return maxArea;
+};
 
-console.log(lengthOfLongestSubstring(str));
+let height = [1, 8, 6, 2, 5, 4, 8, 3, 7];
+
+console.log(getMaxWaterContainer(height));

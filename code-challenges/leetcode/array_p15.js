@@ -9,7 +9,6 @@ function threeSum(nums) {
     let f = i + 1;
     let s = i + 2;
     while (s < nums.length) {
-      console.log(nums[i], nums[f], nums[s]);
       if (nums[i] + nums[f] + nums[s] === 0) {
         if (checkHash[(nums[i], nums[f], nums[s])])
           finalArray.push([nums[i], nums[f], nums[s]]);
@@ -21,4 +20,4 @@ function threeSum(nums) {
   return finalArray;
 }
 
-console.log(threeSum([0, 0, 0, 0]));
+console.log(threeSum([-1, 0, 1, 2, -1, -4]));
