@@ -93,6 +93,28 @@
 
 // console.log(dirReduc(dir2));
 
-console.log(
-  "hello there".split(" ").map((item) => item[0].toUpperCase() + item.substr(1))
-);
+let directions = ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"];
+
+function dirReduc(dirs) {
+  let solution = [];
+  let opposites = {
+    NORTH: "SOUTH",
+    SOUTH: "NORTH",
+    WEST: "EAST",
+    EAST: "WEST",
+  };
+  dirs.map((item) => {
+    if (solution.length) {
+      let lastItem = solution.pop();
+      if (lastItem !== opposites[item]) {
+        solution.push(lastItem);
+        solution.push(item);
+      }
+    } else {
+      solution.push(item);
+    }
+  });
+  return solution;
+}
+
+console.log(dirReduc(directions));
