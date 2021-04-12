@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CreateArea from "./components/CreateArea";
-import Note from "./components/Note";
+import ToDos from "./components/toDos";
 const items = [
   { text: "Learn JavaScript", done: false },
   { text: "Learn React", done: false },
@@ -9,12 +8,37 @@ const items = [
 ];
 
 export default function App() {
-  const [data, setData] = useState([""]);
-
+  const [data, setData] = useState([]);
+  function addItem(item) {
+    console.log("item", item);
+    setData([...data, item]);
+  }
+  function deleteItem(idx) {
+    setData(data.filter((item) => data.indexOf(item) !== idx));
+  }
   return (
-    <div>
-      <CreateArea />
-      <Note />
+    <div style={{ width: "50%", display: "inherit", margin: "20px auto" }}>
+      <ToDos addItem={addItem} />
+      <div>
+        <ul>
+          {data &&
+            data.map((item, index) => (
+              <div
+                style={{ display: "flex", justifyContent: "center" }}
+                key={index}
+              >
+                <li>{item}</li>
+                <button
+                  type="button"
+                  style={{ color: "red" }}
+                  onClick={() => deleteItem(index)}
+                >
+                  X
+                </button>
+              </div>
+            ))}
+        </ul>
+      </div>
     </div>
   );
 }
