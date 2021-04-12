@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import toDos from "./components/toDos";
+import CreateArea from "./components/CreateArea";
+import Note from "./components/Note";
 const items = [
   { text: "Learn JavaScript", done: false },
   { text: "Learn React", done: false },
@@ -8,18 +9,12 @@ const items = [
 ];
 
 export default function App() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([""]);
 
   return (
     <div>
-      <ul>
-        {data.map((item) => (
-          <>
-            <li>{item}</li>
-            <button>X</button>
-          </>
-        ))}
-      </ul>
+      <CreateArea />
+      <Note />
     </div>
   );
 }
