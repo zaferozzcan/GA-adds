@@ -93,28 +93,51 @@
 
 // console.log(dirReduc(dir2));
 
-let directions = ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"];
+// let directions = ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"];
 
-function dirReduc(dirs) {
-  let solution = [];
-  let opposites = {
-    NORTH: "SOUTH",
-    SOUTH: "NORTH",
-    WEST: "EAST",
-    EAST: "WEST",
-  };
-  dirs.map((item) => {
-    if (solution.length) {
-      let lastItem = solution.pop();
-      if (lastItem !== opposites[item]) {
-        solution.push(lastItem);
-        solution.push(item);
-      }
+// function dirReduc(dirs) {
+//   let solution = [];
+//   let opposites = {
+//     NORTH: "SOUTH",
+//     SOUTH: "NORTH",
+//     WEST: "EAST",
+//     EAST: "WEST",
+//   };
+//   dirs.map((item) => {
+//     if (solution.length) {
+//       let lastItem = solution.pop();
+//       if (lastItem !== opposites[item]) {
+//         solution.push(lastItem);
+//         solution.push(item);
+//       }
+//     } else {
+//       solution.push(item);
+//     }
+//   });
+//   return solution;
+// }
+
+// console.log(dirReduc(directions));
+
+let str = "abcabcbb";
+
+function lengthOfLongestSubstring(s) {
+  let set = new Set();
+  let left = 0;
+  let right = 0;
+  let maxSubArrLen = 0;
+
+  while (right < s.length) {
+    if (!set.has(s.charAt(right))) {
+      set.add(s.charAt(right));
+      right++;
+      maxSubArrLen = Math.max(maxSubArrLen, set.size);
     } else {
-      solution.push(item);
+      set.delete(s.charAt(left));
+      left++;
     }
-  });
-  return solution;
+  }
+  return maxSubArrLen;
 }
 
-console.log(dirReduc(directions));
+console.log(lengthOfLongestSubstring(str));
