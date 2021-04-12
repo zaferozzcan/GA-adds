@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Dropdown from "./components/Dropdown";
+import React, { useState, useEffect } from "react";
+import toDos from "./components/toDos";
 const items = [
   { text: "Learn JavaScript", done: false },
   { text: "Learn React", done: false },
@@ -8,17 +8,18 @@ const items = [
 ];
 
 export default function App() {
-  const [data, setData] = useState(items);
-  function deleteItem(id) {
-    setData(
-      data.filter((item) => {
-        return data.indexOf(item) !== id;
-      })
-    );
-  }
+  const [data, setData] = useState([]);
+
   return (
     <div>
-      <Dropdown deleteItem={deleteItem} items={data} />
+      <ul>
+        {data.map((item) => (
+          <>
+            <li>{item}</li>
+            <button>X</button>
+          </>
+        ))}
+      </ul>
     </div>
   );
 }
