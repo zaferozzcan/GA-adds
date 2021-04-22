@@ -237,25 +237,26 @@
 
 // console.log(dirReduction(directions));
 
-let str = "abcabcdbb";
+// let str = "abcabcdbb";
 
-function lengthOfLongestSubstring(s) {
-  let set = new Set();
-  let left = 0;
-  let right = 0;
-  let leng = 0;
+// function lengthOfLongestSubstring(s) {
+//   let set = new Set();
+//   let left = 0;
+//   let right = 0;
+//   let leng = 0;
 
-  while (right < s.length) {
-    if (!set.has(s.charAt(right))) {
-      set.add(s.charAt(right));
-      leng = Math.max(set.size, leng);
-      right++;
-    } else {
-      set.delete(s.charAt(left));
-      left++;
-    }
-  }
-  return leng;
-}
+//   while (right < s.length) {
+//     if (!set.has(s.charAt(right))) {
+//       set.add(s.charAt(right));
+//       leng = Math.max(set.size, leng);
+//       right++;
+//     } else {
+//       set.delete(s.charAt(left));
+//       left++;
+//     }
+//   }
+//   return leng;
+// }
 
-console.log(lengthOfLongestSubstring(str));
+// console.log(lengthOfLongestSubstring(str));
+console.log(Math.floor(213 % 10));
