@@ -200,15 +200,37 @@
 
 // console.log(threeSum([-1, 0, 1, 2, -1, -4]));
 
-let arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+// let arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 
-function maxSubArray(nums) {
-  let solution = nums[0];
-  for (let i = 1; i < nums.length; i++) {
-    nums[i] = Math.max(nums[i], nums[i] + nums[i - 1]);
-    solution = Math.max(solution, nums[i]);
-  }
+// function maxSubArray(nums) {
+//   let solution = nums[0];
+//   for (let i = 1; i < nums.length; i++) {
+//     nums[i] = Math.max(nums[i], nums[i] + nums[i - 1]);
+//     solution = Math.max(nums[i], solution);
+//   }
+//   return solution;
+// }
+// console.log(maxSubArray(arr));
+
+let directions = ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"];
+function dirReduction(directions) {
+  let solution = [];
+  let opposites = {
+    NORTH: "SOUTH",
+    SOUTH: "NORTH",
+    WEST: "EAST",
+    EAST: "WEST",
+  };
+  directions.map((item) => {
+    if (solution.length) {
+      let prevItem = solution.pop();
+      if (item != opposites(item)) {
+        solution.push(prevItem);
+        solution.push(item);
+      } else solution.push(item);
+    }
+  });
   return solution;
 }
 
-console.log(maxSubArray(arr));
+console.log(dirReduction(directions));
