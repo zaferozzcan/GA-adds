@@ -178,24 +178,37 @@
 
 // console.log(getMaxWaterContainer(height));
 
-function threeSum(nums) {
-  if (nums.length < 3 || nums.length > 3000) return [];
-  let finalArray = [];
-  let checkHash = {};
+// function threeSum(nums) {
+//   if (nums.length < 3 || nums.length > 3000) return [];
+//   let finalArray = [];
+//   let checkHash = {};
 
-  for (let i = 0; i < nums.length; i++) {
-    let f = i + 1;
-    let s = i + 2;
-    while (s < nums.length) {
-      if (nums[i] + nums[f] + nums[s] === 0) {
-        if (checkHash[(nums[i], nums[f], nums[s])])
-          finalArray.push([nums[i], nums[f], nums[s]]);
-      }
-      f++;
-      s++;
-    }
+//   for (let i = 0; i < nums.length; i++) {
+//     let f = i + 1;
+//     let s = i + 2;
+//     while (s < nums.length) {
+//       if (nums[i] + nums[f] + nums[s] === 0) {
+//         if (checkHash[(nums[i], nums[f], nums[s])])
+//           finalArray.push([nums[i], nums[f], nums[s]]);
+//       }
+//       f++;
+//       s++;
+//     }
+//   }
+//   return finalArray;
+// }
+
+// console.log(threeSum([-1, 0, 1, 2, -1, -4]));
+
+let arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+
+function maxSubArray(nums) {
+  let solution = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+    nums[i] = Math.max(nums[i], nums[i] + nums[i - 1]);
+    solution = Math.max(solution, nums[i]);
   }
-  return finalArray;
+  return solution;
 }
 
-console.log(threeSum([-1, 0, 1, 2, -1, -4]));
+console.log(maxSubArray(arr));
