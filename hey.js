@@ -155,25 +155,47 @@
 
 // console.log(maxSubArray(arr));
 
-const getMaxWaterContainer = function (heights) {
-  let p1 = 0,
-    p2 = heights.length - 1,
-    maxArea = 0;
+// const getMaxWaterContainer = function (heights) {
+//   let p1 = 0,
+//     p2 = heights.length - 1,
+//     maxArea = 0;
 
-  while (p1 < p2) {
-    const height = Math.min(heights[p1], heights[p2]);
-    const width = p2 - p1;
-    const area = height * width;
-    maxArea = Math.max(maxArea, area);
-    if (heights[p1] <= heights[p2]) {
-      p1++;
-    } else {
-      p2--;
+//   while (p1 < p2) {
+//     const height = Math.min(heights[p1], heights[p2]);
+//     const width = p2 - p1;
+//     const area = height * width;
+//     maxArea = Math.max(maxArea, area);
+//     if (heights[p1] <= heights[p2]) {
+//       p1++;
+//     } else {
+//       p2--;
+//     }
+//   }
+//   return maxArea;
+// };
+
+// let height = [1, 8, 6, 2, 5, 4, 8, 3, 7];
+
+// console.log(getMaxWaterContainer(height));
+
+function threeSum(nums) {
+  if (nums.length < 3 || nums.length > 3000) return [];
+  let finalArray = [];
+  let checkHash = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    let f = i + 1;
+    let s = i + 2;
+    while (s < nums.length) {
+      if (nums[i] + nums[f] + nums[s] === 0) {
+        if (checkHash[(nums[i], nums[f], nums[s])])
+          finalArray.push([nums[i], nums[f], nums[s]]);
+      }
+      f++;
+      s++;
     }
   }
-  return maxArea;
-};
+  return finalArray;
+}
 
-let height = [1, 8, 6, 2, 5, 4, 8, 3, 7];
-
-console.log(getMaxWaterContainer(height));
+console.log(threeSum([-1, 0, 1, 2, -1, -4]));
