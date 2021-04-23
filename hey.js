@@ -259,4 +259,23 @@
 // }
 
 // console.log(lengthOfLongestSubstring(str));
-console.log(Math.floor(213 % 10));
+
+function ifAnagram(s1, s2) {
+  function makeFreqArr(s) {
+    let freq = {};
+    for (let i = 0; i < s.length; i++) {
+      freq[s[i]] = (freq[s[i]] | 0) + 1;
+    }
+    return freq;
+  }
+  let freq1 = makeFreqArr(s1);
+  let freq2 = makeFreqArr(s2);
+  for (let key in freq1) {
+    if (freq1[key] !== freq2[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(ifAnagram("racecar", "carracj"));
