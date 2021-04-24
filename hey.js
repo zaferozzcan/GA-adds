@@ -150,9 +150,10 @@
 
 // console.log(getOdds([1, 2, 3, 4, 5]));
 
-function productOfArray(arr) {
-  if (arr.length == 0) return 0;
-  return arr[0] + productOfArray(arr.slice(1));
+function productOfArray(num) {
+  if (num == 0) return num;
+
+  return num + productOfArray(num - 1);
 }
 
-console.log(productOfArray([1, 2, 3, 4]));
+console.log(productOfArray(2));
