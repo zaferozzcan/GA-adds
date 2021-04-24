@@ -41,10 +41,25 @@
 
 // console.log(sameFrequency(123, 331));
 
-function areThereDuplicates(arr) {
-  let set = new Set(arr);
+// function areThereDuplicates(arr) {
+//   let set = new Set(arr);
 
-  return arr.length > set.size ? true : false;
+//   return arr.length > set.size ? true : false;
+// }
+
+// console.log(areThereDuplicates(["a", "b", "b"]));
+
+function averagePair(arr, target) {
+  let freq = {};
+  for (let i = 0; i < arr.length; i++) {
+    let otherNum = target * 2 - arr[i];
+    if (freq[otherNum]) {
+      return true;
+    } else {
+      freq[arr[i]] = otherNum;
+    }
+  }
+  return false;
 }
 
-console.log(areThereDuplicates(["a", "b", "b"]));
+console.log(averagePair([1, 2, 6], 2.5));
