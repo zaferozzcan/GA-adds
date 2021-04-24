@@ -176,24 +176,42 @@
 
 // console.log(linearSearch(arr, 2));
 
-function binarySearch(arr, target) {
-  let left = 0;
-  let right = arr.length - 1;
-  let iteration = 1;
-  while (left < right) {
-    console.log(iteration);
-    iteration++;
-    let middle = Math.floor((left + right) / 2);
-    if (arr[middle] > target) {
-      right = middle;
-    } else if (arr[middle] < target) {
-      left = middle;
-    } else {
-      return middle;
+// function binarySearch(arr, target) {
+//   let left = 0;
+//   let right = arr.length - 1;
+//   let iteration = 1;
+//   while (left < right) {
+//     console.log(iteration);
+//     iteration++;
+//     let middle = Math.floor((left + right) / 2);
+//     if (arr[middle] > target) {
+//       right = middle;
+//     } else if (arr[middle] < target) {
+//       left = middle;
+//     } else {
+//       return middle;
+//     }
+//   }
+//   return -1;
+// }
+
+// var arr = [1, 22, 33, 55, 67, 89, 101, 222, 3004, 10293838];
+// console.log(binarySearch(arr, 1));
+
+function strNaiveSearch(long, short) {
+  let count = 0;
+  for (let i = 0; i < long.length; i++) {
+    for (let j = 0; j < short.length; j++) {
+      if (short[j] !== long[i + j]) {
+        break;
+      }
+      if (j === short.length - 1) {
+        console.log("found one");
+        count++;
+      }
     }
   }
-  return -1;
+  return count;
 }
 
-var arr = [1, 22, 33, 55, 67, 89, 101, 222, 3004, 10293838];
-console.log(binarySearch(arr, 1));
+console.log(strNaiveSearch("lolrie loled", "lol"));
