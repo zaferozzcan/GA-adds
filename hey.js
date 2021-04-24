@@ -49,17 +49,33 @@
 
 // console.log(areThereDuplicates(["a", "b", "b"]));
 
+// function averagePair(arr, target) {
+//   let freq = {};
+//   for (let i = 0; i < arr.length; i++) {
+//     let otherNum = target * 2 - arr[i];
+//     if (freq[otherNum]) {
+//       return true;
+//     } else {
+//       freq[arr[i]] = otherNum;
+//     }
+//   }
+//   return false;
+// }
+
+// console.log(averagePair([1, 2, 6], 2.5));
+
 function averagePair(arr, target) {
-  let freq = {};
-  for (let i = 0; i < arr.length; i++) {
-    let otherNum = target * 2 - arr[i];
-    if (freq[otherNum]) {
-      return true;
-    } else {
-      freq[arr[i]] = otherNum;
-    }
+  let left = 0;
+  let right = arr.length - 1;
+  while (left < right) {
+    let div = (arr[left] + arr[right]) / 2;
+    console.log(div);
+    if (div == target) return true;
+    else if (div > target) {
+      right--;
+    } else left++;
   }
   return false;
 }
 
-console.log(averagePair([1, 2, 6], 2.5));
+console.log(averagePair([1, 2, 4], 2.5));
