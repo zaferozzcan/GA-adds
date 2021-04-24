@@ -119,17 +119,41 @@
 
 // console.log(faq(3));
 
-function collectOddValues(arr) {
-  let result = [];
-  function helper(helperInput) {
-    if (helperInput.length == 0) return;
-    if (helperInput[0] % 2 !== 0) {
-      result.push(helperInput[0]);
-    }
-    helper(helperInput.slice(1));
-  }
-  helper(arr);
-  return result;
+// function collectOddValues(arr) {
+//   let result = [];
+//   function helper(helperInput) {
+//     if (helperInput.length == 0) return;
+//     if (helperInput[0] % 2 !== 0) {
+//       result.push(helperInput[0]);
+//     }
+//     helper(helperInput.slice(1));
+//   }
+//   helper(arr);
+//   return result;
+// }
+
+// console.log(collectOddValues([1, 2, 3, 4, 5]));
+
+// function getOdds(nums) {
+//   let result = [];
+//   if (nums.length == 0) return;
+//   if (nums[0] % 2 !== 0) {
+//     result.push(nums[0]);
+//     nums.slice(1);
+//   } else {
+//     nums.slice(1);
+//   }
+
+//   getOdds(nums);
+//   return result;
+// }
+
+// console.log(getOdds([1, 2, 3, 4, 5]));
+
+function power(taban, ust) {
+  let result = 0;
+  if (ust == 0) return 1;
+  return (result += taban * power(taban, ust - 1));
 }
 
-console.log(collectOddValues([1, 2, 3, 4, 5]));
+console.log(power(2, 4));
