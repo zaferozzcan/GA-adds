@@ -150,10 +150,50 @@
 
 // console.log(getOdds([1, 2, 3, 4, 5]));
 
-function productOfArray(num) {
-  if (num == 0) return num;
+// function productOfArray(num) {
+//   if (num == 0) return num;
 
-  return num + productOfArray(num - 1);
+//   return num + productOfArray(num - 1);
+// }
+
+// console.log(productOfArray(2));
+
+// function rev(str) {
+//   let result = "";
+//   index = str.length - 1;
+//   return result + rev(str.slice(-str.length, -1));
+// }
+
+// console.log(rev("abc"));
+
+// function linearSearch(arr, num) {
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] == num) return i;
+//   }
+// }
+
+// let arr = [1, 2, 5, 7, 8];
+
+// console.log(linearSearch(arr, 2));
+
+function binarySearch(arr, target) {
+  let left = 0;
+  let right = arr.length - 1;
+  let iteration = 1;
+  while (left < right) {
+    console.log(iteration);
+    iteration++;
+    let middle = Math.floor((left + right) / 2);
+    if (arr[middle] > target) {
+      right = middle;
+    } else if (arr[middle] < target) {
+      left = middle;
+    } else {
+      return middle;
+    }
+  }
+  return -1;
 }
 
-console.log(productOfArray(2));
+var arr = [1, 22, 33, 55, 67, 89, 101, 222, 3004, 10293838];
+console.log(binarySearch(arr, 1));
