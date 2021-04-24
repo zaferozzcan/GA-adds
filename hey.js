@@ -64,18 +64,33 @@
 
 // console.log(averagePair([1, 2, 6], 2.5));
 
-function averagePair(arr, target) {
-  let left = 0;
-  let right = arr.length - 1;
-  while (left < right) {
-    let div = (arr[left] + arr[right]) / 2;
-    console.log(div);
-    if (div == target) return true;
-    else if (div > target) {
-      right--;
-    } else left++;
+// function averagePair(arr, target) {
+//   let left = 0;
+//   let right = arr.length - 1;
+//   while (left < right) {
+//     let div = (arr[left] + arr[right]) / 2;
+//     console.log(div);
+//     if (div == target) return true;
+//     else if (div > target) {
+//       right--;
+//     } else left++;
+//   }
+//   return false;
+// }
+
+// console.log(averagePair([1, 2, 4], 2.5));
+
+function maxSubarraySum(arr, window) {
+  let maxSum = 0;
+  for (var i = 0; i < window; i++) {
+    maxSum += arr[i];
   }
-  return false;
+  let tempSum = maxSum;
+  for (let i = window; i < arr.length; i++) {
+    tempSum += arr[i] - arr[i - window];
+    maxSum = Math.max(maxSum, tempSum);
+  }
+  console.log(maxSum);
 }
 
-console.log(averagePair([1, 2, 4], 2.5));
+maxSubarraySum([1, 2, 3, 4, 5, 6], 2);
