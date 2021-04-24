@@ -95,19 +95,41 @@
 
 // maxSubarraySum([-1, 1, 2, 3, 4, 5, 6], 2);
 
-function countDown(num) {
-  if (num <= 0) {
-    console.log("All Done");
-    return;
+// function countDown(num) {
+//   if (num <= 0) {
+//     console.log("All Done");
+//     return;
+//   }
+//   console.log(num);
+//   num--;
+//   countDown(num);
+// }
+
+// function sumRange(num) {
+//   if (num === 1) return 1;
+//   return num + sumRange(num - 1);
+// }
+
+// console.log(sumRange(2));
+
+// function faq(num) {
+//   if (num == 0) return 1;
+//   return num * faq(num - 1);
+// }
+
+// console.log(faq(3));
+
+function collectOddValues(arr) {
+  let result = [];
+  function helper(helperInput) {
+    if (helperInput.length == 0) return;
+    if (helperInput[0] % 2 !== 0) {
+      result.push(helperInput[0]);
+    }
+    helper(helperInput.slice(1));
   }
-  console.log(num);
-  num--;
-  countDown(num);
+  helper(arr);
+  return result;
 }
 
-function sumRange(num) {
-  if (num == 1) return 1;
-  return num + sumRange(num - 1);
-}
-
-console.log(sumRange(2));
+console.log(collectOddValues([1, 2, 3, 4, 5]));
