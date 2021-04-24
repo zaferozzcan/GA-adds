@@ -198,20 +198,35 @@
 // var arr = [1, 22, 33, 55, 67, 89, 101, 222, 3004, 10293838];
 // console.log(binarySearch(arr, 1));
 
-function strNaiveSearch(long, short) {
-  let count = 0;
-  for (let i = 0; i < long.length; i++) {
-    for (let j = 0; j < short.length; j++) {
-      if (short[j] !== long[i + j]) {
-        break;
-      }
-      if (j === short.length - 1) {
-        console.log("found one");
-        count++;
+// function strNaiveSearch(long, short) {
+//   let count = 0;
+//   for (let i = 0; i < long.length; i++) {
+//     for (let j = 0; j < short.length; j++) {
+//       if (short[j] !== long[i + j]) {
+//         break;
+//       }
+//       if (j === short.length - 1) {
+//         console.log("found one");
+//         count++;
+//       }
+//     }
+//   }
+//   return count;
+// }
+
+// console.log(strNaiveSearch("lolrie loled", "lol"));
+
+function bubbleSort(arr) {
+  for (let i = arr.length; i > 0; i--) {
+    for (let j = 0; j < i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
       }
     }
   }
-  return count;
+  return arr;
 }
 
-console.log(strNaiveSearch("lolrie loled", "lol"));
+console.log(bubbleSort([23, 4, 32, 56, 76, -1, 7]));
