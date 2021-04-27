@@ -96,3 +96,32 @@ function oneAway(str1, str2) {
 
 // console.log(oneAway("pale", "bale"));
 // console.log(oneAway("pale", "bake"));
+
+// =================================================================================================
+
+function strComp(str) {
+  let output = "";
+  // let freq = {};
+  // for (let i = 0; i < str.length; i++) {
+  //   freq[str[i]] = (freq[str[i]] | 0) + 1;
+  // }
+  // for (let key in freq) {
+  //   output += key;
+  //   output += String(freq[key]);
+  // }
+
+  let freqCounter = 1;
+  let currentChar = str[0];
+  for (let i = 1; i < str.length + 1; i++) {
+    if (str[i] !== currentChar) {
+      output += `${currentChar}${freqCounter}`;
+      freqCounter = 1;
+      currentChar = str[i];
+    } else {
+      freqCounter++;
+    }
+  }
+  return output;
+}
+
+console.log("aabcccccaaa", strComp("aabcccccaaa"), "a2b1c5a3");
