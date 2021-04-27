@@ -50,4 +50,24 @@ function urlify(str) {
   return output;
 }
 
-console.log(urlify("Sai Charan P"));
+// console.log(urlify("Sai Charan P"));
+
+// ===================================================================================
+function palinPerm(str) {
+  str = str.split(" ").join("").toLowerCase();
+  console.log(str);
+  let freq = {};
+
+  for (let i = 0; i < str.length; i++) {
+    freq[str[i]] = (freq[str[i]] | 0) + 1;
+  }
+  let count = 0;
+  for (let key in freq) {
+    if (freq[key] % 2 !== 0) {
+      if (count > 0) return false;
+      count++;
+    }
+  }
+  return true;
+}
+console.log(palinPerm("Tact Coa"));
