@@ -19,3 +19,5 @@ function unGen(arr) {
 }
 
 console.log(fromCharCode(112));
+
+// big hint sort all the items then compare it

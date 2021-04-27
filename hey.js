@@ -1,43 +1,36 @@
-// function uniqueGen(arr) {
-//   let hashMap = {};
-//   let count = 0;
-//   let makeFreqGenObj = (gen) => {
-//     let freq = {};
-//     for (let i = 0; i < arr.length; i++) {
-//       freq[gen[i]] = (freq[gen[i]] | 0) + 1;
-//     }
-//     return freq;
-//   };
-//   for (let i = 0; i < arr.length; i++) {
-//     let currentFreq = makeFreqGenObj(arr[i]);
-//     for (let j = i + 1; j < arr.length; j++) {
+// Is Every Chat Unique?
 
-//     }
-//   }
-// }
+function isEveryCharUnique(str) {
+  let charSet = new Set(str.split(""));
+  return charSet.size == str.length ? true : false;
+}
 
-// let genArr = ["AAG", "GAA", "MMB", "MMC"];
+// console.log(isEveryCharUnique("abcdee"));
 
-// function unGen(arr) {
-//   let count = 0;
-//   let unicodeArr = [];
-//   arr.map((item) => {
-//     let sumUniCode = 0;
-//     for (let i = 0; i < item.length; i++) {
-//       sumUniCode += item.charCodeAt(i);
-//     }
-//     unicodeArr.push(sumUniCode);
-//   });
-//   let freq = {};
-//   for (let i = 0; i < arr.length; i++) {
-//     freq[unicodeArr[i]] = (freq[unicodeArr[i]] | 0) + 1;
-//   }
-//   for (let key in freq) {
-//     if (freq[key] == 1) count++;
-//   }
-//   return count;
-// }
+// ==================================================================================
 
-// let genArr = ["AAG", "GAA", "MMB", "MMC"];
+function checkPerm(first, second) {
+  // check if thelength is equal
+  if (first.length !== second.length) return false;
+  // check the char
+  let sortedFirst = first.split("").sort().join("");
+  let sortedSecond = second.split("").sort().join("");
+  return sortedFirst == sortedSecond ? true : false;
+}
 
-// console.log(fromCharCode(112));
+function checkPerm1(first, second) {
+  let charCodeArr = [];
+  if (first.length !== second.length) return false;
+  [first, second].map((item) => {
+    let sumCharCode = 0;
+    for (let i = 0; i < item.length; i++) {
+      sumCharCode += item.charCodeAt(i);
+    }
+    charCodeArr.push(sumCharCode);
+  });
+  return charCodeArr[0] == charCodeArr[1];
+}
+
+// console.log(checkPerm1("aba", "aab"));
+
+// ==================================================================================
