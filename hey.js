@@ -34,3 +34,20 @@ function checkPerm1(first, second) {
 // console.log(checkPerm1("aba", "aab"));
 
 // ==================================================================================
+
+// URLlify
+
+function urlify(str) {
+  let output = "";
+  str
+    .trim()
+    .split("")
+    .map((item) => {
+      if (item == " ") {
+        output += "%20";
+      } else output += item;
+    });
+  return output;
+}
+
+console.log(urlify("Sai Charan P"));
