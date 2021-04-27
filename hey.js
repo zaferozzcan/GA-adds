@@ -70,4 +70,29 @@ function palinPerm(str) {
   }
   return true;
 }
-console.log(palinPerm("Tact Coa"));
+// console.log(palinPerm("Tact Coa"));
+
+// =================================================================================================
+
+function oneAway(str1, str2) {
+  let differenceCounter = 0;
+  function freqCounter(str) {
+    let freq = {};
+    for (let i = 0; i < str.length; i++) {
+      freq[str[i]] = (freq[str[i]] | 0) + 1;
+    }
+    return freq;
+  }
+  let freqStr1 = freqCounter(str1);
+  let freqStr2 = freqCounter(str2);
+  for (let key in freqStr1) {
+    if (freqStr1[key] !== freqStr2[key]) {
+      differenceCounter++;
+      if (differenceCounter > 1) return false;
+    }
+  }
+  return true;
+}
+
+// console.log(oneAway("pale", "bale"));
+// console.log(oneAway("pale", "bake"));
