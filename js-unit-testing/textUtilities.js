@@ -9,7 +9,6 @@ expect(titleCase("the great mouse detective")).to.equal(
 
 function titleCase(title) {
   let titleWords = title.split(" ");
-
   capitalizedTitleWords = titleWords.map((item) => {
     return item[0].toUpperCase() + item.substring(1);
   });
