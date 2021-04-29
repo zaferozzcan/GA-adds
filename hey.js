@@ -1,20 +1,25 @@
-let board = [
-  ["A", "B", "C", "E"],
-  ["S", "F", "C", "S"],
-  ["A", "D", "E", "E"],
-];
+let arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+function maxSubArraySum(nums) {
+  let solution = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+    nums[i] = Math.max(nums[i], nums[i] + nums[i - 1]);
+    solution = Math.max(solution, nums[i]);
+  }
+  return solution;
+}
 
-let word = "ABCCED";
-
-function exist(board, word) {
-  let counter_index = 0;
-
-  while (counter_index < word.length) {
-    let target_letter = word[counter_index];
-    for (let i = 0; i < board.length; i++) {
-      for (let j = 0; j < board[i].length; j++) {
-        if()
-      }
+function twoSum(nums, target) {
+  // I will have a hashmap where I will hold key valeue
+  let checkhash = {};
+  for (let i = 0; i < nums.length; i++) {
+    let difference = target - arr[i];
+    if (!checkhash[difference]) {
+      checkhash[difference] = i;
+    } else {
+      return [checkhash[difference], i];
     }
   }
+  return -1;
 }
+
+console.log(twoSum([1, 4, 6, 8, 10], 16));
