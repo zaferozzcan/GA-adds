@@ -18,6 +18,15 @@ function unGen(arr) {
   return count;
 }
 
-console.log(fromCharCode(112));
-
 // big hint sort all the items then compare it
+
+function uniqueGen(arr) {
+  arr.map((item) => {
+    let itemCharArr = item.split("");
+    let newItem = itemCharArr.sort().join("");
+    return newItem;
+  });
+  console.log(arr);
+}
+
+uniqueGen(["ARR", "RAA", "HHS", "MSS", "TSA"]);

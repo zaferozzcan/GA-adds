@@ -9,17 +9,68 @@ function maxSubArraySum(nums) {
 }
 
 function twoSum(nums, target) {
-  // I will have a hashmap where I will hold key valeue
-  let checkhash = {};
+  let storage = {};
   for (let i = 0; i < nums.length; i++) {
-    let difference = target - arr[i];
-    if (!checkhash[difference]) {
-      checkhash[difference] = i;
-    } else {
-      return [checkhash[difference], i];
-    }
+    if (storage[nums[i]] !== undefined) return [storage[nums[i]], i];
+    storage[target - nums[i]] = i;
   }
-  return -1;
 }
 
-console.log(twoSum([1, 4, 6, 8, 10], 16));
+// console.log(twoSum([1, 4, 6, 8, 10], 16));
+
+function dirReduction(dirs) {
+  let solution = [];
+  let opposites = {
+    NORTH: "SOUTH",
+    SOUTH: "NORTH",
+    WEST: "EAST",
+    EAST: "WEST",
+  };
+
+  dirs.map((d) => {
+    if (solution.length) {
+      let prevDir = solution.pop();
+      if (prevDir !== opposites[d]) {
+        solution.push(prevDir);
+        solution.push(d);
+      }
+    } else {
+      solution.push(d);
+    }
+  });
+  return solution;
+}
+
+function uniqueGen(arr) {
+  newArr = arr.map((item) => {
+    let itemCharArr = item.split("");
+    let newItem = itemCharArr.sort().join("");
+    return newItem;
+  });
+
+  let wordFreqCounter = {};
+  for (let i = 0; i < newArr.length; i++) {
+    wordFreqCounter[newArr[i]] = (wordFreqCounter[newArr[i]] || 0) + 1;
+  }
+  let counter = 0;
+  for (let key in wordFreqCounter) {
+    if (wordFreqCounter[key] == 1) counter++;
+  }
+  return console.log(counter);
+}
+
+let myString = "ABCDE";
+let reqiurements = { bold: [0, 2], italic: [2, 4] };
+
+function domGenerator(string, reqs) {
+  let output = "";
+  let converter = { bold: ["<b>", "</b>"], italic: ["<em>", "</em>"] };
+  for (let key in reqs) {
+    output += converter[key][0];
+    output += string.substr(reqs[key][0], reqs[key][1]);
+    output += converter[key][1];
+  }
+  return output;
+}
+
+console.log(domGenerator(myString, reqiurements));
