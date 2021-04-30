@@ -74,3 +74,34 @@
 // }
 
 // console.log(domGenerator(myString, reqiurements));
+
+function nextPalindrome(number) {
+  if (typeof number) return `This is an error message!`;
+  if (!checkPlindrome(number)) {
+    findNextPal(number);
+  }
+  // helper f
+  function checkPlindrome(number) {
+    num = String(number);
+    let ifPalindrome = true;
+    var left = 0;
+    var right = num.length - 1;
+    while (left <= right) {
+      if (num[left] !== num[right]) {
+        ifPalindrome = false;
+      }
+      if (!ifPalindrome) {
+        break;
+      }
+      left++;
+      right--;
+    }
+    return ifPalindrome;
+  }
+  function findNextPal(num) {
+    if (num == 0) return 1;
+    if (String(num.length) == 1) return num + 1;
+  }
+}
+
+console.log(nextPalindrome(1002));
