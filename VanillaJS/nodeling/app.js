@@ -4,7 +4,7 @@ const app = express();
 
 app.get("/", function (req, res) {
   res.send(
-    "<h1>I am the server, my message to you, browser, is f*** you!</h1>"
+    "<form style='margin:100px 0 0 100px'><input type='text'></input><input type='text'></input><button>Calculate</button></form>"
   );
 });
 
