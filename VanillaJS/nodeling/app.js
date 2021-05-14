@@ -8,6 +8,8 @@ app.get("/", function (req, res) {
   );
 });
 
+app.post("/");
+
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
